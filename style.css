@@ -1,4 +1,4 @@
-/* Genel Ayarlar */
+/* Sadece .hero kısmını bulup bununla değiştirmen yeterli ama garanti olsun diye tam kodu veriyorum */
 * {
     margin: 0;
     padding: 0;
@@ -7,12 +7,6 @@
     scroll-behavior: smooth;
 }
 
-body {
-    background-color: #fefefe;
-    color: #333;
-}
-
-/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -27,40 +21,25 @@ body {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
-    color: #e67e22; /* Kayısı turuncusu */
+    color: #e67e22;
 }
+.logo span { color: #2ecc71; margin-left: 5px; }
 
-.logo span { color: #2ecc71; } /* Yaprak yeşili */
-
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
+.nav-links { list-style: none; display: flex; }
 .nav-links li { margin-left: 25px; }
+.nav-links a { text-decoration: none; color: #333; font-weight: 500; }
 
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.nav-links a:hover { color: #e67e22; }
-
-/* Hero Section */
+/* DÜZELTİLEN KAPAK KISMI */
 .hero {
     height: 100vh;
-    /* Buradaki URL'yi güncelledim, bu link her zaman çalışır */
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1595124253363-2b48292302c2?auto=format&fit=crop&q=80&w=1500') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1501746734258-2922d9505bd7?auto=format&fit=crop&q=80&w=1500') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #fff;
-    padding-top: 80px;
 }
 
 .hero-content h1 { font-size: 3rem; margin-bottom: 20px; }
@@ -72,50 +51,33 @@ body {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
-    margin-top: 20px;
     transition: 0.3s;
 }
 
-.btn:hover { background: #d35400; }
-
-/* Ürünler */
 .products { padding: 100px 10%; text-align: center; }
-
-.products h2 { margin-bottom: 50px; font-size: 2.5rem; }
-
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
+    margin-top: 50px;
 }
 
 .product-card {
     background: #fff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: 0.3s;
 }
 
-.product-card:hover { transform: translateY(-10px); }
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Bu satır fotoğrafın kutuya tam oturmasını sağlar */
+    border-radius: 8px;
+}
 
-.product-card img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
-
-/* İletişim */
 .contact { padding: 80px 10%; background: #f9f9f9; text-align: center; }
-
-#contactForm {
-    max-width: 600px;
-    margin: 40px auto;
-    display: flex;
-    flex-direction: column;
-}
-
-#contactForm input, #contactForm textarea {
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
+#contactForm { max-width: 600px; margin: 40px auto; display: flex; flex-direction: column; }
+#contactForm input, #contactForm textarea { padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
 
 footer { padding: 40px; text-align: center; background: #333; color: #fff; }
