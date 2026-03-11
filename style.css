@@ -34,7 +34,7 @@
 /* DÜZELTİLEN KAPAK KISMI */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1501746734258-2922d9505bd7?auto=format&fit=crop&q=80&w=1500') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/hero.jpg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
