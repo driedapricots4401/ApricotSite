@@ -6,7 +6,7 @@
     scroll-behavior: smooth;
 }
 
-/* --- BİLGİSAYAR AYARLARI (Varsayılan) --- */
+/* --- BİLGİSAYAR AYARLARI --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -34,16 +34,28 @@
 .nav-links { 
     list-style: none; 
     display: flex; 
+    align-items: center;
 }
 
 .nav-links li { 
-    margin-left: 25px; 
+    margin-left: 15px; 
 }
 
+/* NAVBAR LİNKLERİNE BUTON GÖRÜNÜMÜ VERME */
 .nav-links a { 
     text-decoration: none; 
     color: #333; 
-    font-weight: 500; 
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+/* Butonların üzerine gelince (Hover) */
+.nav-links a:hover {
+    background-color: #e67e22;
+    color: #fff;
 }
 
 .hero {
@@ -100,36 +112,36 @@
 
 footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 
-/* --- MOBİL AYARLAR (En altta olmalı ki üsttekileri ezebilsin) --- */
+/* --- MOBİL AYARLAR --- */
 @media (max-width: 768px) {
     .navbar {
         padding: 10px 5%;
         flex-direction: column;
         height: auto;
-        position: relative; /* Üstte sabit kalıp içeriği kapatmasın diye */
+        position: relative;
     }
 
     .logo {
         font-size: 18px;
-        margin-bottom: 10px;
-        text-align: center;
+        margin-bottom: 15px;
     }
 
     .nav-links {
-        justify-content: center;
         width: 100%;
-        padding-bottom: 5px;
+        justify-content: center;
+        padding-bottom: 10px;
     }
 
     .nav-links li {
-        margin: 0 8px; /* Linklerin arasını mobilde daralttık */
+        margin: 0 5px;
     }
 
     .nav-links a {
-        font-size: 13px;
+        font-size: 12px;
+        padding: 6px 10px;
     }
 
     .hero-content h1 {
         font-size: 1.8rem;
     }
-}
+}ß
