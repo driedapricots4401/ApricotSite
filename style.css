@@ -19,7 +19,43 @@
     top: 0;
     z-index: 1000;
 }
+/* --- TELEFON İÇİN ÖZEL DÜZENLEME --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 2%; /* Yan boşlukları iyice daralttık */
+        flex-direction: column; /* Logo ve Menüyü alt alta getirir */
+        height: auto; /* Yüksekliği içeriğe göre ayarlar */
+        position: relative; /* Ekranın üstüne yapışıp içeriği kapatmasını önler */
+    }
 
+    .logo {
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        width: 100%;
+    }
+
+    .nav-links li {
+        margin: 0 8px; /* Linklerin arasındaki mesafeyi daralttık */
+    }
+
+    .nav-links a {
+        font-size: 13px; /* Yazıları küçülttük ki yan yana sığsınlar */
+    }
+
+    /* Hero (Giriş) kısmındaki başlığı iyice küçültelim */
+    .hero-content h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+}
 .logo {
     font-size: 20px;
     font-weight: bold;
