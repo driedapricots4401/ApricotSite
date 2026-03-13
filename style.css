@@ -1,12 +1,12 @@
-/* Sadece .hero kısmını bulup bununla değiştirmen yeterli ama garanti olsun diye tam kodu veriyorum */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
     scroll-behavior: smooth;
 }
 
+/* --- BİLGİSAYAR AYARLARI (Varsayılan) --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -19,55 +19,33 @@
     top: 0;
     z-index: 1000;
 }
-/* --- TELEFON İÇİN ÖZEL DÜZENLEME --- */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 10px 2%; /* Yan boşlukları iyice daralttık */
-        flex-direction: column; /* Logo ve Menüyü alt alta getirir */
-        height: auto; /* Yüksekliği içeriğe göre ayarlar */
-        position: relative; /* Ekranın üstüne yapışıp içeriği kapatmasını önler */
-    }
 
-    .logo {
-        font-size: 18px;
-        margin-bottom: 10px;
-        text-align: center;
-        width: 100%;
-    }
-
-    .nav-links {
-        display: flex;
-        justify-content: center;
-        padding: 0;
-        width: 100%;
-    }
-
-    .nav-links li {
-        margin: 0 8px; /* Linklerin arasındaki mesafeyi daralttık */
-    }
-
-    .nav-links a {
-        font-size: 13px; /* Yazıları küçülttük ki yan yana sığsınlar */
-    }
-
-    /* Hero (Giriş) kısmındaki başlığı iyice küçültelim */
-    .hero-content h1 {
-        font-size: 1.8rem;
-        line-height: 1.2;
-    }
-}
 .logo {
     font-size: 20px;
     font-weight: bold;
     color: #e67e22;
 }
-.logo span { color: #2ecc71; margin-left: 5px; }
 
-.nav-links { list-style: none; display: flex; }
-.nav-links li { margin-left: 25px; }
-.nav-links a { text-decoration: none; color: #333; font-weight: 500; }
+.logo span { 
+    color: #2ecc71; 
+    margin-left: 5px; 
+}
 
-/* DÜZELTİLEN KAPAK KISMI */
+.nav-links { 
+    list-style: none; 
+    display: flex; 
+}
+
+.nav-links li { 
+    margin-left: 25px; 
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: #333; 
+    font-weight: 500; 
+}
+
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Photos/hero.jpg') center/cover;
@@ -78,7 +56,10 @@
     color: #fff;
 }
 
-.hero-content h1 { font-size: 3rem; margin-bottom: 20px; }
+.hero-content h1 { 
+    font-size: 3rem; 
+    margin-bottom: 20px; 
+}
 
 .btn {
     display: inline-block;
@@ -91,6 +72,7 @@
 }
 
 .products { padding: 100px 10%; text-align: center; }
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -108,7 +90,7 @@
 .product-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* Bu satır fotoğrafın kutuya tam oturmasını sağlar */
+    object-fit: cover;
     border-radius: 8px;
 }
 
@@ -117,3 +99,37 @@
 #contactForm input, #contactForm textarea { padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
 
 footer { padding: 40px; text-align: center; background: #333; color: #fff; }
+
+/* --- MOBİL AYARLAR (En altta olmalı ki üsttekileri ezebilsin) --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 5%;
+        flex-direction: column;
+        height: auto;
+        position: relative; /* Üstte sabit kalıp içeriği kapatmasın diye */
+    }
+
+    .logo {
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 5px;
+    }
+
+    .nav-links li {
+        margin: 0 8px; /* Linklerin arasını mobilde daralttık */
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+}
