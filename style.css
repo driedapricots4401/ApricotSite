@@ -1,23 +1,36 @@
-/* Sadece .hero kısmını bulup bununla değiştirmen yeterli ama garanti olsun diye tam kodu veriyorum */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
     scroll-behavior: smooth;
 }
 
+/* --- ANİMASYON TANIMLARI --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- GENEL AYARLAR --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
+    padding: 10px 10% !important; /* Üst-alt boşluğu iyice daralttık */
     background: #fff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    min-height: 80px; /* 120px'den 80px'e indirdik */
 }
 
 .logo {
@@ -25,13 +38,71 @@
     font-weight: bold;
     color: #e67e22;
 }
+
 .logo span { color: #2ecc71; margin-left: 5px; }
 
-.nav-links { list-style: none; display: flex; }
-.nav-links li { margin-left: 25px; }
-.nav-links a { text-decoration: none; color: #333; font-weight: 500; }
+.nav-links { list-style: none; display: flex; align-items: center; }
+.nav-links li { margin-left: 15px; }
 
-/* DÜZELTİLEN KAPAK KISMI */
+.nav-links a { 
+    text-decoration: none; 
+    color: #444; /* Daha yumuşak bir antrasit */
+    font-weight: 500;
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    letter-spacing: 0.3px;
+}
+
+/* Üzerine gelince (Hover) efekti */
+.nav-links a:hover {
+    color: #a68b5b; /* Logodaki o şık altın/kahve tonu */
+    background-color: rgba(166, 139, 91, 0.05); /* Çok hafif bir arka plan parlaması */
+}
+
+/* Aktif olan veya seçilen linkin altına şık bir çizgi */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #a68b5b;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+    width: 30px; /* Çizgi ortadan dışa doğru uzasın */
+}
+
+#nav-logo {
+    height: 85px !important; /* 150px'den 85px'e çektik */
+    width: auto !important;
+    display: block;
+    margin: 0 !important; /* Negatif marginleri sıfırladık */
+    transform: scale(1) !important; /* Ölçeklendirmeyi normale döndürdük */
+    transition: transform 0.3s ease;
+}
+
+#nav-logo:hover {
+    transform: scale(1.05) !important; /* Sadece çok hafif bir hareket */
+}
+
+/* Mobilde logonun biraz daha küçük ve kibar durması için */
+@media (max-width: 768px) {
+    #nav-logo {
+        height: 65px !important;
+    }
+    .navbar {
+        min-height: 70px;
+    }
+}
+
+/* --- HERO (KAPAK) AYARLARI --- */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Photos/hero.jpg') center/cover;
@@ -42,42 +113,362 @@
     color: #fff;
 }
 
-.hero-content h1 { font-size: 3rem; margin-bottom: 20px; }
-
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #e67e22;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: 0.3s;
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
-.products { padding: 100px 10%; text-align: center; }
+/* --- HERO (KAPAK) GÜNCELLEME --- */
+.hero-content h1 { 
+    font-size: 3.5rem; /* Biraz daha büyüttük */
+    margin-bottom: 20px; 
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.3); /* Yazıyı öne çıkarır */
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+    font-size: 1.3rem;
+    text-shadow: 1px 2px 5px rgba(0,0,0,0.3);
+    font-weight: 300;
+}
+
+/* --- ANİMASYON SINIFLARI --- */
+.fade-in {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+/* --- BUTONU CANLANDIRALIM --- */
+.reveal-btn {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1s forwards;
+    /* Logodaki altın-kahve tonları arasında geçiş */
+    background: linear-gradient(135deg, #a68b5b, #8b7355) !important;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 15px 45px !important;
+    border-radius: 50px;
+    font-weight: 700 !important;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    border: none !important;
+    box-shadow: 0 10px 25px rgba(166, 139, 91, 0.4) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.reveal-btn:hover {
+    transform: translateY(-5px) scale(1.05); /* Daha belirgin bir yükselme */
+    box-shadow: 0 15px 35px rgba(166, 139, 91, 0.5) !important;
+    filter: brightness(1.1); /* Üzerine gelince parlar */
+}
+
+/* --- ÜRÜN BÖLÜMÜ MODERNİZASYON --- */
+.products {
+    padding: 100px 10%;
+    background: #fff;
+}
+
+.products h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+}
+
+/* Başlığın altına şık bir altın çizgi */
+.products h2::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background: #a68b5b;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
 }
 
 .product-card {
     background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 0; /* İç boşluğu sıfırladık ki resim tam otursun */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Resim Alanı ve Zoom Efekti */
+.product-image-wrapper {
+    overflow: hidden;
+    position: relative;
+    height: 250px;
 }
 
 .product-card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover; /* Bu satır fotoğrafın kutuya tam oturmasını sağlar */
-    border-radius: 8px;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.contact { padding: 80px 10%; background: #f9f9f9; text-align: center; }
-#contactForm { max-width: 600px; margin: 40px auto; display: flex; flex-direction: column; }
+/* Yazı Alanı */
+.product-info {
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.product-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #333;
+    font-weight: 700;
+}
+
+.product-card p {
+    color: #777;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Kart Üzerine Gelince (Hover) */
+.product-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(166, 139, 91, 0.15);
+    border-color: #a68b5b;
+}
+
+.product-card:hover img {
+    transform: scale(1.1); /* Resim hafifçe büyür */
+}
+/* İLETİŞİM BÖLÜMÜ MODERNİZASYON */
+.contact {
+    padding: 100px 10%;
+    background: #fdfdfd; /* Çok hafif, temiz bir gri */
+}
+
+.contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05); /* Yumuşak derinlik */
+}
+
+.contact h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#contactForm input, 
+#contactForm textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #fcfcfc;
+}
+
+/* Kutuya tıklandığında (Odaklanma) */
+#contactForm input:focus, 
+#contactForm textarea:focus {
+    outline: none;
+    border-color: #e67e22; /* Toraman turuncusu */
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px !important;
+    background: #e67e22 !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+}
+
+/* --- Mevcut kodlarının devamı olarak düşün, özellikle en alt kısımlar --- */
+
+.status-msg {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center; /* Yazıyı butonun tam ortasına hizalar */
+    min-height: 20px;
+    font-weight: 500;
+}
+
+/* En alttaki WhatsApp ve Mobil ayarlarının doğru parantezlerle bittiğinden emin ol */
+/* MOBİL AYARLAR */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 30px 20px;
+    }
+}
+
+footer { padding: 40px; text-align: center; background: #333; color: #fff; }
+
+/* --- MOBİL AYARLAR --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 5%;
+        flex-direction: column;
+        height: auto;
+        position: relative;
+    }
+    .logo { font-size: 18px; margin-bottom: 15px; }
+    .nav-links { width: 100%; justify-content: center; padding-bottom: 10px; }
+    .nav-links li { margin: 0 5px; }
+    .nav-links a { font-size: 12px; padding: 6px 10px; }
+    .hero-content h1 { font-size: 1.8rem; }
+    .hero-content p { font-size: 1rem; padding: 0 10px; }
+}
+
+/* --- WHATSAPP BUTONU KESİN ÇÖZÜM --- */
+.whatsapp-fixed {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    background-color: #25d366 !important;
+    padding: 10px 15px !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    width: auto !important; /* Genişliğin yayılmasını engeller */
+    height: auto !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+}
+
+/* İkonun devleşmesini engelleyen en kritik satır */
+.whatsapp-fixed img {
+    width: 25px !important; /* Mobilde 100% olmasını engeller */
+    height: 25px !important;
+    min-width: 25px !important;
+    max-width: 25px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.whatsapp-fixed span {
+    color: white !important;
+    margin-left: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+/* MOBİLDE SADECE YUVARLAK İKON */
+@media (max-width: 768px) {
+    .whatsapp-fixed {
+        padding: 12px !important;
+        border-radius: 50% !important;
+        bottom: 15px !important;
+        right: 15px !important;
+    }
+    .whatsapp-fixed span {
+        display: none !important; /* Yazıyı mobilde tamamen yok eder */
+    }
+    .whatsapp-fixed img {
+        width: 30px !important; /* Mobilde biraz daha belirgin olsun */
+        height: 30px !important;
+        max-width: 30px !important;
+    }
+    
+    .about-page {
+    padding-top: 180px !important; /* Navbar'dan kaçmak için mesafeyi artırdık */
+    padding-bottom: 80px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background: #fdfdfd;
+}
+
+/* Metinlerin daha okunaklı ve şık durması için */
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 25px;
+    text-align: justify; /* Metni iki yana yaslayarak daha profesyonel gösterir */
+}
+    
+    .about-content h1 {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 50px;
+        color: #333;
+    }
+    
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+    }
+    
+    .about-text h2 {
+        color: #a68b5b;
+        margin-bottom: 20px;
+    }
+    
+    .about-text p {
+        line-height: 1.8;
+        color: #666;
+        margin-bottom: 20px;
+    }
+    
+    .about-image img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    
+    @media (max-width: 768px) {
+        .about-grid { grid-template-columns: 1fr; }
+    }
+}
 #contactForm input, #contactForm textarea { padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
 
 footer { padding: 40px; text-align: center; background: #333; color: #fff; }
