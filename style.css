@@ -93,9 +93,9 @@
     height: 65px !important; /* Bir tık küçülterek daha zarif durmasını sağladık */
     width: auto !important;
     display: block; /* Eğer logonun beyaz bir arka planı varsa, onu navbarla kaynaştırır: */
-    mix-blend-mode: multiply; 
+    mix-blend-mode: multiply; /* Beyaz arka planı yok sayıp logoyu alta geçirir */
     transition: transform 0.3s ease;
-}
+    filter: contrast(110%); /* Logonun renklerini biraz daha canlandırır */}
 
 #nav-logo:hover {
     transform: scale(1.05) !important;
