@@ -139,9 +139,85 @@
 }
 .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
 
-.contact { padding: 80px 10%; background: #f9f9f9; text-align: center; }
-#contactForm { max-width: 600px; margin: 40px auto; display: flex; flex-direction: column; }
-#contactForm input, #contactForm textarea { padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
+/* İLETİŞİM BÖLÜMÜ MODERNİZASYON */
+.contact {
+    padding: 100px 10%;
+    background: #fdfdfd; /* Çok hafif, temiz bir gri */
+}
+
+.contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05); /* Yumuşak derinlik */
+}
+
+.contact h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#contactForm input, 
+#contactForm textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #fcfcfc;
+}
+
+/* Kutuya tıklandığında (Odaklanma) */
+#contactForm input:focus, 
+#contactForm textarea:focus {
+    outline: none;
+    border-color: #e67e22; /* Toraman turuncusu */
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px !important;
+    background: #e67e22 !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+}
+
+.status-msg {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+/* MOBİL AYARLAR */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 30px 20px;
+    }
+}
 
 footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 
