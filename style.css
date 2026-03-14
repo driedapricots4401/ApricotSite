@@ -208,8 +208,10 @@
 }
 
 .status-msg {
-    margin-top: 20px;
-    font-weight: 500;
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center; /* Yazıyı butonla aynı hizada ortalar */
+    min-height: 20px; /* Yazı yokken de alan kaplayarak sayfanın zıplamasını önler */
 }
 
 /* MOBİL AYARLAR */
