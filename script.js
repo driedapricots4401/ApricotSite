@@ -26,7 +26,7 @@ contactForm.addEventListener('submit', async function(e) {
     formStatus.textContent = 'Gönderiliyor...';
     formStatus.style.color = '#e67e22';
 
-    const response = await fetch('https://formspree.io/f/BURAYA_FORMSPREE_LINKINI_YAZ', {
+    const response = await fetch('https://formspree.io/f/https://formspree.io/f/xreyljzz', {
         method: 'POST',
         body: formData,
         headers: { 'Accept': 'application/json' }
