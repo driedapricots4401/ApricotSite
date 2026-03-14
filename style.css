@@ -372,50 +372,58 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 
 /* --- MOBİL AYARLAR (TEK BİR BLOKTA) --- */
 @media (max-width: 768px) {
+    /* Navbar'ı yatayda yayıyoruz ve hizalıyoruz */
     .navbar {
-        padding: 10px 15px !important;
-        flex-direction: row !important; /* Logo ve linkler yan yana kalsın */
-        justify-content: space-between;
-        min-height: 60px;
-        position: fixed; /* Mobilde de üstte sabit kalsın */
+        padding: 5px 10px !important;
+        flex-direction: row !important; /* Logo ve linkler yan yana */
+        justify-content: space-between !important;
+        align-items: center !important;
+        min-height: 60px !important;
+        height: auto !important;
+        position: fixed !important;
     }
 
+    /* Logoyu küçültüyoruz ki linklere yer kalsın */
     #nav-logo {
-        height: 50px !important; /* Logoyu küçülttük */
+        height: 45px !important; 
+        width: auto !important;
     }
 
+    /* Link listesini yan yana ve sıkışık hale getiriyoruz */
     .nav-links {
-        width: auto;
-        display: flex;
-        gap: 8px;
-        padding-bottom: 0;
+        display: flex !important;
+        flex-direction: row !important;
+        width: auto !important;
+        gap: 2px !important; /* Linkler arası boşluğu minimize ettik */
+        padding-bottom: 0 !important;
+        list-style: none;
     }
 
+    .nav-links li {
+        margin-left: 0 !important;
+    }
+
+    /* Link yazılarını küçültüyoruz */
     .nav-links a {
-        font-size: 12px;
-        padding: 5px 10px;
+        font-size: 10px !important; /* Çok dar ekranlar için ideal */
+        padding: 5px 6px !important;
+        letter-spacing: 0 !important;
     }
 
+    /* Altındaki ana başlığı da mobilde küçültelim ki görselle çakışmasın */
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem !important;
+        padding-top: 40px;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem !important;
     }
 
-    .contact-container {
-        padding: 30px 20px;
-    }
-
-    .whatsapp-fixed {
-        padding: 12px !important;
-        border-radius: 50% !important;
-    }
-
-    .whatsapp-fixed span {
-        display: none !important;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
+    /* Diğer mobil ayarları koruyalım */
+    .whatsapp-fixed { padding: 12px !important; border-radius: 50% !important; }
+    .whatsapp-fixed span { display: none !important; }
+    .about-grid { grid-template-columns: 1fr !important; }
 }
 
 /* --- HAKKIMIZDA SAYFASI AYARLARI --- */
