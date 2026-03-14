@@ -32,12 +32,30 @@ contactForm.addEventListener('submit', async function(e) {
         headers: { 'Accept': 'application/json' }
     });
 
+// ... form gönderme kodunun başlangıcı (fetch kısmı) ...
+
     if (response.ok) {
         formStatus.textContent = 'Mesajınız şirket mailimize iletildi. Teşekkürler!';
         formStatus.style.color = '#2ecc71';
         this.reset();
+        
+        // 5 saniye sonra mesajı otomatik gizle
+        setTimeout(() => {
+            formStatus.style.display = 'none';
+        }, 5000);
+        
     } else {
         formStatus.textContent = 'Bir hata oluştu, lütfen tekrar deneyin.';
         formStatus.style.color = '#e74c3c';
     }
 });
+
+
+
+
+
+
+
+
+
+
