@@ -416,4 +416,44 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
         height: 30px !important;
         max-width: 30px !important;
     }
+    
+    .about-page {
+        padding: 150px 10% 100px;
+        background: #fdfdfd;
+    }
+    
+    .about-content h1 {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 50px;
+        color: #333;
+    }
+    
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+    }
+    
+    .about-text h2 {
+        color: #a68b5b;
+        margin-bottom: 20px;
+    }
+    
+    .about-text p {
+        line-height: 1.8;
+        color: #666;
+        margin-bottom: 20px;
+    }
+    
+    .about-image img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    
+    @media (max-width: 768px) {
+        .about-grid { grid-template-columns: 1fr; }
+    }
 }
