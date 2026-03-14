@@ -6,22 +6,26 @@
     scroll-behavior: smooth;
 }
 
-/* --- ANİMASYONLAR --- */
+/* --- ANİMASYON TANIMLARI --- */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* --- NAVBAR (Apple Style Glassmorphism) --- */
+/* --- GENEL AYARLAR --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 10% !important;
-    background: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
     top: 0;
@@ -29,29 +33,76 @@
     min-height: 80px;
 }
 
-#nav-logo {
-    height: 75px !important;
-    width: auto !important;
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e67e22;
 }
+
+.logo span { color: #2ecc71; margin-left: 5px; }
 
 .nav-links { list-style: none; display: flex; align-items: center; }
-.nav-links li { margin-left: 20px; }
-.nav-links a {
-    text-decoration: none;
-    color: #444;
+.nav-links li { margin-left: 15px; }
+
+.nav-links a { 
+    text-decoration: none; 
+    color: #444; 
     font-weight: 500;
     font-size: 15px;
-    padding: 8px 15px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    letter-spacing: 0.3px;
 }
 
-.nav-links a:hover { color: #a68b5b; }
+.nav-links a:hover {
+    color: #a68b5b;
+    background-color: rgba(166, 139, 91, 0.05);
+}
 
-/* --- HERO SECTION --- */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #a68b5b;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+    width: 30px;
+}
+
+#nav-logo {
+    height: 85px !important;
+    width: auto !important;
+    display: block;
+    margin: 0 !important;
+    transform: scale(1) !important;
+    transition: transform 0.3s ease;
+}
+
+#nav-logo:hover {
+    transform: scale(1.05) !important;
+}
+
+@media (max-width: 768px) {
+    #nav-logo {
+        height: 65px !important;
+    }
+    .navbar {
+        min-height: 70px;
+    }
+}
+
+/* --- HERO (KAPAK) AYARLARI --- */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('Photos/hero.jpg') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Photos/hero.jpg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,126 +110,318 @@
     color: #fff;
 }
 
-.hero-content h1 {
-    font-size: 3.8rem;
-    margin-bottom: 20px;
-    letter-spacing: -2px;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.hero-content h1 { 
+    font-size: 3.5rem;
+    margin-bottom: 20px; 
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    letter-spacing: -1px;
 }
 
 .hero-content p {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 40px auto;
     font-size: 1.3rem;
-    margin-bottom: 40px;
+    text-shadow: 1px 2px 5px rgba(0,0,0,0.3);
     font-weight: 300;
 }
 
-/* --- ÜRÜNLER (Modern Cards) --- */
-.products { padding: 100px 10%; background: #fcfaf7; }
+.fade-in {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.reveal-btn {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1s forwards;
+    background: linear-gradient(135deg, #a68b5b, #8b7355) !important;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 15px 45px !important;
+    border-radius: 50px;
+    font-weight: 700 !important;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    border: none !important;
+    box-shadow: 0 10px 25px rgba(166, 139, 91, 0.4) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.reveal-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(166, 139, 91, 0.5) !important;
+    filter: brightness(1.1);
+}
+
+/* --- ÜRÜN BÖLÜMÜ --- */
+.products {
+    padding: 100px 10%;
+    background: #fff;
+}
+
+.products h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+}
+
+.products h2::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background: #a68b5b;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .product-card {
     background: #fff;
-    border-radius: 24px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Parlama için şart */
+}
+
+.product-image-wrapper {
     overflow: hidden;
     position: relative;
-    box-shadow: 0 10px 30px rgba(166, 139, 91, 0.05);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 250px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-info {
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.product-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #333;
+    font-weight: 700;
+}
+
+.product-card p {
+    color: #777;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 .product-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(166, 139, 91, 0.15);
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(166, 139, 91, 0.15);
+    border-color: #a68b5b;
 }
 
-.product-image-wrapper { height: 280px; overflow: hidden; }
-.product-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
-.product-card:hover img { transform: scale(1.1); }
+.product-card:hover img {
+    transform: scale(1.1);
+}
 
-/* Parlama Efekti */
 .product-card::before {
     content: '';
     position: absolute;
-    top: 0; left: -100%;
-    width: 50%; height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
     transform: skewX(-25deg);
-    transition: 0.8s;
-    z-index: 2;
+    transition: 0.7s;
+    z-index: 1;
 }
-.product-card:hover::before { left: 150%; }
 
-.product-info { padding: 30px; text-align: center; }
+.product-card:hover::before {
+    left: 125%;
+}
 
-/* --- İLETİŞİM --- */
-.contact { padding: 100px 10%; background: #fff; }
+/* --- İLETİŞİM BÖLÜMÜ --- */
+.contact {
+    padding: 100px 10%;
+    background: #fdfdfd;
+}
+
 .contact-container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 50px;
     background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
     border-top: 5px solid #a68b5b;
 }
 
-#contactForm input, #contactForm textarea {
-    width: 100%;
-    padding: 15px;
+.contact h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.input-group {
     margin-bottom: 20px;
-    border: 1px solid #eee;
+    text-align: left;
+}
+
+#contactForm input, 
+#contactForm textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #f0f0f0;
     border-radius: 12px;
-    background: #f9f9f9;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #fcfcfc;
+}
+
+#contactForm input:focus, 
+#contactForm textarea:focus {
+    outline: none;
+    border-color: #e67e22;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.1);
 }
 
 .submit-btn {
     width: 100%;
-    padding: 15px;
-    background: #e67e22;
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    font-weight: 600;
+    padding: 15px !important;
+    background: #e67e22 !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
     cursor: pointer;
-    transition: 0.3s;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
-/* --- WHATSAPP FIXED (Tamir Edildi) --- */
+.status-msg {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+    min-height: 20px;
+    font-weight: 500;
+}
+
+/* --- FOOTER VE WHATSAPP --- */
+footer { padding: 40px; text-align: center; background: #333; color: #fff; }
+
 .whatsapp-fixed {
     position: fixed !important;
-    bottom: 30px !important;
-    right: 30px !important;
-    z-index: 10000 !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
     display: flex !important;
     align-items: center !important;
     background-color: #25d366 !important;
-    padding: 12px 20px !important;
+    padding: 10px 15px !important;
     border-radius: 50px !important;
     text-decoration: none !important;
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
 }
 
 .whatsapp-fixed img {
     width: 25px !important;
     height: 25px !important;
-    margin-right: 10px !important;
+    min-width: 25px !important;
 }
 
-.whatsapp-fixed span { color: white; font-weight: 600; font-size: 14px; }
+.whatsapp-fixed span {
+    color: white !important;
+    margin-left: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
 
-/* --- FOOTER --- */
-footer { padding: 50px; text-align: center; background: #222; color: #888; font-size: 14px; }
-
-/* --- MOBİL AYARLAR --- */
+/* --- MOBİL AYARLAR (TEK BİR BLOKTA) --- */
 @media (max-width: 768px) {
-    .navbar { padding: 10px 5% !important; flex-direction: column; }
-    .nav-links { margin-top: 15px; }
-    .hero-content h1 { font-size: 2.2rem; }
-    .whatsapp-fixed span { display: none; }
-    .whatsapp-fixed { padding: 15px !important; border-radius: 50% !important; }
+    .navbar {
+        padding: 10px 5%;
+        flex-direction: column;
+        height: auto;
+        position: relative;
+    }
+    .nav-links { width: 100%; justify-content: center; padding-bottom: 10px; }
+    .hero-content h1 { font-size: 1.8rem; }
+    .contact-container { padding: 30px 20px; }
+    
+    .whatsapp-fixed { padding: 12px !important; border-radius: 50% !important; }
+    .whatsapp-fixed span { display: none !important; }
+    
+    /* Hakkımızda Sayfası Mobil */
+    .about-grid { grid-template-columns: 1fr; }
+}
+
+/* --- HAKKIMIZDA SAYFASI AYARLARI --- */
+.about-page {
+    padding-top: 180px !important;
+    padding-bottom: 80px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background: #fdfdfd;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.about-content h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
