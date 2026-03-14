@@ -23,14 +23,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10%; /* Üst-alt boşluğu iyice daralttık */
+    padding: 0 10% !important; /* Üst-alt boşluğu iyice daralttık */
     background: #fff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    min-height: 100px; /* Navbar'ın logonun büyüklüğüne uyum sağlaması için */
+    min-height: 120px; /* Navbar'ı logoya yer açacak kadar yükselttik */
 }
 
 .logo {
@@ -60,22 +60,29 @@
 }
 
 #nav-logo {
-    height: 110px !important; /* 75px'den 110px'e çıkardık */
+    height: 150px !important; /* Yüksekliği iyice artırdık */
     width: auto !important;
     display: block;
-    margin: -15px 0; /* Logonun navbar dışına taşmadan genişlemesi için */
+    /* Etraftaki beyaz boşlukları telafi etmek için negatif margin ve ölçeklendirme */
+    margin: -30px 0 !important; 
+    transform: scale(1.4); /* Logoyu kendi içinde %40 daha büyütür */
+    transform-origin: left center; /* Büyürken sola yaslı kalsın */
     transition: transform 0.3s ease;
 }
 
 #nav-logo:hover {
-    transform: scale(1.05); /* Üzerine gelince hafifçe büyüsün */
+    transform: scale(1.5); /* Üzerine gelince biraz daha belirginleşsin */
 }
 
 /* Mobilde logonun biraz daha küçük ve kibar durması için */
 @media (max-width: 768px) {
     #nav-logo {
-        height: 80px !important; /* Mobilde de fark edilir boyuta getirdik */
-        margin: 5px 0 !important;
+        height: 100px !important;
+        transform: scale(1.2); /* Mobilde biraz daha mütevazı bir büyüme */
+        margin: -10px 0 !important;
+    }
+    .navbar {
+        min-height: 100px;
     }
 }
 
