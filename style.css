@@ -418,9 +418,21 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
     }
     
     .about-page {
-        padding: 150px 10% 100px;
-        background: #fdfdfd;
-    }
+    padding-top: 180px !important; /* Navbar'dan kaçmak için mesafeyi artırdık */
+    padding-bottom: 80px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background: #fdfdfd;
+}
+
+/* Metinlerin daha okunaklı ve şık durması için */
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 25px;
+    text-align: justify; /* Metni iki yana yaslayarak daha profesyonel gösterir */
+}
     
     .about-content h1 {
         font-size: 3rem;
