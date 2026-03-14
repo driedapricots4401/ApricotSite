@@ -73,6 +73,15 @@
     transform: translateX(-50%);
 }
 
+/* style.css içine ekleyebilirsin */
+.nav-links a.active {
+    color: #a68b5b !important;
+    font-weight: 700;
+}
+.nav-links a.active::after {
+    width: 30px; /* Altındaki çizgi sürekli açık kalır */
+}
+
 .nav-links a:hover::after {
     width: 30px;
 }
