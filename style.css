@@ -173,22 +173,95 @@
     filter: brightness(1.1); /* Üzerine gelince parlar */
 }
 
-/* --- DİĞER BÖLÜMLER --- */
-.products { padding: 100px 10%; text-align: center; }
+/* --- ÜRÜN BÖLÜMÜ MODERNİZASYON --- */
+.products {
+    padding: 100px 10%;
+    background: #fff;
+}
+
+.products h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+}
+
+/* Başlığın altına şık bir altın çizgi */
+.products h2::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background: #a68b5b;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
 }
+
 .product-card {
     background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 0; /* İç boşluğu sıfırladık ki resim tam otursun */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
 }
-.product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
 
+/* Resim Alanı ve Zoom Efekti */
+.product-image-wrapper {
+    overflow: hidden;
+    position: relative;
+    height: 250px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Yazı Alanı */
+.product-info {
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.product-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #333;
+    font-weight: 700;
+}
+
+.product-card p {
+    color: #777;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Kart Üzerine Gelince (Hover) */
+.product-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(166, 139, 91, 0.15);
+    border-color: #a68b5b;
+}
+
+.product-card:hover img {
+    transform: scale(1.1); /* Resim hafifçe büyür */
+}
 /* İLETİŞİM BÖLÜMÜ MODERNİZASYON */
 .contact {
     padding: 100px 10%;
