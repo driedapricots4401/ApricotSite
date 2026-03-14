@@ -46,17 +46,37 @@
 
 .nav-links a { 
     text-decoration: none; 
-    color: #333; 
-    font-weight: 600;
-    font-size: 14px;
-    padding: 8px 16px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+    color: #444; /* Daha yumuşak bir antrasit */
+    font-weight: 500;
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    letter-spacing: 0.3px;
 }
 
+/* Üzerine gelince (Hover) efekti */
 .nav-links a:hover {
-    background-color: #e67e22;
-    color: #fff;
+    color: #a68b5b; /* Logodaki o şık altın/kahve tonu */
+    background-color: rgba(166, 139, 91, 0.05); /* Çok hafif bir arka plan parlaması */
+}
+
+/* Aktif olan veya seçilen linkin altına şık bir çizgi */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #a68b5b;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+    width: 30px; /* Çizgi ortadan dışa doğru uzasın */
 }
 
 #nav-logo {
@@ -126,7 +146,7 @@
 .reveal-btn {
     opacity: 0;
     animation: fadeInUp 1s ease-out 1s forwards;
-    background: #e67e22; /* Net ve şık bir turuncu */
+    background: #a68b5b !important; /* Logodaki altın-kahve tonu */
     color: #fff;
     text-decoration: none;
     padding: 12px 32px !important; /* Daha zarif boyutlar */
@@ -136,15 +156,14 @@
     letter-spacing: 0.5px;
     display: inline-block;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Havalı bir zıplama efekti */
-    border: 2px solid #e67e22;
-    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.15);
+    border: 1px solid #a68b5b !important;
+    box-shadow: 0 4px 15px rgba(166, 139, 91, 0.2) !important;
 }
 
 .reveal-btn:hover {
-    background: transparent;
-    color: #e67e22;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(230, 126, 34, 0.25);
+    background: transparent !important;
+    color: #a68b5b !important;
+    box-shadow: 0 6px 20px rgba(166, 139, 91, 0.3) !important;
 }
 
 /* --- DİĞER BÖLÜMLER --- */
