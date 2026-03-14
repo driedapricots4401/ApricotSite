@@ -58,6 +58,20 @@
     color: #fff;
 }
 
+#nav-logo {
+    height: 50px; /* Navbar yüksekliğine göre buradan ayarlayabilirsin */
+    width: auto;
+    display: block;
+}
+
+/* Mobilde logonun biraz daha küçük ve kibar durması için */
+@media (max-width: 768px) {
+    #nav-logo {
+        height: 40px;
+        margin-bottom: 5px;
+    }
+}
+
 /* --- HERO (KAPAK) AYARLARI --- */
 .hero {
     height: 100vh;
