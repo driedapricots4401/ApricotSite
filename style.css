@@ -137,40 +137,39 @@ body {
     text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* --- BUTONUN KESİN VE MODERN HALİ --- */
+/* --- BUTONUN YUMUŞAK VE PREMİUM HALİ --- */
 .reveal-btn {
     display: inline-block !important;
     opacity: 0;
     animation: fadeInUp 1s ease-out 1s forwards !important;
     
-    /* Renk ve Gradyan */
     background: linear-gradient(135deg, #a68b5b, #8b7355) !important;
     color: #ffffff !important;
-    
-    /* Boyut ve Şekil */
     padding: 15px 45px !important;
     margin-top: 30px !important;
     border-radius: 50px !important;
     border: none !important;
-    
-    /* Yazı Stili */
     font-weight: 700 !important;
     text-decoration: none !important;
     font-size: 16px !important;
     letter-spacing: 1px !important;
-    
-    /* Gölge ve Geçiş */
     box-shadow: 0 10px 25px rgba(166, 139, 91, 0.4) !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
     cursor: pointer !important;
+
+    /* --- SİHİRLİ DOKUNUŞ: YUMUŞAK GEÇİŞ --- */
+    /* Buradaki 0.5s süresi ve cubic-bezier hareketi yumuşatır */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    will-change: transform, box-shadow; /* MacBook'ta daha akıcı performans için */
 }
 
-/* Parlama ve Yükselme Efekti */
+/* Mouse üzerine geldiğinde (Hover) */
 .reveal-btn:hover {
-    transform: translateY(-5px) scale(1.05) !important;
+    transform: translateY(-8px) scale(1.03) !important; /* Biraz daha yukarı, daha zarif büyüme */
     box-shadow: 0 15px 35px rgba(166, 139, 91, 0.6) !important;
-    filter: brightness(1.2) !important;
+    filter: brightness(1.15) !important;
     color: #ffffff !important;
+    /* Hover durumunda da transition olması geçişi garantiler */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 /* ==========================================================================
    4. ÜRÜNLER BÖLÜMÜ
