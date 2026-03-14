@@ -51,7 +51,7 @@
     font-size: 15px;
     padding: 10px 20px;
     border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); /* Daha akıcı, Apple stili geçiş eğrisi */
     position: relative;
     letter-spacing: 0.3px;
 }
@@ -189,14 +189,21 @@
 
 /* Başlığın altına şık bir altın çizgi */
 .products h2::after {
-    content: '';
-    width: 60px;
+content: '';
+    width: 40px;
     height: 3px;
-    background: #a68b5b;
+    background: linear-gradient(to right, #a68b5b, #e67e22); /* Altından turuncuya geçiş */
+    border-radius: 10px;
     position: absolute;
-    bottom: -10px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
+    transition: width 0.4s ease;
+}
+
+/* Başlığın üzerine gelince çizgi hafifçe uzasın */
+.products:hover h2::after {
+    width: 80px;
 }
 
 .product-grid {
@@ -211,9 +218,9 @@
     padding: 0; /* İç boşluğu sıfırladık ki resim tam otursun */
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 20px rgba(166, 139, 91, 0.08); /* Altın tonlu hafif bir gölge */
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); /* Daha akıcı, Apple stili geçiş eğrisi */
+    border: none; /* Kenarlığı kaldırıp gölgeye odaklanalım */
     display: flex;
     flex-direction: column;
 }
@@ -254,7 +261,7 @@
 
 /* Kart Üzerine Gelince (Hover) */
 .product-card:hover {
-    transform: translateY(-15px);
+    transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(166, 139, 91, 0.15);
     border-color: #a68b5b;
 }
