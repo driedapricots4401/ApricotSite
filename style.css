@@ -417,53 +417,59 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
         max-width: 30px !important;
     }
     
-    .about-page {
-    padding-top: 180px !important; /* Navbar'dan kaçmak için mesafeyi artırdık */
-    padding-bottom: 80px;
-    padding-left: 10%;
-    padding-right: 10%;
+/* --- HAKKIMIZDA SAYFASI KESİN ÇÖZÜM --- */
+.about-page {
+    padding: 60px 10% !important;
+    margin-top: 100px !important; /* Navbar'ın yüksekliğine göre içeriği aşağı iter */
     background: #fdfdfd;
+    min-height: 80vh;
 }
 
-/* Metinlerin daha okunaklı ve şık durması için */
+.about-content h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 700;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Metin alanını biraz daha genişlettik */
+    gap: 60px;
+    align-items: start; /* Metin ve resim yukarıdan hizalansın */
+}
+
+.about-text h2 {
+    color: #a68b5b; /* Yeni logondaki altın/kahve tonu */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
 .about-text p {
     font-size: 1.1rem;
-    line-height: 1.9;
+    line-height: 1.8;
     color: #444;
-    margin-bottom: 25px;
-    text-align: justify; /* Metni iki yana yaslayarak daha profesyonel gösterir */
+    margin-bottom: 20px;
+    text-align: justify;
 }
-    
-    .about-content h1 {
-        font-size: 3rem;
-        text-align: center;
-        margin-bottom: 50px;
-        color: #333;
-    }
-    
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+/* Mobilde her şeyin alt alta düzgün durması için */
+@media (max-width: 992px) {
     .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        align-items: center;
+        grid-template-columns: 1fr;
     }
-    
-    .about-text h2 {
-        color: #a68b5b;
-        margin-bottom: 20px;
+    .about-image {
+        order: -1; /* Resmi metnin üstüne alır, mobilde daha şık durur */
     }
-    
-    .about-text p {
-        line-height: 1.8;
-        color: #666;
-        margin-bottom: 20px;
-    }
-    
-    .about-image img {
-        width: 100%;
-        border-radius: 20px;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    }
+}
     
     @media (max-width: 768px) {
         .about-grid { grid-template-columns: 1fr; }
