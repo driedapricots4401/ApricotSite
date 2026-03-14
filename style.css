@@ -46,47 +46,38 @@
 .logo span { color: #2ecc71; margin-left: 5px; }
 
 .nav-links { list-style: none; display: flex; align-items: center; }
-.nav-links li { margin-left: 15px; }
+.nav-links li {
+    position: relative; /* Çizginin taşmaması için bu şart */
+    margin: 0 10px;
+}
 
 .nav-links a {
     text-decoration: none;
-    color: #333; /* Daha keskin bir antrasit */
+    color: #333;
     font-weight: 600;
-    font-size: 15px;
-    padding: 8px 16px;
-    border-radius: 50px; /* Kutulu görünüm yerine yuvarlak hatlar */
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    background: transparent; /* Varsayılan olarak kutu olmasın */
+    padding: 10px 5px; /* Sağ-sol boşluğu biraz daralttık */
+    display: inline-block; /* Çizginin kelime boyunda olması için kritik */
+    position: relative; /* Çizgi buna göre hizalanacak */
 }
 
-.nav-links a:hover {
-    color: #a68b5b;
-    background: rgba(166, 139, 91, 0.1); /* Çok hafif altın tonlu bir parlama */
-}
-
+/* 2. Çizgiyi sadece linkin genişliği kadar olacak şekilde ayarlayalım */
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: 2px; /* Yazının biraz altına */
+    bottom: 0;
     left: 0;
-    width: 0; /* Başlangıçta genişlik yok */
+    width: 0; /* Başlangıçta sıfır */
     height: 2px;
-    background-color: #a68b5b; /* Senin altın rengin */
-    transition: width 0.3s ease; /* Sola dayalı olarak buton boyunda uzayacak */
+    background-color: #a68b5b;
+    transition: width 0.3s ease;
+    /* Çizginin tüm navbarı kaplamasını engelleyen asıl ayar: */
+    max-width: 100%; 
 }
 
-/* style.css içine ekleyebilirsin */
-.nav-links a.active {
-    color: #a68b5b !important;
-    font-weight: 700;
-    background: rgba(166, 139, 91, 0.1); /* Çok hafif altın tonlu bir parlama */
-}
+/* 3. Mouse üzerine geldiğinde veya sayfa aktifse */
+.nav-links a:hover::after,
 .nav-links a.active::after {
-    width: 100%; /* Çizgi artık tam olarak butonun genişliği kadar uzar */
-}
-
-.nav-links a:hover::after {
-    width: 100%; /* Çizgi artık tam olarak butonun genişliği kadar uzar */
+    width: 100%; /* Sadece a etiketinin genişliği kadar uzar */
 }
 
 #nav-logo {
