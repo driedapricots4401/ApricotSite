@@ -160,3 +160,27 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
     .hero-content h1 { font-size: 1.8rem; }
     .hero-content p { font-size: 1rem; padding: 0 10px; }
 }
+
+.whatsapp-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-fixed:hover { transform: scale(1.1); }
+.whatsapp-fixed img { width: 25px; margin-right: 10px; }
+
+@media (max-width: 768px) {
+    .whatsapp-fixed span { display: none; } /* Mobilde sadece ikon görünür */
+    .whatsapp-fixed { padding: 12px; border-radius: 50%; }
+}
