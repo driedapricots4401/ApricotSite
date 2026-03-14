@@ -45,7 +45,13 @@
 
 .logo span { color: #2ecc71; margin-left: 5px; }
 
-.nav-links { list-style: none; display: flex; align-items: center; }
+.nav-links { 
+    list-style: none; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; /* Butonlar arası nefes payı */
+}
+
 .nav-links li {
     position: relative; /* Çizginin taşmaması için bu şart */
     margin: 0 10px;
@@ -55,21 +61,31 @@
     text-decoration: none;
     color: #333;
     font-weight: 600;
-    padding: 10px 5px; /* Sağ-sol boşluğu biraz daralttık */
+    font-size: 15px; /* Buton görünümü için kritik padding ve radius */
+    padding: 10px 20px; /* Sağ-sol boşluğu biraz daralttık */
     display: inline-block; /* Çizginin kelime boyunda olması için kritik */
     position: relative; /* Çizgi buna göre hizalanacak */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* 2. Çizgiyi sadece linkin genişliği kadar olacak şekilde ayarlayalım */
+/* Mouse üzerine gelince hafif arka plan parlaması */
+.nav-links a:hover {
+    background-color: rgba(166, 139, 91, 0.05);
+    color: #a68b5b;
+}
+
+/* Çizginin sadece yazı genişliği kadar olması için hassas ayar */
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0; /* Başlangıçta sıfır */
+    bottom: 8px; /* Butonun alt sınırından biraz yukarıda, yazıya yakın */
+    left: 20px;  /* Soldaki padding kadar içeriden başla */
+    right: 20px; /* Sağdaki padding kadar içeriden bitir */
     height: 2px;
     background-color: #a68b5b;
+    transform: scaleX(0); /* Başlangıçta gizli */
     transition: width 0.3s ease;
+    transform-origin: center;
     /* Çizginin tüm navbarı kaplamasını engelleyen asıl ayar: */
     max-width: 100%; 
 }
@@ -78,6 +94,7 @@
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%; /* Sadece a etiketinin genişliği kadar uzar */
+    transform: scaleX(1); /* Ortadan dışa doğru şık bir şekilde açılır */
 }
 
 #nav-logo {
