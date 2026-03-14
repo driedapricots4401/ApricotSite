@@ -296,6 +296,7 @@
     padding: 50px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.05); /* Yumuşak derinlik */
+    border-top: 5px solid #a68b5b; /* Yeni eklenen altın şerit */
 }
 
 .contact h2 {
