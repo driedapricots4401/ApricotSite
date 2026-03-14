@@ -137,7 +137,11 @@ body {
     text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+* --- BUTON ANİMASYONU VE PARLAMA --- */
 .reveal-btn {
+    opacity: 0; /* Sayfa ilk açıldığında gizli başlar */
+    animation: fadeInUp 1s ease-out 1s forwards; /* 1 saniye gecikmeyle gelir */
+    
     background: linear-gradient(135deg, #a68b5b, #8b7355) !important;
     color: #fff !important;
     padding: 15px 45px !important;
@@ -145,15 +149,20 @@ body {
     font-weight: 700 !important;
     text-decoration: none;
     display: inline-block;
-    box-shadow: 0 10px 25px rgba(166, 139, 91, 0.4);
-    transition: all 0.3s ease !important;
+    border: none !important;
+    box-shadow: 0 10px 25px rgba(166, 139, 91, 0.4) !important;
+    
+    /* Parlama ve büyüme geçişi */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    cursor: pointer;
 }
 
+/* Üzerine gelince oluşan parlama ve yükselme efekti */
 .reveal-btn:hover {
-    transform: translateY(-5px);
-    filter: brightness(1.1);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(166, 139, 91, 0.6) !important;
+    filter: brightness(1.2); /* Parlama hissini veren ana komut */
 }
-
 
 /* ==========================================================================
    4. ÜRÜNLER BÖLÜMÜ
