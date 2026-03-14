@@ -372,58 +372,48 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 
 /* --- MOBİL AYARLAR (TEK BİR BLOKTA) --- */
 @media (max-width: 768px) {
-    /* Navbar'ı yatayda yayıyoruz ve hizalıyoruz */
     .navbar {
         padding: 5px 10px !important;
-        flex-direction: row !important; /* Logo ve linkler yan yana */
+        flex-direction: row !important;
         justify-content: space-between !important;
-        align-items: center !important;
-        min-height: 60px !important;
-        height: auto !important;
-        position: fixed !important;
+        min-height: 65px !important;
     }
 
-    /* Logoyu küçültüyoruz ki linklere yer kalsın */
     #nav-logo {
-        height: 45px !important; 
-        width: auto !important;
+        height: 40px !important; /* Logoyu bir tık daha küçülttük */
     }
 
-    /* Link listesini yan yana ve sıkışık hale getiriyoruz */
     .nav-links {
         display: flex !important;
-        flex-direction: row !important;
-        width: auto !important;
-        gap: 2px !important; /* Linkler arası boşluğu minimize ettik */
-        padding-bottom: 0 !important;
-        list-style: none;
+        gap: 2px !important;
     }
 
-    .nav-links li {
-        margin-left: 0 !important;
-    }
-
-    /* Link yazılarını küçültüyoruz */
     .nav-links a {
-        font-size: 10px !important; /* Çok dar ekranlar için ideal */
-        padding: 5px 6px !important;
-        letter-spacing: 0 !important;
+        font-size: 9px !important; /* Kelimelerin sığması için fontu biraz daha daralttık */
+        padding: 4px 5px !important;
+        white-space: nowrap !important; /* Kelimelerin alt alta binmesini kesin olarak engeller */
     }
 
-    /* Altındaki ana başlığı da mobilde küçültelim ki görselle çakışmasın */
+    /* Başlığı mobilde daha okunaklı yapalım */
     .hero-content h1 {
-        font-size: 1.6rem !important;
-        padding-top: 40px;
-    }
-    
-    .hero-content p {
-        font-size: 0.9rem !important;
+        font-size: 2.2rem !important; /* Çok küçük görünüyordu, ideal boyuta çektik */
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
     }
 
-    /* Diğer mobil ayarları koruyalım */
+    .hero-content p {
+        font-size: 1rem !important;
+        margin-bottom: 25px !important;
+    }
+
+    /* Butonu mobilde daha zarif yapalım */
+    .reveal-btn {
+        padding: 12px 30px !important; /* Devasa duran butonu küçülttük */
+        font-size: 14px !important;
+    }
+
     .whatsapp-fixed { padding: 12px !important; border-radius: 50% !important; }
     .whatsapp-fixed span { display: none !important; }
-    .about-grid { grid-template-columns: 1fr !important; }
 }
 
 /* --- HAKKIMIZDA SAYFASI AYARLARI --- */
