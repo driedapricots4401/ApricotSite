@@ -207,13 +207,17 @@
     box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
 }
 
+/* --- Mevcut kodlarının devamı olarak düşün, özellikle en alt kısımlar --- */
+
 .status-msg {
     margin-top: 15px;
     font-size: 14px;
-    text-align: center; /* Yazıyı butonla aynı hizada ortalar */
-    min-height: 20px; /* Yazı yokken de alan kaplayarak sayfanın zıplamasını önler */
+    text-align: center; /* Yazıyı butonun tam ortasına hizalar */
+    min-height: 20px;
+    font-weight: 500;
 }
 
+/* En alttaki WhatsApp ve Mobil ayarlarının doğru parantezlerle bittiğinden emin ol */
 /* MOBİL AYARLAR */
 @media (max-width: 768px) {
     .contact-container {
