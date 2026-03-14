@@ -48,14 +48,24 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2>Bizimle İletişime Geçin</h2>
-        <form id="contactForm">
-            <input type="text" name="name" placeholder="Adınız Soyadınız" required>
-            <input type="email" name="email" placeholder="E-posta Adresiniz" required>
-            <textarea name="message" placeholder="Mesajınız..." rows="5" required></textarea>
-            <button type="submit" class="btn" id="submitBtn">Gönder</button>
-            <p id="formStatus" style="margin-top: 10px; display: none;"></p>
-        </form>
+        <div class="contact-container">
+            <h2>Bizimle İletişime Geçin</h2>
+            <p>Sorularınız veya sipariş talepleriniz için bize mesaj bırakabilirsiniz.</p>
+            
+            <form id="contactForm">
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+                </div>
+                <div class="input-group">
+                    <textarea name="message" placeholder="Mesajınız..." rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn submit-btn">Mesajı Gönder</button>
+                <p id="formStatus" class="status-msg"></p>
+            </form>
+        </div>
     </section>
 
     <footer>
