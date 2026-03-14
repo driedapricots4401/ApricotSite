@@ -24,7 +24,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 10% !important; /* Üst-alt boşluğu iyice daralttık */
-    background: #fff;
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px); /* Arkadaki görseli hafifçe bulanıklaştırır */
+    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
@@ -126,8 +128,8 @@
     font-size: 3.5rem; /* Biraz daha büyüttük */
     margin-bottom: 20px; 
     text-shadow: 2px 4px 10px rgba(0,0,0,0.3); /* Yazıyı öne çıkarır */
-    letter-spacing: -1px;
-}
+    letter-spacing: -2px; /* Daha modern, kompakt bir görünüm */
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
 
 .hero-content p {
     text-align: center;
@@ -214,13 +216,13 @@ content: '';
 }
 
 .product-card {
-    background: #fff;
+    background: #ffffff;
     padding: 0; /* İç boşluğu sıfırladık ki resim tam otursun */
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(166, 139, 91, 0.08); /* Altın tonlu hafif bir gölge */
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); /* Daha akıcı, Apple stili geçiş eğrisi */
-    border: none; /* Kenarlığı kaldırıp gölgeye odaklanalım */
+    box-shadow: 0 10px 30px rgba(166, 139, 91, 0.05);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) !important; /* MacBook Trackpad akıcılığı */
+    border: none !important; /* Kenarlığı kaldırıp gölgeye odaklanalım */
     display: flex;
     flex-direction: column;
 }
@@ -261,8 +263,8 @@ content: '';
 
 /* Kart Üzerine Gelince (Hover) */
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(166, 139, 91, 0.15);
+    transform: translateY(-12px) scale(1.02); /* Hem yükselir hem çok hafif büyür */
+    box-shadow: 0 30px 60px rgba(166, 139, 91, 0.15);
     border-color: #a68b5b;
 }
 
