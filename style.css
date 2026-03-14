@@ -24,18 +24,16 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 10% !important;
-    /* Saf beyaz yerine %75 saydam beyaz */
-    background: rgba(255, 255, 255, 0.75) !important;
-    /* Buzlu cam efekti */
-    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.4) !important; /* %40 opaklık: Arkadaki bahçe görseli çok daha net sızacak */
+    backdrop-filter: blur(15px); /* Bulanıklık seviyesi Apple tarzı derinlik verir */
     -webkit-backdrop-filter: blur(15px);
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     min-height: 80px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .logo {
@@ -92,11 +90,10 @@
 }
 
 #nav-logo {
-    height: 85px !important;
+    height: 65px !important; /* Bir tık küçülterek daha zarif durmasını sağladık */
     width: auto !important;
-    display: block;
-    margin: 0 !important;
-    transform: scale(1) !important;
+    display: block; /* Eğer logonun beyaz bir arka planı varsa, onu navbarla kaynaştırır: */
+    mix-blend-mode: multiply; 
     transition: transform 0.3s ease;
 }
 
