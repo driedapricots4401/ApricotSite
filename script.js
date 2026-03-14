@@ -1,7 +1,41 @@
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+// Mail gönderme bölümü
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
-    alert('Mesajınız başarıyla iletildi! En kısa sürede size dönüş yapacağız.');
-    this.reset();
+    const formData = new FormData(this);
+    
+    // İşlem başladığında mesajı göster
+    formStatus.style.display = 'block';
+    formStatus.textContent = 'Gönderiliyor...';
+    formStatus.style.color = '#e67e22';
+
+    try {
+        const response = await fetch('https://formspree.io/f/xreyljzz', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            formStatus.textContent = 'Mesajınız şirket mailimize iletildi. Teşekkürler!';
+            formStatus.style.color = '#2ecc71';
+            this.reset();
+            
+            // 5 saniye sonra mesajı otomatik gizle (Senin istediğin o temizlik burada yapılıyor)
+            setTimeout(() => {
+                formStatus.style.display = 'none';
+            }, 5000);
+            
+        } else {
+            formStatus.textContent = 'Bir hata oluştu, lütfen tekrar deneyin.';
+            formStatus.style.color = '#e74c3c';
+        }
+    } catch (error) {
+        formStatus.textContent = 'Bağlantı hatası oluştu.';
+        formStatus.style.color = '#e74c3c';
+    }
 });
 
 // Kaydırma sırasında navbar gölgesini değiştirme
