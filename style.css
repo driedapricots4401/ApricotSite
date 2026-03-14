@@ -262,6 +262,27 @@
 .product-card:hover img {
     transform: scale(1.1); /* Resim hafifçe büyür */
 }
+
+.product-card {
+    position: relative; /* Parlama efektinin kartın içinde kalması için bu şart */
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+    z-index: 1;
+}
+
+.product-card:hover::before {
+    left: 125%;
+}
 /* İLETİŞİM BÖLÜMÜ MODERNİZASYON */
 .contact {
     padding: 100px 10%;
