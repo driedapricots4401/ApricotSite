@@ -6,22 +6,7 @@
     scroll-behavior: smooth;
 }
 
-/* --- YAZILARI ORTALAMA VE ANİMASYON --- */
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Yatayda tam ortalar */
-    justify-content: center; /* Dikeyde tam ortalar */
-    width: 100%;
-}
-
-.hero-content p {
-    text-align: center;
-    max-width: 600px; /* Yazının çok yayılmasını önler, daha şık durur */
-    margin: 0 auto 30px auto;
-}
-
-/* Animasyon Tanımları */
+/* --- ANİMASYON TANIMLARI --- */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -33,34 +18,7 @@
     }
 }
 
-.fade-in {
-    animation: fadeInUp 1s ease-out forwards;
-}
-
-.fade-in-delay {
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 0.5s forwards; /* Yarım saniye sonra gelir */
-}
-
-/* --- BUTONUN YENİ TARZI --- */
-.reveal-btn {
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 1s forwards; /* En son buton gelir */
-    background: linear-gradient(135deg, #e67e22, #d35400) !important; /* Gradyan renk */
-    font-weight: 700 !important;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border: none;
-    box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3);
-    padding: 15px 40px !important;
-}
-
-.reveal-btn:hover {
-    transform: translateY(-3px) scale(1.05); /* Üzerine gelince hafif büyür */
-    box-shadow: 0 15px 25px rgba(230, 126, 34, 0.4);
-}
-
-/* --- BİLGİSAYAR AYARLARI --- */
+/* --- GENEL AYARLAR --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -80,22 +38,11 @@
     color: #e67e22;
 }
 
-.logo span { 
-    color: #2ecc71; 
-    margin-left: 5px; 
-}
+.logo span { color: #2ecc71; margin-left: 5px; }
 
-.nav-links { 
-    list-style: none; 
-    display: flex; 
-    align-items: center;
-}
+.nav-links { list-style: none; display: flex; align-items: center; }
+.nav-links li { margin-left: 15px; }
 
-.nav-links li { 
-    margin-left: 15px; 
-}
-
-/* NAVBAR LİNKLERİNE BUTON GÖRÜNÜMÜ VERME */
 .nav-links a { 
     text-decoration: none; 
     color: #333; 
@@ -106,12 +53,12 @@
     transition: all 0.3s ease;
 }
 
-/* Butonların üzerine gelince (Hover) */
 .nav-links a:hover {
     background-color: #e67e22;
     color: #fff;
 }
 
+/* --- HERO (KAPAK) AYARLARI --- */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Photos/hero.jpg') center/cover;
@@ -122,43 +69,72 @@
     color: #fff;
 }
 
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 .hero-content h1 { 
     font-size: 3rem; 
     margin-bottom: 20px; 
 }
 
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #e67e22;
+.hero-content p {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    font-size: 1.2rem;
+}
+
+/* --- ANİMASYON SINIFLARI --- */
+.fade-in {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.reveal-btn {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1s forwards;
+    background: linear-gradient(135deg, #e67e22, #d35400) !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3);
+    padding: 15px 40px !important;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     transition: 0.3s;
 }
 
-.products { padding: 100px 10%; text-align: center; }
+.reveal-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(230, 126, 34, 0.4);
+}
 
+/* --- DİĞER BÖLÜMLER --- */
+.products { padding: 100px 10%; text-align: center; }
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-top: 50px;
 }
-
 .product-card {
     background: #fff;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
-
-.product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-}
+.product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
 
 .contact { padding: 80px 10%; background: #f9f9f9; text-align: center; }
 #contactForm { max-width: 600px; margin: 40px auto; display: flex; flex-direction: column; }
@@ -174,28 +150,10 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
         height: auto;
         position: relative;
     }
-
-    .logo {
-        font-size: 18px;
-        margin-bottom: 15px;
-    }
-
-    .nav-links {
-        width: 100%;
-        justify-content: center;
-        padding-bottom: 10px;
-    }
-
-    .nav-links li {
-        margin: 0 5px;
-    }
-
-    .nav-links a {
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-}ß
+    .logo { font-size: 18px; margin-bottom: 15px; }
+    .nav-links { width: 100%; justify-content: center; padding-bottom: 10px; }
+    .nav-links li { margin: 0 5px; }
+    .nav-links a { font-size: 12px; padding: 6px 10px; }
+    .hero-content h1 { font-size: 1.8rem; }
+    .hero-content p { font-size: 1rem; padding: 0 10px; }
+}
