@@ -67,13 +67,12 @@
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: 5px;
-    left: 50%;
-    width: 0;
+    bottom: 2px; /* Yazının biraz altına */
+    left: 0;
+    width: 0; /* Başlangıçta genişlik yok */
     height: 2px;
-    background-color: #a68b5b;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+    background-color: #a68b5b; /* Senin altın rengin */
+    transition: width 0.3s ease; /* Sola dayalı olarak buton boyunda uzayacak */
 }
 
 /* style.css içine ekleyebilirsin */
@@ -83,11 +82,11 @@
     background: rgba(166, 139, 91, 0.1); /* Çok hafif altın tonlu bir parlama */
 }
 .nav-links a.active::after {
-    width: 30px; /* Altındaki çizgi sürekli açık kalır */
+    width: 100%; /* Çizgi artık tam olarak butonun genişliği kadar uzar */
 }
 
 .nav-links a:hover::after {
-    width: 30px;
+    width: 100%; /* Çizgi artık tam olarak butonun genişliği kadar uzar */
 }
 
 #nav-logo {
