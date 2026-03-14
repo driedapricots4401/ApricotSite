@@ -373,20 +373,49 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 /* --- MOBİL AYARLAR (TEK BİR BLOKTA) --- */
 @media (max-width: 768px) {
     .navbar {
-        padding: 10px 5%;
-        flex-direction: column;
-        height: auto;
-        position: relative;
+        padding: 10px 15px !important;
+        flex-direction: row !important; /* Logo ve linkler yan yana kalsın */
+        justify-content: space-between;
+        min-height: 60px;
+        position: fixed; /* Mobilde de üstte sabit kalsın */
     }
-    .nav-links { width: 100%; justify-content: center; padding-bottom: 10px; }
-    .hero-content h1 { font-size: 1.8rem; }
-    .contact-container { padding: 30px 20px; }
-    
-    .whatsapp-fixed { padding: 12px !important; border-radius: 50% !important; }
-    .whatsapp-fixed span { display: none !important; }
-    
-    /* Hakkımızda Sayfası Mobil */
-    .about-grid { grid-template-columns: 1fr; }
+
+    #nav-logo {
+        height: 50px !important; /* Logoyu küçülttük */
+    }
+
+    .nav-links {
+        width: auto;
+        display: flex;
+        gap: 8px;
+        padding-bottom: 0;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .contact-container {
+        padding: 30px 20px;
+    }
+
+    .whatsapp-fixed {
+        padding: 12px !important;
+        border-radius: 50% !important;
+    }
+
+    .whatsapp-fixed span {
+        display: none !important;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* --- HAKKIMIZDA SAYFASI AYARLARI --- */
