@@ -61,40 +61,44 @@
     text-decoration: none;
     color: #333;
     font-weight: 600;
-    font-size: 15px; /* Buton görünümü için kritik padding ve radius */
-    padding: 10px 20px; /* Sağ-sol boşluğu biraz daralttık */
-    display: inline-block; /* Çizginin kelime boyunda olması için kritik */
-    position: relative; /* Çizgi buna göre hizalanacak */
+    font-size: 15px;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    border-radius: 50px;
+    /* MacBook Air M4'ün akıcılığı için özel geçiş eğrisi */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Mouse üzerine gelince hafif arka plan parlaması */
+/* Üzerine gelince sadece çok hafif bir parıltı veriyoruz, kutu yapmıyoruz */
 .nav-links a:hover {
-    background-color: rgba(166, 139, 91, 0.05);
     color: #a68b5b;
+    background-color: rgba(166, 139, 91, 0.03); 
 }
 
-/* Çizginin sadece yazı genişliği kadar olması için hassas ayar */
+/* Çizgiyi tam kelime altına hapsetmek için hassas ayar */
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: 8px; /* Butonun alt sınırından biraz yukarıda, yazıya yakın */
-    left: 20px;  /* Soldaki padding kadar içeriden başla */
-    right: 20px; /* Sağdaki padding kadar içeriden bitir */
+    bottom: 5px; /* Yazıya biraz daha yaklaştırdık */
+    left: 25%;   /* Çizgiyi butonun ortasına daralttık */
+    width: 50%;  /* Çizgi sadece butonun ortasındaki %50'lik alanı kaplayacak */
     height: 2px;
     background-color: #a68b5b;
-    transform: scaleX(0); /* Başlangıçta gizli */
-    transition: width 0.3s ease;
-    transform-origin: center;
-    /* Çizginin tüm navbarı kaplamasını engelleyen asıl ayar: */
-    max-width: 100%; 
+    transform: scaleX(0); 
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 3. Mouse üzerine geldiğinde veya sayfa aktifse */
+/* Aktif sayfa ve Hover durumunda çizgi çıksın */
 .nav-links a:hover::after,
 .nav-links a.active::after {
-    width: 100%; /* Sadece a etiketinin genişliği kadar uzar */
-    transform: scaleX(1); /* Ortadan dışa doğru şık bir şekilde açılır */
+    transform: scaleX(1);
+}
+
+/* Eğer 'active' olan butonun arkasında hala gri kutu varsa onu şeffaflaştırır: */
+.nav-links a.active {
+    background-color: transparent !important;
+    color: #a68b5b;
 }
 
 #nav-logo {
