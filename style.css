@@ -161,26 +161,53 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
     .hero-content p { font-size: 1rem; padding: 0 10px; }
 }
 
+/* WHATSAPP SABİT BUTON DÜZENLEME */
 .whatsapp-fixed {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    z-index: 1000;
-    transition: transform 0.3s ease;
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    background-color: #25d366 !important;
+    color: white !important;
+    padding: 10px 18px !important;
+    border-radius: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+    z-index: 9999 !important; /* Her şeyin üstünde durması için */
+    width: auto !important;
+    height: auto !important;
 }
 
-.whatsapp-fixed:hover { transform: scale(1.1); }
-.whatsapp-fixed img { width: 25px; margin-right: 10px; }
+/* İkonun devleşmesini engelleyen kritik kısım */
+.whatsapp-fixed img {
+    width: 25px !important;
+    height: 25px !important;
+    margin-right: 8px !important;
+    display: inline-block !important;
+}
 
+.whatsapp-fixed span {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: white !important;
+}
+
+/* MOBİL AYARLAR */
 @media (max-width: 768px) {
-    .whatsapp-fixed span { display: none; } /* Mobilde sadece ikon görünür */
-    .whatsapp-fixed { padding: 12px; border-radius: 50%; }
+    .whatsapp-fixed {
+        bottom: 15px !important;
+        right: 15px !important;
+        padding: 12px !important;
+        border-radius: 50% !important; /* Mobilde tam yuvarlak ikon */
+    }
+    .whatsapp-fixed span {
+        display: none !important; /* Mobilde yazı gizlensin, sadece ikon kalsın */
+    }
+    .whatsapp-fixed img {
+        margin-right: 0 !important;
+        width: 30px !important;
+        height: 30px !important;
+    }
 }
