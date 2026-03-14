@@ -102,22 +102,25 @@
 .reveal-btn {
     opacity: 0;
     animation: fadeInUp 1s ease-out 1s forwards;
-    background: linear-gradient(135deg, #e67e22, #d35400) !important;
-    font-weight: 700 !important;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border: none;
-    box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3);
-    padding: 15px 40px !important;
+    background: #e67e22; /* Net ve şık bir turuncu */
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
-    transition: 0.3s;
+    padding: 12px 32px !important; /* Daha zarif boyutlar */
+    border-radius: 50px; /* Tam yuvarlak, modern görünüm */
+    font-weight: 600 !important;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Havalı bir zıplama efekti */
+    border: 2px solid #e67e22;
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.15);
 }
 
 .reveal-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 25px rgba(230, 126, 34, 0.4);
+    background: transparent;
+    color: #e67e22;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 126, 34, 0.25);
 }
 
 /* --- DİĞER BÖLÜMLER --- */
