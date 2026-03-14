@@ -137,33 +137,41 @@ body {
     text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-* --- BUTON ANİMASYONU VE PARLAMA --- */
+/* --- BUTONUN KESİN VE MODERN HALİ --- */
 .reveal-btn {
-    opacity: 0; /* Sayfa ilk açıldığında gizli başlar */
-    animation: fadeInUp 1s ease-out 1s forwards; /* 1 saniye gecikmeyle gelir */
+    display: inline-block !important;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1s forwards !important;
     
+    /* Renk ve Gradyan */
     background: linear-gradient(135deg, #a68b5b, #8b7355) !important;
-    color: #fff !important;
-    padding: 15px 45px !important;
-    border-radius: 50px;
-    font-weight: 700 !important;
-    text-decoration: none;
-    display: inline-block;
-    border: none !important;
-    box-shadow: 0 10px 25px rgba(166, 139, 91, 0.4) !important;
+    color: #ffffff !important;
     
-    /* Parlama ve büyüme geçişi */
+    /* Boyut ve Şekil */
+    padding: 15px 45px !important;
+    margin-top: 30px !important;
+    border-radius: 50px !important;
+    border: none !important;
+    
+    /* Yazı Stili */
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+    letter-spacing: 1px !important;
+    
+    /* Gölge ve Geçiş */
+    box-shadow: 0 10px 25px rgba(166, 139, 91, 0.4) !important;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
-/* Üzerine gelince oluşan parlama ve yükselme efekti */
+/* Parlama ve Yükselme Efekti */
 .reveal-btn:hover {
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-5px) scale(1.05) !important;
     box-shadow: 0 15px 35px rgba(166, 139, 91, 0.6) !important;
-    filter: brightness(1.2); /* Parlama hissini veren ana komut */
+    filter: brightness(1.2) !important;
+    color: #ffffff !important;
 }
-
 /* ==========================================================================
    4. ÜRÜNLER BÖLÜMÜ
    ========================================================================== */
