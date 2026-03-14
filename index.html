@@ -50,15 +50,20 @@
     <section id="contact" class="contact">
         <h2>Bizimle İletişime Geçin</h2>
         <form id="contactForm">
-            <input type="text" id="name" placeholder="Adınız Soyadınız" required>
-            <input type="email" id="email" placeholder="E-posta Adresiniz" required>
-            <textarea id="message" placeholder="Mesajınız..." rows="5" required></textarea>
-            <button type="submit" class="btn">Gönder</button>
+            <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+            <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+            <textarea name="message" placeholder="Mesajınız..." rows="5" required></textarea>
+            <button type="submit" class="btn" id="submitBtn">Gönder</button>
+            <p id="formStatus" style="margin-top: 10px; display: none;"></p>
         </form>
     </section>
 
     <footer>
         <p>&copy; 2026 Toramans Dried Apricots - Tüm Hakları Saklıdır.</p>
+        <a href="https://wa.me/905XXXXXXXXXX" class="whatsapp-fixed" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        <span>Sipariş Hattı</span>
+</a>
     </footer>
 
     <script src="script.js"></script>
