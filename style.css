@@ -59,9 +59,14 @@
 }
 
 #nav-logo {
-    height: 50px; /* Navbar yüksekliğine göre buradan ayarlayabilirsin */
+    height: 75px; /* 50px'den 75px'e çıkardık */
     width: auto;
     display: block;
+    transition: transform 0.3s ease;
+}
+
+#nav-logo:hover {
+    transform: scale(1.05); /* Üzerine gelince hafifçe büyüsün */
 }
 
 /* Mobilde logonun biraz daha küçük ve kibar durması için */
