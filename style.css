@@ -701,6 +701,22 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
     transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+.scroll-hint {
+    font-size: 0.8rem;
+    color: #a68b5b;
+    font-weight: 600;
+    margin-top: 10px;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite; /* Hafifçe yanıp sönme efekti */
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.3; }
+}
+
 /* Üzerine Gelince Beliren Yazı Paneli (Overlay) */
 .item-overlay {
     position: absolute;
