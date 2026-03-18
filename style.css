@@ -479,204 +479,93 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
+/* --- MODERN GARDEN GALLERY (PARALLAX & DEPTH) --- */
 .garden-gallery {
-    padding: 100px 5%; /* Üst-alt boşluğu artırdık, yanları genişlettik */
-    background: #fff; /* Footer ile ayrışması için temiz beyaz bir arka plan */
+    padding: 150px 0; /* Üst-alt boşluğu artırıp ferahlık sağladık */
+    background: #fff; /* Temiz beyaz bir arka plan */
+    overflow: hidden; /* Taşmaları gizle */
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Resimleri biraz daha büyük yapalım */
-    gap: 25px; /* Resimler arası boşluğu artırdık */
-    max-width: 1400px; /* Çok aşırı yayılmasın diye bir sınır koyduk */
-    margin: 40px auto 0 auto; /* Sayfayı ortaladık */
-}
-
-.gallery-item {
-    height: 350px; /* Tüm resimleri aynı yüksekliğe sabitlemek düzenli gösterir */
-    overflow: hidden;
-    border-radius: 24px; /* Köşeleri biraz daha yumuşattık */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Çok hafif bir derinlik */
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Resimleri bozmadan kutuya sığdırır */
-    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.gallery-item:hover img {
-    transform: scale(1.08); /* Resmin üzerine gelince hafifçe yakınlaşsın */
-}
-
-footer {
-    padding: 60px 20px; /* Daha dolgun bir footer */
-    background: #222;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* --- KAYDIRMA (REVEAL) ANİMASYONLARI --- */
-.reveal {
-    opacity: 0;
-    visibility: hidden; /* Sayfa düzeninin kaymaması için eklendi */
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.reveal.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.delay-1 { transition-delay: 0.2s; }
-.delay-2 { transition-delay: 0.4s; }
-.delay-3 { transition-delay: 0.6s; }
-.delay-4 { transition-delay: 0.8s; }
-
-/* --- WHY US SEKTÖRÜ --- */
-.why-us {
-    padding: 60px 10%;
-    background: #fff;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+/* Başlık ve Açıklama Alanı */
+.gallery-header {
     text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px auto;
+    padding: 0 10%;
 }
 
-.feature-card {
-    padding: 40px 30px;
-    border-radius: 24px; /* Biraz daha yuvarlak hatlar */
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.05); /* Çok ince, zarif bir çerçeve */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03); /* Hafif bir gölge */
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.feature-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 40px rgba(166, 139, 91, 0.12);
-    border-color: #a68b5b;
-}
-
-.feature-icon {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-.feature-card h3 {
-    color: #333;
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-.feature-card p {
-    color: #666;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* --- ABOUT MODERN SECTION --- */
-.about-modern {
-    padding: 120px 10%; /* Daha ferah boşluklar */
-    background: #fffaf0; /* Çok hafif, organik bir ton */
-}
-
-.about-modern-content {
-    display: flex;
-    align-items: center;
-    gap: 80px; /* Metin ve görseller arası boşluk */
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* Tipografi Bölümü */
-.about-modern-text {
-    flex: 1;
-}
-
-.sub-title {
-    display: block;
-    color: #a68b5b; /* Marka rengin */
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-.modern-title {
-    font-size: 3.2rem; /* Büyük, premium başlık */
+.gallery-header h2 {
+    font-size: 3rem; /* Büyük, iddialı başlık */
     font-weight: 800;
     color: #333;
     line-height: 1.2;
-    margin-bottom: 30px;
-}
-
-.about-modern-text p {
-    color: #666;
-    line-height: 1.8;
     margin-bottom: 20px;
-    font-size: 1.05rem;
 }
 
-/* Görsel Bölümü (Katmanlı Yapı) */
-.about-modern-visuals {
-    flex: 1;
-    position: relative; /* Katmanlama için gerekli */
-    height: 500px;
+.gallery-header p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
 }
 
-.main-image-wrapper {
-    width: 90%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
+/* Galeri Izgarası */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Resimleri büyüttük */
+    gap: 30px; /* Boşluğu artırdık */
+    max-width: 1600px; /* Çok geniş ekranlar için sınır */
+    margin: 0 auto;
+    padding: 0 5%;
+    perspective: 1000px; /* 3D derinlik efekti için gerekli */
+}
+
+/* Galeri Resim Kutusu */
+.gallery-item {
+    position: relative;
+    height: 450px; /* Yüksekliği artırdık */
     overflow: hidden;
-    border-radius: 30px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    border-radius: 30px; /* Daha yuvarlak premium köşeler */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04); /* Hafif gölge */
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.main-image {
+/* Hover (Üzerine Gelme) Efekti */
+.gallery-item:hover {
+    transform: translateY(-15px) scale(1.02); /* Hafifçe yüksel ve büyü */
+    box-shadow: 0 30px 60px rgba(166, 139, 91, 0.15); /* Marka renginde gölge */
+    z-index: 10; /* Diğerlerinin önüne geçmesi için */
+}
+
+/* Resmin Kendisi */
+.gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.overlay-image-wrapper {
-    width: 50%;
-    height: 60%;
-    position: absolute;
-    bottom: -40px; /* Büyük resmin önüne ve dışına taşıyoruz */
-    left: 0;
-    overflow: hidden;
-    border-radius: 20px;
-    border: 8px solid #fff; /* Beyaz bir çerçeve ile ayırıyoruz */
-    box-shadow: 0 15px 40px rgba(166, 139, 91, 0.2);
+/* Hover'da Resmin İçeride Yakınlaşması */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Resim kutunun içinde büyüsün */
 }
 
-.overlay-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Paralaks Efekti (Farklı Hızlarda Hareket) - Sadece büyük ekranlarda */
+@media (min-width: 992px) {
+    .gallery-item:nth-child(even) {
+        transform: translateY(50px); /* Çift sayılı resimler biraz aşağıdan başlasın */
+    }
 }
 
 /* Responsive Ayarları */
-@media (max-width: 992px) {
-    .about-modern-content {
-        flex-direction: column;
-        gap: 60px;
+@media (max-width: 768px) {
+    .gallery-header h2 {
+        font-size: 2.2rem;
     }
-    .modern-title {
-        font-size: 2.5rem;
+    .gallery-item {
+        height: 300px;
     }
-    .about-modern-visuals {
-        height: 400px;
-        width: 100%;
+    .garden-gallery {
+        padding: 80px 0;
     }
 }
