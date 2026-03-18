@@ -518,6 +518,7 @@ footer {
 
 /* --- KAYDIRMA (REVEAL) ANİMASYONLARI --- */
 .reveal {
+    opacity: 0; /* Sayfa ilk açıldığında görünmez olmalı */
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
