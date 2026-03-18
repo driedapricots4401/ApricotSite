@@ -65,3 +65,40 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
+
+// --- MODERN SCROLL GALLERY KONTROLLERİ ---
+const slider = document.querySelector('.scroll-container-wrapper');
+if (slider) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    // Fare ile Sürükleme Başlangıcı
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('active-grab');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    // Fareyi Bırakma veya Kutu Dışına Çıkma
+    slider.addEventListener('mouseleave', () => { isDown = false; slider.classList.remove('active-grab'); });
+    slider.addEventListener('mouseup', () => { isDown = false; slider.classList.remove('active-grab'); });
+
+    // Sürükleme Hareketi
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // Kaydırma hızı çarpanı
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // Fare Tekerleği ile Yatay Kaydırma (Opsiyonel: Kullanıcıyı şaşırtabilir ama çok moderndir)
+    slider.addEventListener('wheel', (e) => {
+        if (e.deltaY !== 0) {
+            e.preventDefault();
+            slider.scrollLeft += e.deltaY * 2;
+        }
+    }, { passive: false });
+}
