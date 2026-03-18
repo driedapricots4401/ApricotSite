@@ -443,50 +443,86 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 }
 
 /* --- HAKKIMIZDA SAYFASI AYARLARI --- */
-.about-page {
-    padding-top: 180px !important;
-    padding-bottom: 80px;
-    padding-left: 10%;
-    padding-right: 10%;
-    background: #fdfdfd;
+.about-modern {
+    padding: 120px 10%;
+    background: #fffaf0;
 }
 
-.about-text p {
-    font-size: 1.1rem;
-    line-height: 1.9;
-    color: #444;
-    margin-bottom: 25px;
-    text-align: justify;
-}
-
-.about-content h1 {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 50px;
-    color: #333;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+.about-modern-content {
+    display: flex;
     align-items: center;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.about-image img {
-    width: 100%;
+.about-modern-text { flex: 1; }
+
+.sub-title {
+    display: block;
+    color: #a68b5b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.modern-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #333;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.about-modern-text p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+.about-modern-visuals {
+    flex: 1;
+    position: relative;
+    height: 500px;
+}
+
+.main-image-wrapper {
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.main-image { width: 100%; height: 100%; object-fit: cover; }
+
+.overlay-image-wrapper {
+    width: 50%;
+    height: 60%;
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    overflow: hidden;
     border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border: 8px solid #fff;
+    box-shadow: 0 15px 40px rgba(166, 139, 91, 0.2);
 }
 
-/* --- MODERN GARDEN GALLERY (PARALLAX & DEPTH) --- */
+.overlay-image { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- MODERN GARDEN GALLERY --- */
 .garden-gallery {
-    padding: 150px 0; /* Üst-alt boşluğu artırıp ferahlık sağladık */
-    background: #fff; /* Temiz beyaz bir arka plan */
-    overflow: hidden; /* Taşmaları gizle */
+    padding: 150px 0;
+    background: #fff;
+    overflow: hidden;
 }
 
-/* Başlık ve Açıklama Alanı */
 .gallery-header {
     text-align: center;
     max-width: 700px;
@@ -495,10 +531,9 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 }
 
 .gallery-header h2 {
-    font-size: 3rem; /* Büyük, iddialı başlık */
+    font-size: 3rem;
     font-weight: 800;
     color: #333;
-    line-height: 1.2;
     margin-bottom: 20px;
 }
 
@@ -506,38 +541,33 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
     color: #666;
     font-size: 1.1rem;
     line-height: 1.7;
-    margin-bottom: 20px;
 }
 
-/* Galeri Izgarası */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Resimleri büyüttük */
-    gap: 30px; /* Boşluğu artırdık */
-    max-width: 1600px; /* Çok geniş ekranlar için sınır */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 5%;
-    perspective: 1000px; /* 3D derinlik efekti için gerekli */
+    perspective: 1000px;
 }
 
-/* Galeri Resim Kutusu */
 .gallery-item {
     position: relative;
-    height: 450px; /* Yüksekliği artırdık */
+    height: 450px;
     overflow: hidden;
-    border-radius: 30px; /* Daha yuvarlak premium köşeler */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04); /* Hafif gölge */
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Hover (Üzerine Gelme) Efekti */
 .gallery-item:hover {
-    transform: translateY(-15px) scale(1.02); /* Hafifçe yüksel ve büyü */
-    box-shadow: 0 30px 60px rgba(166, 139, 91, 0.15); /* Marka renginde gölge */
-    z-index: 10; /* Diğerlerinin önüne geçmesi için */
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(166, 139, 91, 0.15);
+    z-index: 10;
 }
 
-/* Resmin Kendisi */
 .gallery-item img {
     width: 100%;
     height: 100%;
@@ -545,27 +575,63 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
     transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Hover'da Resmin İçeride Yakınlaşması */
-.gallery-item:hover img {
-    transform: scale(1.1); /* Resim kutunun içinde büyüsün */
+.gallery-item:hover img { transform: scale(1.1); }
+
+/* --- KAYDIRMA (REVEAL) ANİMASYONLARI --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Paralaks Efekti (Farklı Hızlarda Hareket) - Sadece büyük ekranlarda */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+
+/* --- WHY US SEKTÖRÜ --- */
+.why-us { padding: 60px 10%; background: #fff; }
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.feature-card {
+    padding: 40px 30px;
+    border-radius: 20px;
+    background: #fdfdfd;
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(166, 139, 91, 0.1);
+    border-color: #a68b5b;
+}
+
+.feature-icon { font-size: 40px; margin-bottom: 20px; }
+.feature-card h3 { color: #333; margin-bottom: 15px; font-size: 1.3rem; }
+.feature-card p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+/* --- MEDIA QUERIES --- */
 @media (min-width: 992px) {
-    .gallery-item:nth-child(even) {
-        transform: translateY(50px); /* Çift sayılı resimler biraz aşağıdan başlasın */
-    }
+    .gallery-item:nth-child(even) { transform: translateY(50px); }
 }
 
-/* Responsive Ayarları */
 @media (max-width: 768px) {
-    .gallery-header h2 {
-        font-size: 2.2rem;
-    }
-    .gallery-item {
-        height: 300px;
-    }
-    .garden-gallery {
-        padding: 80px 0;
-    }
+    .modern-title { font-size: 2.2rem; }
+    .about-modern-content { flex-direction: column; gap: 40px; }
+    .about-modern-visuals { height: 350px; width: 100%; }
+    .gallery-header h2 { font-size: 2.2rem; }
+    .gallery-item { height: 300px; }
+    .garden-gallery { padding: 80px 0; }
 }
