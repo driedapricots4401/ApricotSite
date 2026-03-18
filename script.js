@@ -122,18 +122,4 @@ slider.addEventListener('wheel', (e) => {
         slider.scrollLeft += e.deltaY * 1.5;
     }
 }, { passive: false });
-
-// FAQ Akordeon Kontrolü
-document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', () => {
-        const item = header.parentElement;
-        item.classList.toggle('active');
-        
-        // Diğer açık olanları kapat (opsiyonel)
-        document.querySelectorAll('.accordion-item').forEach(otherItem => {
-            if (otherItem !== item) {
-                otherItem.classList.remove('active');
-            }
-        });
-    });
-});
+}
