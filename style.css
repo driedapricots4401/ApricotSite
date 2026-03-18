@@ -352,6 +352,64 @@
     }
 }
 
+/* --- CERTIFICATE LOGOS (SERTİFİKALAR) --- */
+.cert-logos {
+    padding: 40px 0;
+    background: #f9f9f9; /* Hafif gri zemin, beyaz stats bölümünden ayırır */
+    border-bottom: 1px solid #eee;
+}
+
+.cert-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cert-title {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #999;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.cert-scroll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    opacity: 0.6; /* Logoları hafif silik yaparak "reklam" gibi durmasını engelleriz */
+    transition: opacity 0.3s ease;
+}
+
+.cert-scroll:hover {
+    opacity: 1; /* Fareyle üzerine gelince canlanır */
+}
+
+.cert-img {
+    height: 45px; /* Logoların boyunu eşitliyoruz */
+    width: auto;
+    filter: grayscale(100%); /* Tüm logoları siyah-beyaz yaparak Apple tarzı uyum sağlar */
+    transition: filter 0.3s ease;
+}
+
+.cert-img:hover {
+    filter: grayscale(0%); /* Üzerine gelince kendi rengine döner */
+}
+
+/* Mobil için Araları Daralt */
+@media (max-width: 768px) {
+    .cert-scroll {
+        gap: 30px;
+        padding: 0 20px;
+    }
+    .cert-img {
+        height: 35px;
+    }
+}
+
 /* --- İLETİŞİM BÖLÜMÜ --- */
 .contact {
     padding: 100px 5%;
