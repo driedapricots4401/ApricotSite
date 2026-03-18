@@ -64,3 +64,27 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach((el) => {
     observer.observe(el);
 });
+
+// Sayfa yüklendiğinde çalışacak animasyon tetikleyici
+document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+        threshold: 0.1, // Öğenin %10'u göründüğünde çalışır
+        rootMargin: "0px 0px -50px 0px" // Biraz erken tetiklenmesi için
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Bir kez göründükten sonra takibi bırak (performans için)
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Tüm reveal sınıflarını bul ve izlemeye al
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach((el) => {
+        observer.observe(el);
+    });
+});
