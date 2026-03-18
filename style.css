@@ -295,6 +295,63 @@
     left: 125%;
 }
 
+/* --- TRUST STATS (GÜVEN KANITI) --- */
+.trust-stats {
+    padding: 100px 10%;
+    background: #fff; /* Temiz beyaz zemin */
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 3.5rem; /* Dev ve iddialı rakamlar */
+    font-weight: 800;
+    color: #a68b5b; /* Senin marka altın tonun */
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.stat-desc {
+    color: #777;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 200px;
+}
+
+/* Mobil için Rakamları Küçült */
+@media (max-width: 768px) {
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    .trust-stats {
+        padding: 60px 5%;
+    }
+}
+
 /* --- İLETİŞİM BÖLÜMÜ --- */
 .contact {
     padding: 100px 5%;
