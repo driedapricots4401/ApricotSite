@@ -354,59 +354,43 @@
 
 /* --- CERTIFICATE LOGOS (SERTİFİKALAR) --- */
 .cert-logos {
-    padding: 40px 0;
-    background: #f9f9f9; /* Hafif gri zemin, beyaz stats bölümünden ayırır */
-    border-bottom: 1px solid #eee;
-}
-
-.cert-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
+    padding: 60px 0; /* Boşluğu artırarak daha ferah gösterdik */
+    background: #fff; /* Tam beyaz veya çok hafif fildişi yapabilirsin */
 }
 
 .cert-title {
-    display: block;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     font-weight: 700;
-    color: #999;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
+    color: #a68b5b; /* Gri yerine senin altın/kahve tonunu verdik */
+    letter-spacing: 3px;
+    margin-bottom: 40px;
 }
 
 .cert-scroll {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    flex-wrap: wrap;
-    opacity: 0.6; /* Logoları hafif silik yaparak "reklam" gibi durmasını engelleriz */
-    transition: opacity 0.3s ease;
-}
-
-.cert-scroll:hover {
-    opacity: 1; /* Fareyle üzerine gelince canlanır */
+    opacity: 1; /* Sürekli net görünsünler */
+    gap: 80px; /* Logoların arasını açarak daha prestijli durmasını sağladık */
 }
 
 .cert-img {
-    height: 45px; /* Logoların boyunu eşitliyoruz */
+    height: 65px; /* Boyutu 45px'den 65px'e çıkararak büyüklük sorununu çözdük */
     width: auto;
-    filter: grayscale(100%); /* Tüm logoları siyah-beyaz yaparak Apple tarzı uyum sağlar */
-    transition: filter 0.3s ease;
+    /* GRİ FİLTREYİ KALDIRDIK VEYA MARKA RENGİNE YAKINLAŞTIRDIK */
+    filter: sepia(0.5) contrast(0.8) brightness(0.9); /* Logoları hafif kahve/sepya tonuna çeker, palete uydurur */
+    transition: all 0.4s ease;
 }
 
 .cert-img:hover {
-    filter: grayscale(0%); /* Üzerine gelince kendi rengine döner */
+    filter: none; /* Üzerine gelince orijinal rengine dönsün */
+    transform: scale(1.1); /* Hafifçe büyüyerek etkileşim verir */
 }
 
-/* Mobil için Araları Daralt */
+/* Mobilde Logoların Küçülmesini Engelle */
 @media (max-width: 768px) {
     .cert-scroll {
         gap: 30px;
-        padding: 0 20px;
     }
     .cert-img {
-        height: 35px;
+        height: 45px; /* Mobilde bile çok küçülmesin */
     }
 }
 
