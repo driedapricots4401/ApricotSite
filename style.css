@@ -301,6 +301,17 @@
     background: #fdfdfd;
 }
 
+.contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.contact-header h2 {
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
 .contact-container {
     max-width: 700px;
     margin: 0 auto;
@@ -309,6 +320,38 @@
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.05);
     border-top: 5px solid #a68b5b;
+}
+
+/* Form ve Haritayı Yan Yana Getiren Ana Konteyner */
+.contact-split-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch; /* Form ve harita boyunu eşitler */
+}
+
+/* Sol ve Sağ Kutuların Ortak Özellikleri */
+.contact-form-side, .contact-map-side {
+    flex: 1; 
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.contact-form-side {
+    padding: 40px;
+}
+
+.contact-map-side {
+    min-height: 450px;
+}
+
+/* Form İçindeki Input Grupları */
+.input-group {
+    margin-bottom: 20px;
 }
 
 .contact h2 {
