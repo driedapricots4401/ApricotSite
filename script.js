@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
         langButtons.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Önce hepsinden active sınıfını kaldır
-                langButtons.forEach(b => b.classList.remove('active'));
-                // Tıklanana ekle
-                btn.classList.add('active');
-                
-                // İpucu: Buraya ileride dil değişim mantığını (yönlendirme vb.) kurabilirsin
-                console.log("Seçilen Dil:", btn.innerText);
+                const selectedLang = btn.innerText.trim();
+    
+                if (selectedLang === "EN") {
+                    window.location.href = "index-en.html"; // İngilizce sayfaya git
+                } else {
+                    window.location.href = "index.html"; // Türkçe sayfaya dön
+                }
             });
         });
     }
