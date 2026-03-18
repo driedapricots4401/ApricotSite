@@ -579,3 +579,104 @@ footer {
     font-size: 0.95rem;
     line-height: 1.6;
 }
+
+/* --- ABOUT MODERN SECTION --- */
+.about-modern {
+    padding: 120px 10%; /* Daha ferah boşluklar */
+    background: #fffaf0; /* Çok hafif, organik bir ton */
+}
+
+.about-modern-content {
+    display: flex;
+    align-items: center;
+    gap: 80px; /* Metin ve görseller arası boşluk */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Tipografi Bölümü */
+.about-modern-text {
+    flex: 1;
+}
+
+.sub-title {
+    display: block;
+    color: #a68b5b; /* Marka rengin */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.modern-title {
+    font-size: 3.2rem; /* Büyük, premium başlık */
+    font-weight: 800;
+    color: #333;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.about-modern-text p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+/* Görsel Bölümü (Katmanlı Yapı) */
+.about-modern-visuals {
+    flex: 1;
+    position: relative; /* Katmanlama için gerekli */
+    height: 500px;
+}
+
+.main-image-wrapper {
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay-image-wrapper {
+    width: 50%;
+    height: 60%;
+    position: absolute;
+    bottom: -40px; /* Büyük resmin önüne ve dışına taşıyoruz */
+    left: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 8px solid #fff; /* Beyaz bir çerçeve ile ayırıyoruz */
+    box-shadow: 0 15px 40px rgba(166, 139, 91, 0.2);
+}
+
+.overlay-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Ayarları */
+@media (max-width: 992px) {
+    .about-modern-content {
+        flex-direction: column;
+        gap: 60px;
+    }
+    .modern-title {
+        font-size: 2.5rem;
+    }
+    .about-modern-visuals {
+        height: 400px;
+        width: 100%;
+    }
+}
