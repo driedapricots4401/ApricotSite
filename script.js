@@ -1,5 +1,22 @@
 // Sayfa yüklendiğinde her şeyi başlat
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- YENİ: DİL DEĞİŞTİRİCİ KONTROLÜ ---
+    const langButtons = document.querySelectorAll('.lang-btn');
+    if (langButtons.length > 0) {
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Önce hepsinden active sınıfını kaldır
+                langButtons.forEach(b => b.classList.remove('active'));
+                // Tıklanana ekle
+                btn.classList.add('active');
+                
+                // İpucu: Buraya ileride dil değişim mantığını (yönlendirme vb.) kurabilirsin
+                console.log("Seçilen Dil:", btn.innerText);
+            });
+        });
+    }
     
     // 1. MAİL GÖNDERME BÖLÜMÜ (Hata korumalı)
     const contactForm = document.getElementById('contactForm');
