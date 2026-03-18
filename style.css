@@ -510,6 +510,12 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
     transform: scale(1.08); /* Resmin üzerine gelince hafifçe yakınlaşsın */
 }
 
+footer {
+    padding: 60px 20px; /* Daha dolgun bir footer */
+    background: #222;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 /* --- KAYDIRMA (REVEAL) ANİMASYONLARI --- */
 .reveal {
     transform: translateY(30px);
