@@ -94,11 +94,15 @@ if (slider) {
         slider.scrollLeft = scrollLeft - walk;
     });
 
-    // Fare Tekerleği ile Yatay Kaydırma (Opsiyonel: Kullanıcıyı şaşırtabilir ama çok moderndir)
-    slider.addEventListener('wheel', (e) => {
-        if (e.deltaY !== 0) {
-            e.preventDefault();
-            slider.scrollLeft += e.deltaY * 2;
-        }
-    }, { passive: false });
+    // Akıllı Yatay Kaydırma: Galeri bitince dikey kaydırmaya izin verir
+slider.addEventListener('wheel', (e) => {
+    const isAtEnd = slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1;
+    const isAtStart = slider.scrollLeft <= 0;
+
+    // Eğer yatayda gidecek yer varsa yatay kaydır, yoksa normal dikey kaydırmaya izin ver
+    if (!((isAtEnd && e.deltaY > 0) || (isAtStart && e.deltaY < 0))) {
+        e.preventDefault();
+        slider.scrollLeft += e.deltaY * 1.5;
+    }
+}, { passive: false });
 }
