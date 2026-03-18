@@ -357,6 +357,53 @@
     }
 }
 
+/* --- DİL DEĞİŞTİRİCİ (LANG SWITCHER) --- */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    padding: 5px 15px;
+    background: rgba(0, 0, 0, 0.05); /* Çok hafif gri bir kapsül */
+    border-radius: 50px;
+    gap: 8px;
+}
+
+.lang-btn {
+    text-decoration: none !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #888 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+.lang-btn:after {
+    display: none !important; /* Alt çizgiyi bu butonlar için iptal et */
+}
+
+.lang-btn.active {
+    color: #a68b5b !important; /* Aktif dil senin altın rengin */
+}
+
+.lang-btn:hover:not(.active) {
+    color: #333 !important;
+}
+
+.lang-divider {
+    color: #ccc;
+    font-size: 12px;
+    user-select: none;
+}
+
+/* Mobilde Navbar Sıkışmasın Diye */
+@media (max-width: 768px) {
+    .lang-switcher {
+        margin-left: 5px;
+        padding: 5px 10px;
+    }
+}
+
 /* --- CERTIFICATE LOGOS (SERTİFİKALAR) --- */
 .cert-logos {
     padding: 100px 0;
