@@ -599,22 +599,28 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
+    margin: 80px auto; /* Üstten ve alttan boşluk bırakıp yatayda tam ortalar */
+    padding: 0 20px;
+    justify-content: center; /* Izgara içeriğini yatayda ortalar */
+    align-items: stretch; /* Kutuların boylarını birbirine eşitler */
     text-align: center;
 }
 
 .feature-card {
     background: #fff;
-    padding: 40px 30px;
-    border-radius: 20px;
+    padding: 50px 30px;
+    border-radius: 25px;
     background: #fdfdfd;
     border: 1px solid #f0f0f0; /* Görseldeki o ince zarif çerçeve */
     text-align: center;
     transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* İkon ve başlıkları dikey eksende ortalar */
+    justify-content: center;
 }
 
 .feature-card:hover {
@@ -626,6 +632,21 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 .feature-icon { font-size: 40px; margin-bottom: 20px; }
 .feature-card h3 { color: #333; margin-bottom: 15px; font-size: 1.3rem; }
 .feature-card p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+/* Tablet ve Küçük Ekranlar İçin Düzenleme */
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2'li sıra */
+    }
+}
+
+/* Mobil İçin Düzenleme */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr; /* Tekli sıra */
+        margin: 40px auto;
+    }
+}
 
 /* --- MEDIA QUERIES --- */
 @media (min-width: 992px) {
