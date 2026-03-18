@@ -640,7 +640,7 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 .modern-scroll-gallery {
     padding: 120px 0;
     background: #fff;
-    overflow: hidden; /* Yatay taşmayı gizle */
+    overflow: hidden;
 }
 
 .gallery-intro {
@@ -652,26 +652,32 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 /* Yatay Kaydırma Konteyneri */
 .scroll-container-wrapper {
     width: 100%;
-    overflow-x: auto; /* Yatay kaydırmayı aktifleştir */
+    overflow-x: auto;
     overflow-y: hidden;
-    white-space: nowrap; /* İçerikleri yan yana diz */
+    white-space: nowrap;
     padding: 20px 0 60px 0;
-    cursor: grab; /* El işareti ile kaydırılabilir hissi */
+    cursor: grab; /* Sürükleme ipucu */
+    user-select: none;
+    -webkit-overflow-scrolling: touch; /* iOS kaydırma desteği */
+    scroll-snap-type: x proximity;
     
-    /* Kaydırma çubuğunu gizle (Modern görünüm için) */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scroll-container-wrapper.active-grab {
+    cursor: grabbing; /* Tutarken el simgesi */
 }
 
 .scroll-container-wrapper::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    display: none;
 }
 
 .scroll-content {
     display: inline-flex;
     gap: 30px;
-    padding-left: 10%; /* Başlangıç boşluğu */
-    padding-right: 10%; /* Bitiş boşluğu */
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 /* Her Bir Görsel Kutusu */
@@ -683,8 +689,9 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0,0,0,0.05);
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    display: inline-block; /* Yan yana dizilme için */
+    display: inline-block;
     vertical-align: top;
+    scroll-snap-align: center;
 }
 
 .scroll-item img {
@@ -701,14 +708,14 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 70%);
     padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    opacity: 0; /* Başlangıçta görünmez */
+    opacity: 0;
     transition: all 0.5s ease;
-    white-space: normal; /* Yazıların taşmaması için */
+    white-space: normal;
 }
 
 .item-overlay h3 {
@@ -721,39 +728,58 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 }
 
 .item-overlay p {
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.9);
     font-size: 1rem;
     line-height: 1.6;
     transform: translateY(20px);
-    transition: all 0.5s ease 0.1s; /* Gecikmeli animasyon */
+    transition: all 0.5s ease 0.1s;
 }
 
-/* Hover (Üzerine Gelme) Durumu */
+/* Masaüstü Hover Durumu */
 .scroll-item:hover {
     transform: scale(1.02);
     box-shadow: 0 30px 60px rgba(166, 139, 91, 0.2);
 }
 
-.scroll-item:hover img {
-    transform: scale(1.1);
-}
-
-.scroll-item:hover .item-overlay {
-    opacity: 1; /* Yazı panelini göster */
-}
-
+.scroll-item:hover img { transform: scale(1.1); }
+.scroll-item:hover .item-overlay { opacity: 1; }
 .scroll-item:hover .item-overlay h3,
-.scroll-item:hover .item-overlay p {
-    transform: translateY(0); /* Yazıları yukarı kaydırarak göster */
+.scroll-item:hover .item-overlay p { transform: translateY(0); }
+
+/* --- İpucu Animasyonu --- */
+.scroll-hint {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #a68b5b;
+    font-weight: 600;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
 }
 
-/* Responsive */
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.3; }
+}
+
+/* --- MOBİL AYARLAR --- */
 @media (max-width: 768px) {
     .scroll-item {
-        width: 300px;
-        height: 400px;
+        width: 80vw !important; /* Ekranın çoğunu kaplasın */
+        height: 450px !important;
         border-radius: 20px;
     }
-    .item-overlay { padding: 20px; }
+    
+    .item-overlay {
+        opacity: 1 !important; /* Mobilde yazılar hep açık */
+        padding: 25px !important;
+    }
+
+    .item-overlay h3, .item-overlay p {
+        transform: translateY(0) !important; /* Yazılar kaymadan sabit dursun */
+    }
+
     .item-overlay h3 { font-size: 1.4rem; }
+    .item-overlay p { font-size: 0.9rem; }
 }
