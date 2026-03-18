@@ -354,67 +354,68 @@
 
 /* --- CERTIFICATE LOGOS (SERTİFİKALAR) --- */
 .cert-logos {
-    padding: 60px 0;
+    padding: 100px 0; /* Üstten ve alttan boşluğu 60'tan 100'e çıkardık, çok daha ferah duracak */
     background: #fff;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.cert-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+    border-bottom: 1px solid #f8f8f8;
 }
 
 .cert-title {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    color: #a68b5b; /* Senin altın rengin */
-    letter-spacing: 3px;
-    margin-bottom: 40px;
+    color: #a68b5b;
+    letter-spacing: 4px; /* Harf arasını biraz daha açarak "premium" havayı pekiştirdik */
+    margin-bottom: 60px; /* Başlık ile logolar arasındaki mesafeyi 40'tan 60'a çıkardık */
     text-transform: uppercase;
 }
 
 .cert-scroll {
-    display: flex; /* LOGOLARI YAN YANA DİZER */
+    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 80px; /* Logolar arası geniş boşluk */
-    flex-wrap: wrap; /* Mobilde sığmazsa alt satıra geçer */
+    gap: 100px; /* Logoların birbirine girmemesi için arayı 80'den 100'e çektik */
+    flex-wrap: wrap;
 }
 
 .cert-img {
-    height: 55px; /* Boyutu biraz dengeledik */
+    height: 85px; /* Logoları 65px'den 85px'e çıkardık, artık çok daha netler */
     width: auto;
-    /* Logoları sepya tonuna çekerek palete uydurur */
-    filter: sepia(0.6) contrast(0.9) brightness(0.8); 
-    transition: all 0.4s ease;
+    filter: sepia(0.4) contrast(0.9) brightness(0.9);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .cert-img:hover {
-    filter: none; /* Üzerine gelince renklenir */
-    transform: scale(1.1);
+    filter: none;
+    transform: scale(1.15); /* Hover etkisini bir tık daha belirgin yaptık */
 }
 
 /* --- MOBİL AYARLAR (TEK BİR BLOKTA) --- */
+@media (max-width: 768px) {
+    .cert-logos {
+        padding: 60px 20px;
+    }
+    .cert-scroll {
+        gap: 40px;
+    }
+    .cert-img {
+        height: 55px; /* Mobilde de görünürlüğü artırdık */
+    }
+}
+
 @media (max-width: 992px) {
     .contact-split-container {
         flex-direction: column;
     }
-    
     .contact-form-side, .contact-map-side {
         width: 100%;
         flex: none;
     }
-    
     .contact-map-side {
         height: 350px;
         min-height: 350px;
     }
-
     .cert-scroll {
         gap: 30px; /* Mobilde araları daralt */
     }
-    
     .cert-img {
         height: 40px;
     }
@@ -427,18 +428,15 @@
     .trust-stats {
         padding: 60px 5%;
     }
-    
     .scroll-item {
         width: 80vw !important;
         height: 450px !important;
         border-radius: 20px;
     }
-    
     .item-overlay {
         opacity: 1 !important;
         padding: 25px !important;
     }
-
     .item-overlay h3, .item-overlay p {
         transform: translateY(0) !important;
     }
