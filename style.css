@@ -518,48 +518,31 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 
 /* --- MODERN GARDEN GALLERY --- */
 .garden-gallery {
-    padding: 150px 0;
+    padding: 120px 0; /* Üst-alt boşluk korundu */
     background: #fff;
-    overflow: hidden;
 }
 
 .gallery-header {
     text-align: center;
-    max-width: 700px;
-    margin: 0 auto 80px auto;
-    padding: 0 10%;
-}
-
-.gallery-header h2 {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.gallery-header p {
-    color: #666;
-    font-size: 1.1rem;
-    line-height: 1.7;
+    max-width: 900px; /* Başlık alanını biraz daha genişlettik */
+    margin: 0 auto 60px auto;
+    padding: 0 5%;
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    max-width: 1600px;
+    /* 1fr yerine minmax ile görsellerin daha geniş alan kaplamasını sağlıyoruz */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 20px; /* Boşlukları biraz daraltarak görselleri birbirine yaklaştırdık */
+    width: 95%; /* Sayfanın neredeyse tamamını kaplasın */
+    max-width: 1800px; /* Devasa ekranlarda aşırı yayılmasın diye bir sınır */
     margin: 0 auto;
-    padding: 0 5%;
-    perspective: 1000px;
+    padding: 0 20px;
 }
 
 .gallery-item {
-    position: relative;
-    height: 450px;
-    overflow: hidden;
-    border-radius: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 500px; /* Yüksekliği biraz daha artırarak heybetli durmasını sağladık */
+    border-radius: 20px; /* Köşe yumuşaklığını görseller büyüdüğü için hafif azalttık */
 }
 
 .gallery-item:hover {
