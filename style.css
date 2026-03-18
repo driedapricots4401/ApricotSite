@@ -486,16 +486,17 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
     margin-top: 40px;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
+.gallery-item {
+    overflow: hidden;
+    border-radius: 18px;
 }
 
-.gallery-item img:hover {
-    transform: scale(1.05);
+.gallery-item img {
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08); /* Resmin üzerine gelince hafifçe yakınlaşsın */
 }
 
 /* --- KAYDIRMA (REVEAL) ANİMASYONLARI --- */
@@ -529,15 +530,16 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 
 .feature-card {
     padding: 40px 30px;
-    border-radius: 20px;
-    background: #fdfdfd;
-    border: 1px solid #f0f0f0;
-    transition: all 0.3s ease;
+    border-radius: 24px; /* Biraz daha yuvarlak hatlar */
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.05); /* Çok ince, zarif bir çerçeve */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03); /* Hafif bir gölge */
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(166, 139, 91, 0.1);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(166, 139, 91, 0.12);
     border-color: #a68b5b;
 }
 
