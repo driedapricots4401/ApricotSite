@@ -500,7 +500,6 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 
 /* --- KAYDIRMA (REVEAL) ANİMASYONLARI --- */
 .reveal {
-    /*opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
