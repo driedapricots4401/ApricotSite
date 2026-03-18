@@ -1,36 +1,40 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toramans Dried Apricots | Malatya'nın Doğal Lezzeti</title>
+    <title>Toraman's Dried Apricots | The Natural Taste of Malatya</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="Photos/favicon1.png">
+</head>
 <body>
 
     <nav class="navbar">
-    <div class="logo">
-        <img src="Photos/logo.png" alt="Toraman Dried Apricots Logo" id="nav-logo">
-    </div>
+        <div class="logo">
+            <img src="Photos/logo.png" alt="Toraman Dried Apricots Logo" id="nav-logo">
+        </div>
         <ul class="nav-links">
-            <li><a href="#home" class="nav-btn">Ana Sayfa</a></li>
-            <li><a href="about.html" class="nav-btn">Hakkımızda</a></li>
-            <li><a href="#products" class="nav-btn">Ürünler</a></li>
-            <li><a href="#contact" class="nav-btn">İletişim</a></li>
+            <li><a href="index-en.html#home" class="nav-btn">Home</a></li>
+            <li><a href="about.html" class="nav-btn">About Us</a></li>
+            <li><a href="index-en.html#products" class="nav-btn">Products</a></li>
+            <li><a href="index-en.html#contact" class="nav-btn">Contact</a></li>
             <li class="lang-switcher">
-                <a href="#" class="lang-btn active">TR</a>
+                <a href="index.html" class="lang-btn">TR</a>
                 <span class="lang-divider">|</span>
-                <a href="#" class="lang-btn">EN</a>
+                <a href="index-en.html" class="lang-btn active">EN</a>
             </li>
         </ul>
     </nav>
 
     <header id="home" class="hero">
        <div class="hero-content">
-            <h1 class="fade-in">Güneşin Tadı: Malatya Kayısısı</h1>
-            <p class="fade-in-delay">Bahçemizden sofranıza, %100 doğal ve katkısız lezzet.</p>
-            <a href="#products" class="btn reveal-btn">Ürünleri İncele</a>
+            <h1 class="fade-in">The Taste of Sun: Malatya Apricots</h1>
+            <p class="fade-in-delay">From our orchards to your table; 100% natural and premium quality.</p>
+            <div class="hero-btns fade-in-delay">
+                <a href="#products" class="cta-primary">Explore Products</a>
+                <a href="#contact" class="cta-secondary">Get a Quote</a>
+            </div>
        </div>
     </header>
 
@@ -38,112 +42,101 @@
         <div class="stats-container">
             <div class="stat-item">
                 <span class="stat-number">50+</span>
-                <span class="stat-label">Yıllık Tecrübe</span>
-                <p class="stat-desc">Nesillerdir devam eden Malatya kayısısı geleneği.</p>
+                <span class="stat-label">Years of Experience</span>
+                <p class="stat-desc">A heritage of Malatya apricots passed down through generations.</p>
             </div>
-
             <div class="stat-item">
                 <span class="stat-number">15+</span>
-                <span class="stat-label">İhraç Ülkesi</span>
-                <p class="stat-desc">Almanya'dan Japonya'ya uzanan global ağ.</p>
+                <span class="stat-label">Export Countries</span>
+                <p class="stat-desc">A global supply network stretching from Germany to Japan.</p>
             </div>
-
             <div class="stat-item">
                 <span class="stat-number">%100</span>
-                <span class="stat-label">Müşteri Memnuniyeti</span>
-                <p class="stat-desc">Kaliteden ödün vermeyen üretim anlayışı.</p>
+                <span class="stat-label">Customer Satisfaction</span>
+                <p class="stat-desc">Uncompromised quality and food safety standards.</p>
             </div>
-
             <div class="stat-item">
                 <span class="stat-number">1000+</span>
-                <span class="stat-label">Ton Yıllık Üretim</span>
-                <p class="stat-desc">Yüksek kapasiteli ve hijyenik tesisler.</p>
+                <span class="stat-label">Tons Annual Production</span>
+                <p class="stat-desc">High-capacity manufacturing in hygienic, world-class facilities.</p>
             </div>
         </div>
-</section>
+    </section>
 
-<section id="products" class="products">
-    <h2>Öne Çıkan Ürünlerimiz</h2>
-    <div class="product-grid">
+    <section id="products" class="products">
+        <div class="section-header reveal">
+            <h2>Our Premium Products</h2>
+            <p>Naturally grown and carefully selected harvests from Malatya.</p>
+        </div>
         
-        <div class="product-card reveal">
-            <div class="product-image-wrapper">
-                <img src="Photos/gunkurusu.jpg" alt="Gün Kurusu">
-            </div>
-            <div class="product-info">
-                <h3>Gün Kurusu Kayısı</h3>
-                <p>Güneşte doğal yollarla kurutulmuş, hiçbir katkı maddesi içermeyen Malatya hazinesi.</p>
-            </div>
-        </div>
-
-        <div class="product-card reveal delay-1">
-            <div class="product-image-wrapper">
-                <img src="Photos/sari.jpg" alt="Sarı Kayısı">
-            </div>
-            <div class="product-info">
-                <h3>Sarı Kayısı</h3>
-                <p>En kaliteli seçme kayısılarımızla hazırlanan, yumuşak dokulu geleneksel lezzet.</p>
-            </div>
-        </div>
-
-        <div class="product-card reveal delay-2">
-            <div class="product-image-wrapper">
-                <img src="Photos/cekirdek.jpg" alt="Kayısı Çekirdeği">
-            </div>
-            <div class="product-info">
-                <h3>Kayısı Çekirdeği</h3>
-                <p>Tatlı ve acı seçenekleriyle doğadan gelen eşsiz bir enerji kaynağı.</p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-    <section class="contact" id="contact">
-    <div class="contact-header reveal">
-        <h2>Bize Ulaşın</h2>
-        <p>Dünyanın her yerine Malatya'nın en kaliteli kayısılarını ulaştırıyoruz.</p>
-    </div>
-
-    <div class="contact-split-container reveal delay-1">
-        <div class="contact-form-side">
-            <form id="contactForm">
-                <div class="input-group">
-                    <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+        <div class="product-grid">
+            <div class="product-card reveal">
+                <div class="product-image-wrapper">
+                    <img src="Photos/gunkurusu.jpg" alt="Sun-Dried Dark Apricots">
                 </div>
-                <div class="input-group">
-                    <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+                <div class="product-info">
+                    <h3>Sun-Dried Dark Apricots</h3>
+                    <p>Naturally dried under the Malatya sun, containing no additives. Pure nature.</p>
                 </div>
-                <div class="input-group">
-                    <textarea name="message" placeholder="Mesajınız" rows="5" required></textarea>
+            </div>
+
+            <div class="product-card reveal">
+                <div class="product-image-wrapper">
+                    <img src="Photos/sari.jpg" alt="Sulphured Yellow Apricots">
                 </div>
-                <button type="submit" class="submit-btn">Mesaj Gönder</button>
-                <div id="formStatus" class="status-msg"></div>
-            </form>
+                <div class="product-info">
+                    <h3>Premium Yellow Apricots</h3>
+                    <p>Carefully selected apricots with a soft texture and traditional sweet flavor.</p>
+                </div>
+            </div>
+
+            <div class="product-card reveal">
+                <div class="product-image-wrapper">
+                    <img src="Photos/cekirdek.jpg" alt="Apricot Kernels">
+                </div>
+                <div class="product-info">
+                    <h3>Apricot Kernels</h3>
+                    <p>Available in sweet and bitter varieties; a unique source of natural energy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-header reveal">
+            <h2>Get In Touch</h2>
+            <p>We deliver the finest quality apricots to every corner of the world.</p>
         </div>
 
-        <div class="contact-map-side">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100345.548455767!2d38.2325324068361!3d38.33306634710186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407636e3c1d9774d%3A0x5e39669527e57f75!2sMalatya!5e0!3m2!1str!2str!4v1710780000000!5m2!1str!2str" 
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <div class="contact-split-container reveal">
+            <div class="contact-form-side">
+                <form id="contactForm">
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div id="formStatus" class="status-msg"></div>
+                </form>
+            </div>
+
+            <div class="contact-map-side">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=..." 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
         </div>
-    </div>
-</section>
-
-    <footer>
-        <p>&copy; 2026 Toramans Dried Apricots - Tüm Hakları Saklıdır.</p>
-    </footer>
-
-    <a href="https://wa.me/905305566889?text=Merhaba%20Kerem%2C%20Toraman%20Dried%20Apricots%20sitenizden%20ulaşıyorum.%20Ürünleriniz%20hakkında%20bilgi%20alabilir%20miyim?" class="whatsapp-fixed" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        <span>Sipariş Hattı</span>
-    </a>
+    </section>
 
     <script src="script.js"></script>
 </body>
