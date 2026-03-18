@@ -871,4 +871,13 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 
     .item-overlay h3 { font-size: 1.4rem; }
     .item-overlay p { font-size: 0.9rem; }
+
+@media (max-width: 992px) {
+    .contact-split-container {
+        flex-direction: column; /* Mobilde alt alta gelirler */
+    }
+    .contact-map-side {
+        height: 350px;
+        min-height: 350px;
+    }
 }
