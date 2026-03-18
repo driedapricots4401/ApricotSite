@@ -354,26 +354,41 @@
 
 /* --- CERTIFICATE LOGOS (SERTİFİKALAR) --- */
 .cert-logos {
-    padding: 100px 0; /* Üstten ve alttan boşluğu 60'tan 100'e çıkardık, çok daha ferah duracak */
+    padding: 100px 0;
     background: #fff;
-    border-bottom: 1px solid #f8f8f8;
+    width: 100%; /* Konteynerin tüm genişliği kapladığından emin olalım */
+    display: flex;
+    justify-content: center;
+}
+
+.cert-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center; /* Başlığı merkeze iter */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* İçindeki her şeyi (başlık ve logolar) yatayda ortalar */
 }
 
 .cert-title {
+    display: inline-block; /* Genişliği içeriği kadar olsun ki ortalanabilsin */
     font-size: 0.8rem;
     font-weight: 700;
     color: #a68b5b;
-    letter-spacing: 4px; /* Harf arasını biraz daha açarak "premium" havayı pekiştirdik */
-    margin-bottom: 60px; /* Başlık ile logolar arasındaki mesafeyi 40'tan 60'a çıkardık */
+    letter-spacing: 4px;
+    margin-bottom: 60px;
     text-transform: uppercase;
+    width: 100%; /* Satırı kapla ki text-align çalışsın */
 }
 
 .cert-scroll {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Logoları merkeze toplar */
     align-items: center;
-    gap: 100px; /* Logoların birbirine girmemesi için arayı 80'den 100'e çektik */
+    gap: 100px;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .cert-img {
