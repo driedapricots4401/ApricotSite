@@ -354,43 +354,93 @@
 
 /* --- CERTIFICATE LOGOS (SERTİFİKALAR) --- */
 .cert-logos {
-    padding: 60px 0; /* Boşluğu artırarak daha ferah gösterdik */
-    background: #fff; /* Tam beyaz veya çok hafif fildişi yapabilirsin */
+    padding: 60px 0;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cert-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .cert-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: #a68b5b; /* Gri yerine senin altın/kahve tonunu verdik */
+    color: #a68b5b; /* Senin altın rengin */
     letter-spacing: 3px;
     margin-bottom: 40px;
+    text-transform: uppercase;
 }
 
 .cert-scroll {
-    opacity: 1; /* Sürekli net görünsünler */
-    gap: 80px; /* Logoların arasını açarak daha prestijli durmasını sağladık */
+    display: flex; /* LOGOLARI YAN YANA DİZER */
+    justify-content: center;
+    align-items: center;
+    gap: 80px; /* Logolar arası geniş boşluk */
+    flex-wrap: wrap; /* Mobilde sığmazsa alt satıra geçer */
 }
 
 .cert-img {
-    height: 65px; /* Boyutu 45px'den 65px'e çıkararak büyüklük sorununu çözdük */
+    height: 55px; /* Boyutu biraz dengeledik */
     width: auto;
-    /* GRİ FİLTREYİ KALDIRDIK VEYA MARKA RENGİNE YAKINLAŞTIRDIK */
-    filter: sepia(0.5) contrast(0.8) brightness(0.9); /* Logoları hafif kahve/sepya tonuna çeker, palete uydurur */
+    /* Logoları sepya tonuna çekerek palete uydurur */
+    filter: sepia(0.6) contrast(0.9) brightness(0.8); 
     transition: all 0.4s ease;
 }
 
 .cert-img:hover {
-    filter: none; /* Üzerine gelince orijinal rengine dönsün */
-    transform: scale(1.1); /* Hafifçe büyüyerek etkileşim verir */
+    filter: none; /* Üzerine gelince renklenir */
+    transform: scale(1.1);
 }
 
-/* Mobilde Logoların Küçülmesini Engelle */
-@media (max-width: 768px) {
-    .cert-scroll {
-        gap: 30px;
+/* --- MOBİL AYARLAR (TEK BİR BLOKTA) --- */
+@media (max-width: 992px) {
+    .contact-split-container {
+        flex-direction: column;
     }
+    
+    .contact-form-side, .contact-map-side {
+        width: 100%;
+        flex: none;
+    }
+    
+    .contact-map-side {
+        height: 350px;
+        min-height: 350px;
+    }
+
+    .cert-scroll {
+        gap: 30px; /* Mobilde araları daralt */
+    }
+    
     .cert-img {
-        height: 45px; /* Mobilde bile çok küçülmesin */
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    .trust-stats {
+        padding: 60px 5%;
+    }
+    
+    .scroll-item {
+        width: 80vw !important;
+        height: 450px !important;
+        border-radius: 20px;
+    }
+    
+    .item-overlay {
+        opacity: 1 !important;
+        padding: 25px !important;
+    }
+
+    .item-overlay h3, .item-overlay p {
+        transform: translateY(0) !important;
     }
 }
 
