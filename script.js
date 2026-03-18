@@ -47,3 +47,21 @@ window.addEventListener('scroll', function() {
         navbar.style.padding = '20px 10%';
     }
 });
+
+// Sayfa kaydırıldıkça öğeleri ortaya çıkaran fonksiyon
+const observerOptions = {
+    threshold: 0.15 // Öğenin %15'i göründüğünde animasyon başlar
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, observerOptions);
+
+// Tüm reveal sınıfına sahip öğeleri takibe al
+document.querySelectorAll('.reveal').forEach((el) => {
+    observer.observe(el);
+});
