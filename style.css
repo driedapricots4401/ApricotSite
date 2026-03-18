@@ -404,6 +404,76 @@
     }
 }
 
+/* --- FAQ (AKORDEON) TASARIMI --- */
+.faq-section {
+    padding: 100px 10%;
+    background: #fff;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.accordion {
+    margin-top: 50px;
+    text-align: left;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 25px 0;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.accordion-header:hover {
+    color: #a68b5b;
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-body p {
+    padding-bottom: 25px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Aktif Durum */
+.accordion-item.active .accordion-body {
+    max-height: 200px;
+}
+
+.accordion-item.active .arrow-icon {
+    transform: rotate(45deg);
+    color: #a68b5b;
+}
+
+.arrow-icon {
+    font-size: 1.5rem;
+    font-style: normal;
+    transition: transform 0.3s ease;
+    color: #ccc;
+}
+
 /* --- CERTIFICATE LOGOS (SERTİFİKALAR) --- */
 .cert-logos {
     padding: 100px 0;
