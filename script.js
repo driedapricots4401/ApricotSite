@@ -48,9 +48,9 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Sayfa kaydırıldıkça öğeleri ortaya çıkaran fonksiyon
+// Reveal Animasyonu Tetikleyici
 const observerOptions = {
-    threshold: 0.15 // Öğenin %15'i göründüğünde animasyon başlar
+    threshold: 0.1 // Öğenin %10'u göründüğünde çalışır
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -61,7 +61,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Tüm reveal sınıfına sahip öğeleri takibe al
 document.querySelectorAll('.reveal').forEach((el) => {
     observer.observe(el);
 });
