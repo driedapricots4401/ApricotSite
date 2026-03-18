@@ -57,6 +57,7 @@
     margin: 0 10px;
 }
 
+/* Navigasyon Linkleri Genel */
 .nav-links a {
     text-decoration: none;
     color: #333;
@@ -66,33 +67,33 @@
     display: inline-block;
     position: relative;
     border-radius: 50px;
-    /* MacBook Air M4'ün akıcılığı için özel geçiş eğrisi */
+    background-color: transparent !important; /* Gri kutuyu zorla kaldırır */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Üzerine gelince sadece çok hafif bir parıltı veriyoruz, kutu yapmıyoruz */
-.nav-links a:hover {
-    color: #a68b5b;
-    background-color: rgba(166, 139, 91, 0.03); 
+/* Üzerine gelince sadece renk değişsin */
+.nav-links a:hover, .nav-links a.active {
+    color: #a68b5b !important;
+    background-color: transparent !important;
 }
 
-/* Çizgiyi tam kelime altına hapsetmek için hassas ayar */
+/* Çizgiyi kelime boyuna hapseden akıllı ayar */
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: 5px; /* Yazıya biraz daha yaklaştırdık */
-    left: 25%;   /* Çizgiyi butonun ortasına daralttık */
-    width: 50%;  /* Çizgi sadece butonun ortasındaki %50'lik alanı kaplayacak */
+    bottom: 5px; 
+    left: 50%;
+    width: 0; /* Başlangıçta yok */
     height: 2px;
     background-color: #a68b5b;
-    transform: scaleX(0); 
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%); /* Tam ortadan genişler */
+    transition: width 0.3s ease;
 }
 
-/* Aktif sayfa ve Hover durumunda çizgi çıksın */
+/* Üzerine gelince veya aktif sayfadaysa sadece kelime kadar uzar */
 .nav-links a:hover::after,
 .nav-links a.active::after {
-    transform: scaleX(1);
+    width: 60%; /* Butonun %60'ı kadar (tam yazı boyu) */
 }
 
 /* Eğer 'active' olan butonun arkasında hala gri kutu varsa onu şeffaflaştırır: */
