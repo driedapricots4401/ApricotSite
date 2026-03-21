@@ -18,6 +18,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- YENİ: ANİMASYONLU AYIRICI ÇİZGİ TETİKLEYİCİSİ ---
+    const dividerLine = document.querySelector('.section-divider');
+    
+    if (dividerLine) {
+        // Intersection Observer ile çizgiyi takip et
+        const observerLine = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Çizgi ekrana girdiğinde 'animate-line' sınıfını ekle
+                    dividerLine.classList.add('animate-line');
+                    // Performans için takibi bırak (sadece bir kez çalışsın)
+                    observerLine.unobserve(entry.target);
+                }
+            });
+        }, {
+            // Çizginin %50'si ekrana girdiğinde animasyon başlasın
+            threshold: 0.5 
+        });
+        
+        // Gözlemciyi başlat
+        observerLine.observe(dividerLine);
+    }
+    // --- TETİKLEYİCİ BİTİŞ ---
+
     // FAQ Akordeon Kontrolü
     document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', () => {
