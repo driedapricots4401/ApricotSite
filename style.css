@@ -564,13 +564,13 @@
 }
 
 .section-divider {
-    width: 60px;
-    height: 3px;
-    background: #a68b5b;
-    margin: 40px auto; /* Boşluğu 60'tan 40'a indirdik, daha sıkı durur */
-    border-radius: 50px;
-    opacity: 0.6;
-    display: block; /* Görünür olduğundan emin oluyoruz */
+    width: 150px;           /* 60px'den 150px'e uzattık */
+    height: 5px;            /* 3px'den 5px'e kalınlaştırdık */
+    background: #a68b5b;    /* Marka rengin */
+    margin: 40px auto;      /* Boşlukları koruduk */
+    border-radius: 50px;    /* Kenarları hala yumuşak */
+    opacity: 0.8;           /* Görünürlüğü artırdık */
+    display: block;
 }
 
 /* --- MODERN FOOTER --- */
