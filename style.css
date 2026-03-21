@@ -555,27 +555,22 @@
     }
 }
 
-/* --- BÖLÜM AYIRICI DOKUNUŞU --- */
+/* --- FAQ & AYIRICI TEMİZ KOD --- */
 .faq-section {
-    background-color: #fbfbfd; /* Apple'ın kullandığı çok hafif gri tonu */
-    border-top: 1px solid #e5e5e7; /* Üstten ince bir hat */
-    border-bottom: 1px solid #e5e5e7; /* Alttan ince bir hat */
-    padding: 100px 10%;
-}
-
-/* FAQ başlığı ve içeriği arasındaki dengeyi korumak için */
-.faq-container {
-    max-width: 900px;
-    margin: 0 auto;
+    padding: 80px 10%; /* Boşluğu biraz daralttık */
+    background-color: #fbfbfd !important; /* Arka plan rengini garantiye aldık */
+    border-top: 1px solid #e5e5e7;
+    border-bottom: 1px solid #e5e5e7;
 }
 
 .section-divider {
-    width: 60px;          /* Biraz daha daraltarak daha zarif hale getirdik */
+    width: 60px;
     height: 3px;
-    background: #a68b5b;   /* Marka rengin */
-    margin: 60px auto;     /* Üst ve alttan boşlukları dengeledik */
+    background: #a68b5b;
+    margin: 40px auto; /* Boşluğu 60'tan 40'a indirdik, daha sıkı durur */
     border-radius: 50px;
-    opacity: 0.6;          /* Hafif bir şeffaflık vererek gözü yormamasını sağladık */
+    opacity: 0.6;
+    display: block; /* Görünür olduğundan emin oluyoruz */
 }
 
 /* --- MODERN FOOTER --- */
