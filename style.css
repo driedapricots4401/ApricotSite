@@ -545,12 +545,6 @@
     font-size: 0.95rem;
 }
 
-/* FAQ ve İletişim Arasına İnce Çizgi */
-.faq-section {
-    border-bottom: 1px solid #f2f2f2; /* Çok hafif, gözü yormayan bir çizgi */
-    margin-bottom: 20px;
-}
-
 /* Mobil Uyumluluk */
 @media (max-width: 768px) {
     .modern-title {
