@@ -474,6 +474,87 @@
     color: #ccc;
 }
 
+/* --- 10. NEDEN BİZ (FEATURES) SECTION --- */
+.features-section {
+    padding: 100px 10%;
+    background-color: #f9f9f9; /* Hafif kırık beyaz, bölümleri birbirinden ayırır */
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+}
+
+.sub-title {
+    display: block;
+    color: #a68b5b; /* Toraman's Altın Rengi */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.modern-title {
+    font-size: 2.8rem;
+    color: #1d1d1f; /* Apple Siyahı */
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #f0f0f0;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    border-color: #a68b5b;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    color: #1d1d1f;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: #6e6e73; /* Apple Grisi */
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .modern-title {
+        font-size: 2rem;
+    }
+    .features-section {
+        padding: 60px 5%;
+    }
+}
+
 /* --- MODERN FOOTER --- */
 .footer {
     background: #1a1a1a; /* Koyu antrasit, çok daha premium durur */
