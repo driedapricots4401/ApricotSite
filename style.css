@@ -569,6 +569,15 @@
     margin: 0 auto;
 }
 
+.section-divider {
+    width: 60px;          /* Biraz daha daraltarak daha zarif hale getirdik */
+    height: 3px;
+    background: #a68b5b;   /* Marka rengin */
+    margin: 60px auto;     /* Üst ve alttan boşlukları dengeledik */
+    border-radius: 50px;
+    opacity: 0.6;          /* Hafif bir şeffaflık vererek gözü yormamasını sağladık */
+}
+
 /* --- MODERN FOOTER --- */
 .footer {
     background: #1a1a1a; /* Koyu antrasit, çok daha premium durur */
