@@ -555,22 +555,35 @@
     }
 }
 
-/* --- FAQ & AYIRICI TEMİZ KOD --- */
-.faq-section {
-    padding: 80px 10%; /* Boşluğu biraz daralttık */
-    background-color: #fbfbfd !important; /* Arka plan rengini garantiye aldık */
-    border-top: 1px solid #e5e5e7;
-    border-bottom: 1px solid #e5e5e7;
+/* --- 11. ANİMASYONLU BÖLÜM AYIRICI --- */
+.section-divider {
+    width: 0;                /* Başlangıçta genişlik sıfır (görünmez) */
+    height: 3px;             /* Zarif bir incelik (istersen 5px yapabilirsin) */
+    background: #a68b5b;      /* Toraman's Altın Rengi */
+    margin: 60px auto;       /* Üst ve alttan boşluk */
+    border-radius: 50px;     /* Yumuşak kenarlar */
+    opacity: 0;              /* Başlangıçta şeffaf */
+    display: block;
+    transform-origin: center; /* Ortadan dışarıya doğru büyümesi için kritik */
+    
+    /* Animasyonun yumuşaklığı ve süresi (1.5 saniye, yavaş başlayıp hızlanan) */
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 1s ease;
 }
 
-.section-divider {
-    width: 150px;           /* 60px'den 150px'e uzattık */
-    height: 5px;            /* 3px'den 5px'e kalınlaştırdık */
-    background: #a68b5b;    /* Marka rengin */
-    margin: 40px auto;      /* Boşlukları koruduk */
-    border-radius: 50px;    /* Kenarları hala yumuşak */
-    opacity: 0.8;           /* Görünürlüğü artırdık */
-    display: block;
+/* JavaScript bu sınıfı eklediğinde animasyon tetiklenir */
+.section-divider.animate-line {
+    width: 80%;              /* Ekranın %80'ine kadar uzat (tam uçlara gitmemesi daha şık) */
+    opacity: 0.8;            /* Görünür hale getir */
+}
+
+/* Mobil cihazlar için genişliği ayarla */
+@media (max-width: 768px) {
+    .section-divider.animate-line {
+        width: 90%;          /* Mobilde biraz daha geniş durabilir */
+    }
+    .section-divider {
+        margin: 40px auto;   /* Boşluğu mobilde daralt */
+    }
 }
 
 /* --- MODERN FOOTER --- */
