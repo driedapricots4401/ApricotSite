@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-    }  
+    });
     
     // 1. MAİL GÖNDERME BÖLÜMÜ (Hata korumalı)
     const contactForm = document.getElementById('contactForm');
