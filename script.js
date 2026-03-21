@@ -161,3 +161,4 @@ slider.addEventListener('wheel', (e) => {
         slider.scrollLeft += e.deltaY * 1.5;
     }
 }, { passive: false });
+}
