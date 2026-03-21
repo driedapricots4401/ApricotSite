@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, {
-            // Çizginin %50'si ekrana girdiğinde animasyon başlasın
-            threshold: 0.5 
+            // Çizginin %10'si ekrana girdiğinde animasyon başlasın
+            threshold: 0.1 
         });
         
         // Gözlemciyi başlat
