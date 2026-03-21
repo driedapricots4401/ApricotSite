@@ -555,6 +555,20 @@
     }
 }
 
+/* --- BÖLÜM AYIRICI DOKUNUŞU --- */
+.faq-section {
+    background-color: #fbfbfd; /* Apple'ın kullandığı çok hafif gri tonu */
+    border-top: 1px solid #e5e5e7; /* Üstten ince bir hat */
+    border-bottom: 1px solid #e5e5e7; /* Alttan ince bir hat */
+    padding: 100px 10%;
+}
+
+/* FAQ başlığı ve içeriği arasındaki dengeyi korumak için */
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 /* --- MODERN FOOTER --- */
 .footer {
     background: #1a1a1a; /* Koyu antrasit, çok daha premium durur */
