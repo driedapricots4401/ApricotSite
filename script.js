@@ -17,6 +17,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // FAQ Akordeon Kontrolü
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.parentElement;
+            item.classList.toggle('active');
+            
+            // Diğer açık olanları kapat (opsiyonel)
+            document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+        });
+    }  
     
     // 1. MAİL GÖNDERME BÖLÜMÜ (Hata korumalı)
     const contactForm = document.getElementById('contactForm');
