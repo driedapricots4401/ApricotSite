@@ -86,7 +86,7 @@ if (facilityWrapper) {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - facilityWrapper.offsetLeft;
-        const walk = (x - startX) * 2; // Kaydırma hızı
+        const walk = (x - startX) * 1; // Kaydırma hızı
         facilityWrapper.scrollLeft = scrollLeft - walk;
     });
 }
