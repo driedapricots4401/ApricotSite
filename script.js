@@ -58,35 +58,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Facility Scroll Sürükleme
-const facilitySlider = document.querySelector('.facility-scroll-wrapper');
-if (facilitySlider) {
+const facilityWrapper = document.querySelector('.facility-scroll-wrapper');
+if (facilityWrapper) {
     let isDown = false;
     let startX;
     let scrollLeft;
 
-    facilitySlider.addEventListener('mousedown', (e) => {
+    facilityWrapper.addEventListener('mousedown', (e) => {
         isDown = true;
-        facilitySlider.style.cursor = 'grabbing'; // Tıklayınca imleci değiştir
-        startX = e.pageX - facilitySlider.offsetLeft;
-        scrollLeft = facilitySlider.scrollLeft;
+        facilityWrapper.classList.add('active-grab');
+        startX = e.pageX - facilityWrapper.offsetLeft;
+        scrollLeft = facilityWrapper.scrollLeft;
+        facilityWrapper.style.cursor = 'grabbing';
     });
 
-    facilitySlider.addEventListener('mouseleave', () => { 
-        isDown = false; 
-        facilitySlider.style.cursor = 'grab'; 
+    facilityWrapper.addEventListener('mouseleave', () => {
+        isDown = false;
+        facilityWrapper.style.cursor = 'grab';
     });
 
-    facilitySlider.addEventListener('mouseup', () => { 
-        isDown = false; 
-        facilitySlider.style.cursor = 'grab'; 
+    facilityWrapper.addEventListener('mouseup', () => {
+        isDown = false;
+        facilityWrapper.style.cursor = 'grab';
     });
 
-    facilitySlider.addEventListener('mousemove', (e) => {
+    facilityWrapper.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         e.preventDefault();
-        const x = e.pageX - facilitySlider.offsetLeft;
-        const walk = (x - startX) * 2; 
-        facilitySlider.scrollLeft = scrollLeft - walk;
+        const x = e.pageX - facilityWrapper.offsetLeft;
+        const walk = (x - startX) * 2; // Kaydırma hızı
+        facilityWrapper.scrollLeft = scrollLeft - walk;
     });
 }
 
