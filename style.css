@@ -784,6 +784,68 @@
     }
 }
 
+/* --- 12. FACILITY (FABRİKA) SECTION --- */
+.facility-section {
+    padding: 120px 10%;
+    background: #fff;
+}
+
+.section-desc {
+    color: #666;
+    max-width: 600px;
+    margin: 20px auto 0;
+    line-height: 1.6;
+}
+
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.facility-card {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 450px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+}
+
+.facility-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.facility-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.facility-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: #fff;
+    text-align: left;
+    opacity: 0.9;
+}
+
+.facility-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.facility-card:hover img {
+    transform: scale(1.05);
+}
+
 /* --- İLETİŞİM BÖLÜMÜ --- */
 .contact {
     padding: 100px 5%;
