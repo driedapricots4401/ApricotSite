@@ -428,6 +428,7 @@ CSS
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x proximity;
     scrollbar-width: none;
+    display: block; /* İçeriğin genişliğini tam hesaplaması için */
 }
 
 .facility-scroll-wrapper::-webkit-scrollbar { display: none; }
@@ -435,7 +436,9 @@ CSS
 .facility-scroll-content {
     display: inline-flex;
     gap: 30px;
-    padding: 0 10%; /* Kaydırma içeriğini içeriden ortaladık */
+    padding-left: 10%;
+    /* padding-right değerini %10 yaparak en sağdaki kartın ekranda tam görünmesini ve arkasında boşluk kalmasını sağlıyoruz */
+    padding-right: 10%; 
 }
 
 .facility-card {
