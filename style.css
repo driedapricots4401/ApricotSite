@@ -1358,6 +1358,37 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 .scroll-item:hover .item-overlay h3,
 .scroll-item:hover .item-overlay p { transform: translateY(0); }
 
+/* Footer İletişim Hizalaması */
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    justify-content: flex-start; /* Mobilde 'center' yapabilirsin */
+}
+
+.footer-contact-item span {
+    font-size: 1.2rem;
+    min-width: 25px; /* İkonların hizalı durmasını sağlar */
+}
+
+.email-text {
+    font-size: 0.85rem !important; /* Uzun olduğu için fontu hafif küçülttük */
+    word-break: break-all; /* Çok küçük ekranlarda taşmayı önler */
+    color: #999;
+}
+
+/* Mobilde sütunları daha geniş yapalım */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Tek sütun */
+        text-align: center;
+    }
+    .footer-contact-item {
+        justify-content: center;
+    }
+}
+
 /* --- İpucu Animasyonu --- */
 .scroll-hint {
     text-align: center;
