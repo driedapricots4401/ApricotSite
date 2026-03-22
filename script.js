@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.style.color = '#e67e22';
 
             try {
-                const response = await fetch('https://formspree.io/f/xreyljzz', {
+                const response = await fetch('https://formspree.io/f/xdawronj', {
                     method: 'POST',
                     body: formData,
                     headers: { 'Accept': 'application/json' }
