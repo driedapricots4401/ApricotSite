@@ -404,66 +404,92 @@
     }
 }
 
-/* --- MODERN FACILITY SCROLL --- */
+Evet Kerem, en temiz sonuç için eski Facility CSS kodlarını silip yeni verdiklerimi eklemen en doğrusu olacaktır. Eski kodlar grid (ızgara) mantığına göre yazıldığı için, şu an yapmaya çalıştığımız scroll (kaydırma) mantığıyla çakışıyor ve o görüntü kirliliğine (yazıların taşmasına) neden oluyor.
+
+Şu adımları izleyerek ilerleyelim:
+
+1. Temizlik ve Güncelleme
+style.css dosyanın içindeki .facility-section, .facility-grid, .facility-card ve .facility-overlay ile başlayan tüm eski blokları sil. Yerine şu derlenmiş, Apple standartlarındaki paketi yapıştır:
+
+CSS
+/* --- 12. MODERN FACILITY SCROLL (GÜNCEL) --- */
+.facility-section {
+    padding: 100px 0; /* Yanlardaki padding'i sıfırladık ki çizgi tam uçlara gitsin */
+    background: #fff;
+}
+
 .facility-scroll-wrapper {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
-    padding: 20px 0 60px 0;
+    padding: 40px 0;
+    cursor: grab;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x proximity;
-    scrollbar-width: none; /* Firefox için scrollbar gizleme */
+    scrollbar-width: none;
 }
 
-.facility-scroll-wrapper::-webkit-scrollbar {
-    display: none; /* Chrome/Safari için scrollbar gizleme */
-}
+.facility-scroll-wrapper::-webkit-scrollbar { display: none; }
 
 .facility-scroll-content {
     display: inline-flex;
     gap: 30px;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding: 0 10%; /* Kaydırma içeriğini içeriden ortaladık */
 }
 
 .facility-card {
     position: relative;
-    width: 400px; /* Kart genişliği */
-    height: 500px; /* Kart yüksekliği */
+    width: 450px !important; /* Genişliği sabitledik */
+    height: 600px !important; /* Yüksekliği metinler için artırdık */
     border-radius: 30px;
     overflow: hidden;
-    flex-shrink: 0; /* Kartların büzülmesini engeller */
+    flex-shrink: 0;
     scroll-snap-align: center;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-    transition: transform 0.5s ease;
-}
-
-.facility-card:hover {
-    transform: scale(1.02);
-}
-
-/* Sürükleme İmleçleri */
-.facility-scroll-wrapper {
-    cursor: grab; /* Normalde açık el */
-}
-
-.facility-scroll-wrapper:active {
-    cursor: grabbing; /* Tıklandığında kapalı el */
-}
-
-/* Sürükleme sırasında kartların üzerindeki linklerin/resimlerin engellenmemesi için */
-.facility-card {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    /* Resmin ortasından tutmayı engelleyen tarayıcı özelliğini kapattık */
     user-select: none;
     -webkit-user-drag: none;
 }
 
-/* Mobilde kartları biraz küçültelim */
-@media (max-width: 768px) {
-    .facility-card {
-        width: 300px;
-        height: 400px;
-    }
+.facility-image {
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Mouse olaylarının resme takılmayıp kapsayıcıya geçmesini sağlar */
+}
+
+.facility-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.facility-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 40%; /* Yazı alanını genişlettik */
+    padding: 40px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent);
+    color: #fff;
+    white-space: normal; /* Yazıların alt alta geçmesini sağlar */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    pointer-events: none; /* Yazıya tıklayınca sürüklemenin bozulmasını engeller */
+}
+
+.facility-overlay h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.facility-overlay p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.8);
 }
 
 /* --- FAQ (AKORDEON) TASARIMI --- */
