@@ -443,6 +443,21 @@
     transform: scale(1.02);
 }
 
+/* Sürükleme İmleçleri */
+.facility-scroll-wrapper {
+    cursor: grab; /* Normalde açık el */
+}
+
+.facility-scroll-wrapper:active {
+    cursor: grabbing; /* Tıklandığında kapalı el */
+}
+
+/* Sürükleme sırasında kartların üzerindeki linklerin/resimlerin engellenmemesi için */
+.facility-card {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
 /* Mobilde kartları biraz küçültelim */
 @media (max-width: 768px) {
     .facility-card {
