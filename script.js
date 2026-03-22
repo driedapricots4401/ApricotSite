@@ -66,12 +66,20 @@ if (facilitySlider) {
 
     facilitySlider.addEventListener('mousedown', (e) => {
         isDown = true;
+        facilitySlider.style.cursor = 'grabbing'; // Tıklayınca imleci değiştir
         startX = e.pageX - facilitySlider.offsetLeft;
         scrollLeft = facilitySlider.scrollLeft;
     });
 
-    facilitySlider.addEventListener('mouseleave', () => { isDown = false; });
-    facilitySlider.addEventListener('mouseup', () => { isDown = false; });
+    facilitySlider.addEventListener('mouseleave', () => { 
+        isDown = false; 
+        facilitySlider.style.cursor = 'grab'; 
+    });
+
+    facilitySlider.addEventListener('mouseup', () => { 
+        isDown = false; 
+        facilitySlider.style.cursor = 'grab'; 
+    });
 
     facilitySlider.addEventListener('mousemove', (e) => {
         if (!isDown) return;
