@@ -404,14 +404,7 @@
     }
 }
 
-Evet Kerem, en temiz sonuç için eski Facility CSS kodlarını silip yeni verdiklerimi eklemen en doğrusu olacaktır. Eski kodlar grid (ızgara) mantığına göre yazıldığı için, şu an yapmaya çalıştığımız scroll (kaydırma) mantığıyla çakışıyor ve o görüntü kirliliğine (yazıların taşmasına) neden oluyor.
 
-Şu adımları izleyerek ilerleyelim:
-
-1. Temizlik ve Güncelleme
-style.css dosyanın içindeki .facility-section, .facility-grid, .facility-card ve .facility-overlay ile başlayan tüm eski blokları sil. Yerine şu derlenmiş, Apple standartlarındaki paketi yapıştır:
-
-CSS
 /* --- 12. MODERN FACILITY SCROLL (GÜNCEL) --- */
 .facility-section {
     padding: 100px 0; /* Yanlardaki padding'i sıfırladık ki çizgi tam uçlara gitsin */
