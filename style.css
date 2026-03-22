@@ -404,20 +404,23 @@
     }
 }
 
-Kerem, istediğin o Apple tarzı "Edge-to-Edge" (uçtan uca) kaydırma hissini veren, kartların ekranın sağ sınırına kadar uzandığı CSS kodlarının en güncel ve tam hali aşağıdadır.
+/* --- MODERN FACILITY & GALLERY SCROLL (EDGE-TO-EDGE) --- */
 
-Bu yapıda kart genişliğini ekran yüzdesi (vw) olarak ayarladık, böylece her cihazda 2. fotoğraftaki o akıcı ve sağa yapışık görüntüyü yakalayacaksın.
-
-style.css - Güncellenmiş Tam Facility Bölümü
-CSS
-/* --- 12. MODERN FACILITY SCROLL (EDGE-TO-EDGE GÜNCEL) --- */
-.facility-section {
-    padding: 80px 0;
+/* 1. Dış Kapsayıcı: Ekranın tam genişliğini kullanmalı */
+.facility-section, .modern-scroll-gallery {
+    padding: 80px 0 !important; /* Sağ ve sol padding'i SIFIRLADIK */
     background: #fff;
-    overflow: hidden; /* Sayfanın sağa doğru taşmasını (ana scroll çıkmasını) engeller */
+    overflow: hidden; /* Sayfanın sağa doğru taşmasını engeller */
 }
 
-.facility-scroll-wrapper {
+/* 2. İçerik Başlıkları: Hala içeride (%10) durmalı */
+.section-header, .gallery-intro {
+    padding: 0 10% !important; /* Yazılar logo hizasında kalsın */
+    margin-bottom: 40px;
+}
+
+/* 3. Kaydırma Alanı */
+.facility-scroll-wrapper, .scroll-container-wrapper {
     width: 100%;
     overflow-x: auto; /* Yatay kaydırmayı aktifleştirir */
     overflow-y: hidden;
@@ -428,22 +431,25 @@ CSS
     scrollbar-width: none; /* Firefox scrollbar gizle */
 }
 
-.facility-scroll-wrapper::-webkit-scrollbar { 
+.facility-scroll-wrapper::-webkit-scrollbar, 
+.scroll-container-wrapper::-webkit-scrollbar { 
     display: none; /* Chrome/Safari scrollbar gizle */
 }
 
-.facility-scroll-content {
+/* 4. Kartların Dizildiği Esnek Kutu */
+.facility-scroll-content, .scroll-content {
     display: inline-flex; /* Kartları yan yana, içerik genişliği kadar serbest dizer */
     gap: 25px;
-    padding-left: 10%; /* İlk kartın soldaki hizası */
-    padding-right: 10%; /* En sağdaki kartın bittiği yerdeki boşluk hissi */
+    padding-left: 10% !important; /* İlk kartın soldaki hizası (Kritik nokta) */
+    padding-right: 10% !important; /* En sağdaki kartın bittiği yerdeki boşluk hissi */
 }
 
-.facility-card {
+/* 5. Kart Tasarımı */
+.facility-card, .scroll-item {
     position: relative;
     /* Kart genişliği: Ekranın %28'i (Böylece 3 kart sığar, 4. sağdan göz kırpar) */
     width: 28vw !important; 
-    height: 600px !important; /* İstediğin o büyük ve heybetli boyut */
+    height: 550px !important; /* Heybetli boyut */
     border-radius: 35px;
     overflow: hidden;
     flex-shrink: 0; /* Kartların büzülmesini engeller */
@@ -455,32 +461,27 @@ CSS
     -webkit-user-drag: none;
 }
 
-.facility-image {
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Sürükleme takılmalarını önler */
-}
-
-.facility-image img {
+/* 6. Görsel ve Overlay Ayarları */
+.facility-image img, .scroll-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    pointer-events: none; /* Sürükleme takılmalarını önler */
 }
 
-/* Hover durumunda resmin yavaşça yaklaşması */
-.facility-card:hover .facility-image img {
-    transform: scale(1.08);
+.facility-card:hover img, .scroll-item:hover img {
+    transform: scale(1.08); /* Hover durumunda resmin yavaşça yaklaşması */
 }
 
-.facility-overlay {
+.facility-overlay, .item-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     min-height: 45%;
     padding: 40px;
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, transparent);
     color: #fff;
     white-space: normal; /* Yazıların alt alta geçmesini sağlar */
     display: flex;
@@ -489,35 +490,21 @@ CSS
     pointer-events: none;
 }
 
-.facility-overlay h3 {
-    font-size: 1.7rem;
-    margin-bottom: 12px;
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.facility-overlay p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.85);
-    margin: 0;
-}
-
 /* --- MOBİL VE TABLET UYUMLULUĞU --- */
 @media (max-width: 1024px) {
-    .facility-card {
+    .facility-card, .scroll-item {
         width: 45vw !important; /* Tablette 2 kart sığar */
         height: 500px !important;
     }
 }
 
 @media (max-width: 768px) {
-    .facility-card {
+    .facility-card, .scroll-item {
         width: 80vw !important; /* Mobilde tek büyük kart */
         height: 450px !important;
     }
-    .facility-scroll-content {
-        padding-left: 7%;
+    .facility-scroll-content, .scroll-content {
+        padding-left: 7% !important; /* Mobilde biraz daha geniş başlasın */
     }
 }
 
