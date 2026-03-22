@@ -404,108 +404,42 @@
     }
 }
 
-/* --- 12. MODERN FACILITY SCROLL (3'LÜ TAM GÖRÜNÜM) --- */
-.facility-section {
-    padding: 100px 0;
-    background: #fff;
-    overflow: hidden; /* Taşmaları önlemek için */
-}
-
-.facility-scroll-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-    padding: 40px 0;
-    cursor: grab;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory; /* Kartların tam oturması için mandatory yaptık */
-    scrollbar-width: none;
-    display: block;
-}
-
-.facility-scroll-wrapper::-webkit-scrollbar { display: none; }
-
+/* --- 12. MODERN FACILITY SCROLL (TAM SİMETRİ) --- */
 .facility-scroll-content {
-    display: inline-flex;
-    /* Kartlar arası boşluğu ve kenar boşluklarını hesaplıyoruz */
-    gap: 20px; 
-    padding-left: 5%; 
-    padding-right: 5%;
+    display: grid;
+    /* Ekranı tam olarak 3 eşit kolona böler, araya 20px boşluk bırakır */
+    grid-template-columns: repeat(6, calc((100vw - (10% + 40px)) / 3)); 
+    gap: 20px;
+    padding: 0 5%; /* Sağdan ve soldan %5 nefes payı */
+    width: max-content; /* İçeriğin genişliğini otomatik hesaplar */
 }
 
 .facility-card {
     position: relative;
-    /* Matematik: (Ekran genişliği - Yan boşluklar - Kart arası boşluklar) / 3 */
-    width: calc((100vw - (10% + 40px)) / 3) !important; 
-    height: 550px !important; 
+    width: 100% !important; /* Grid kolonuna tam yayılır */
+    height: 550px !important;
     border-radius: 30px;
     overflow: hidden;
-    flex-shrink: 0;
-    scroll-snap-align: center; /* Kaydırınca kartın ortalanmasını sağlar */
+    scroll-snap-align: start; /* Kaydırınca tam kenara oturur */
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     user-select: none;
     -webkit-user-drag: none;
 }
 
-.facility-image {
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.facility-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.facility-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    min-height: 40%;
-    padding: 30px;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent);
-    color: #fff;
-    white-space: normal;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    pointer-events: none;
-}
-
-.facility-overlay h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.facility-overlay p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(255,255,255,0.8);
-}
-
-/* --- MOBİL VE TABLET UYUMLULUĞU --- */
+/* Mobil ve Tablet için Grid Ayarı */
 @media (max-width: 1024px) {
-    .facility-card {
-        /* Tabletlerde 2 kart tam görünür */
-        width: calc((100vw - (10% + 20px)) / 2) !important;
-        height: 450px !important;
+    .facility-scroll-content {
+        grid-template-columns: repeat(6, calc((100vw - (10% + 20px)) / 2));
     }
+    .facility-card { height: 450px !important; }
 }
 
 @media (max-width: 768px) {
-    .facility-card {
-        /* Mobilde tek kart ve yanda diğerinin ucu görünür (80vw) */
-        width: 80vw !important;
-        height: 400px !important;
-    }
     .facility-scroll-content {
+        grid-template-columns: repeat(6, 80vw);
         padding-left: 10%;
     }
+    .facility-card { height: 400px !important; }
 }
 
 /* --- FAQ (AKORDEON) TASARIMI --- */
