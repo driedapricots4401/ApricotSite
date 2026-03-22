@@ -1358,24 +1358,43 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 .scroll-item:hover .item-overlay h3,
 .scroll-item:hover .item-overlay p { transform: translateY(0); }
 
-/* Footer İletişim Hizalaması */
-.footer-contact-item {
+/* Footer İletişim Düzeni */
+.footer-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.contact-item {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 15px;
-    justify-content: flex-start; /* Mobilde 'center' yapabilirsin */
+    justify-content: flex-start; /* Sola yaslı, daha kurumsal durur */
 }
 
-.footer-contact-item span {
+.contact-item .icon {
     font-size: 1.2rem;
-    min-width: 25px; /* İkonların hizalı durmasını sağlar */
+    min-width: 24px;
 }
 
-.email-text {
-    font-size: 0.85rem !important; /* Uzun olduğu için fontu hafif küçülttük */
-    word-break: break-all; /* Çok küçük ekranlarda taşmayı önler */
+.contact-item p {
+    margin: 0;
     color: #999;
+    font-size: 0.95rem;
+}
+
+/* Uzun E-posta Özel Ayarı */
+.long-email {
+    font-size: 0.85rem !important; /* Bir tık küçülttük ki sığsın */
+    word-break: break-all; /* Çok dar ekranlarda kelimeyi böler, taşma yapmaz */
+}
+
+/* Mobilde her şeyi ortalamak istersen */
+@media (max-width: 768px) {
+    .contact-item {
+        justify-content: center;
+    }
 }
 
 /* Mobilde sütunları daha geniş yapalım */
