@@ -89,6 +89,39 @@ if (facilitySlider) {
         facilitySlider.scrollLeft = scrollLeft - walk;
     });
 }
+
+    // Facility Scroll Sürükleme - Tam Tetikleme
+const facilitySliderNew = document.querySelector('.facility-scroll-wrapper');
+if (facilitySliderNew) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    facilitySliderNew.addEventListener('mousedown', (e) => {
+        isDown = true;
+        facilitySliderNew.style.cursor = 'grabbing';
+        startX = e.pageX - facilitySliderNew.offsetLeft;
+        scrollLeft = facilitySliderNew.scrollLeft;
+    });
+
+    facilitySliderNew.addEventListener('mouseleave', () => { 
+        isDown = false; 
+        facilitySliderNew.style.cursor = 'grab'; 
+    });
+
+    facilitySliderNew.addEventListener('mouseup', () => { 
+        isDown = false; 
+        facilitySliderNew.style.cursor = 'grab'; 
+    });
+
+    facilitySliderNew.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - facilitySliderNew.offsetLeft;
+        const walk = (x - startX) * 2; 
+        facilitySliderNew.scrollLeft = scrollLeft - walk;
+    });
+}
     
     // 1. MAİL GÖNDERME BÖLÜMÜ (Hata korumalı)
     const contactForm = document.getElementById('contactForm');
