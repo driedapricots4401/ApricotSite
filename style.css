@@ -404,6 +404,53 @@
     }
 }
 
+/* --- MODERN FACILITY SCROLL --- */
+.facility-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 20px 0 60px 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none; /* Firefox için scrollbar gizleme */
+}
+
+.facility-scroll-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome/Safari için scrollbar gizleme */
+}
+
+.facility-scroll-content {
+    display: inline-flex;
+    gap: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.facility-card {
+    position: relative;
+    width: 400px; /* Kart genişliği */
+    height: 500px; /* Kart yüksekliği */
+    border-radius: 30px;
+    overflow: hidden;
+    flex-shrink: 0; /* Kartların büzülmesini engeller */
+    scroll-snap-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    transition: transform 0.5s ease;
+}
+
+.facility-card:hover {
+    transform: scale(1.02);
+}
+
+/* Mobilde kartları biraz küçültelim */
+@media (max-width: 768px) {
+    .facility-card {
+        width: 300px;
+        height: 400px;
+    }
+}
+
 /* --- FAQ (AKORDEON) TASARIMI --- */
 .faq-section {
     padding: 100px 10%;
