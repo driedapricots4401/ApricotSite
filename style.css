@@ -1525,45 +1525,54 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
 .overlay-image { width: 100%; height: 100%; object-fit: cover; }
 
 @media (max-width: 768px) {
-    /* Metin ve görsel arasındaki çakışmayı önlemek için kapsayıcıyı düzeltiyoruz */
+    /* Sayfa genel boşluğu ve metin hizalama */
+    .about-modern {
+        padding: 100px 5% 60px 5% !important;
+        text-align: center;
+    }
+
     .about-modern-content {
-        flex-direction: column !important; /* Metin üstte, resim altta olsun */
-        gap: 20px !important;
+        flex-direction: column !important;
+        align-items: center;
+        gap: 0 !important;
     }
 
     .about-modern-text {
         width: 100% !important;
-        margin-bottom: 30px !important; /* Resimle arasına boşluk koyar */
+        margin-bottom: 50px !important;
     }
 
-    /* Görsel alanını mobilde yeniden yapılandırıyoruz */
+    /* Görsel Alanı: Kapsayıcıyı daraltıp şıklaştıralım */
     .about-modern-visuals {
-        position: relative !important; /* Artık metnin altına itilebilir hale gelir */
-        height: 450px !important; /* Toplam yüksekliği ayarladık */
-        width: 100% !important;
-        margin-top: 20px !important;
+        position: relative !important;
+        width: 90% !important; /* Ekranın tamamını kaplamasın, daha zarif durur */
+        height: 380px !important;
+        margin: 0 auto !important;
     }
 
-    /* Büyük (Arka) Resim */
+    /* Arka Plan (Büyük) Resim */
     .main-image-wrapper {
-        position: relative !important; /* Akışı bozmaması için relative yaptık */
-        width: 100% !important;
-        height: 300px !important;
+        position: relative !important;
+        width: 85% !important; /* Sağa yaslı kalsın */
+        height: 280px !important;
+        margin-left: auto !important;
         right: 0 !important;
         top: 0 !important;
+        border-radius: 20px !important;
         z-index: 1;
     }
 
-    /* Küçük (Ön) Resim */
+    /* Ön Plan (Küçük) Resim: Apple stili üst üste binme */
     .overlay-image-wrapper {
-        position: absolute !important; /* Büyük resmin üzerine binmesi için absolute kalmalı */
-        width: 65% !important;
-        height: 220px !important;
-        bottom: 0 !important; /* Alt kısma yasla */
-        left: 0 !important; /* Sola yasla */
-        top: auto !important;
-        z-index: 2; /* Büyük resmin üstünde görünmesini sağlar */
-        border: 6px solid #ffffaf !important; /* Arka plan renginle uyumlu beyaz çerçeve */
+        position: absolute !important;
+        width: 60% !important;
+        height: 180px !important;
+        bottom: 20px !important; /* Alta sarkmasın, içeride kalsın */
+        left: 0 !important; /* Sola yaslı kalsın */
+        z-index: 2;
+        border: 4px solid #fffaf0 !important; /* Arka plan renginle sıfıra sıfır uyum */
+        border-radius: 15px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
     }
 }
 
