@@ -283,13 +283,13 @@
         height: auto !important; /* Tüm ekranı kaplamasın */
         
         /* Örnekteki gibi modern buzlu cam efekti */
-        background: rgba(255, 255, 255, 0.75) !important; 
-        backdrop-filter: blur(25px) saturate(180%) !important;
-        -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+        background: rgba(255, 255, 255, 0.85) !important; 
+        backdrop-filter: blur(40px) saturate(180%) contrast(90%);
+        -webkit-backdrop-filter: blur(40px) saturate(180%) contrast(90%);
         
         /* Köşeli ve şık tasarım */
         border-radius: 16px; /* Köşeleri yuvarla */
-        border: 1px solid rgba(255, 255, 255, 0.3); /* İnce beyaz çerçeve */
+        border: 1px solid rgba(255, 255, 255, 0.4); /* İnce beyaz çerçeve */
         
         /* Düzen ayarları */
         display: flex !important;
@@ -305,7 +305,7 @@
         z-index: 1001; /* Navbar'ın üstünde */
         
         /* Gölge efekti (kartı derinleştirir) */
-        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         
         /* İçeriden boşluklar */
         padding: 25px 30px !important;
@@ -330,6 +330,7 @@
         font-weight: 600 !important;
         color: #1d1d1f !important;
         text-transform: capitalize; /* Sadece baş harfler büyük olsun, daha kurumsal */
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Yazı altına hafif aydınlık */
         letter-spacing: -0.5px;
         transition: color 0.3s ease;
         padding: 5px 0;
