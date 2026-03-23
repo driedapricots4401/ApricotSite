@@ -295,33 +295,51 @@
         letter-spacing: 1px;
     }
 
-    /* Dil Seçici: Silikliği Gidermek İçin */
+    /* Dil Seçici Konteyneri */
     .lang-switcher {
-        margin-top: 50px !important;
-        display: flex !important;
+        margin-top: 60px !important;
+        display: inline-flex !important; /* Sadece içeriği kadar yer kaplasın */
         align-items: center;
-        gap: 25px; /* TR ve EN arasını açtık */
-        padding: 15px 30px !important;
-        background: #f5f5f7 !important; /* Hafif gri bir kapsül arka planı */
-        border-radius: 50px;
-        border: 1px solid rgba(0,0,0,0.05); /* Çok ince bir çerçeve */
+        background: #f2f2f7 !important; /* Apple'ın açık gri sistem rengi */
+        padding: 6px !important; /* Butonların etrafındaki ince boşluk */
+        border-radius: 14px; /* Köşeleri daha yumuşak yapalım */
+        border: 1px solid rgba(0,0,0,0.05);
+        margin-left: 0 !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
+    /* Her bir Dil Butonu */
     .lang-btn {
-        font-size: 18px !important;
+        font-size: 16px !important;
         font-weight: 700 !important;
-        color: #86868b !important; /* Pasif olanlar gri */
-        opacity: 1 !important; /* Silikliği zorla kaldırıyoruz */
+        color: #86868b !important; /* Pasif renk */
+        padding: 10px 25px !important;
+        border-radius: 10px !important;
+        text-decoration: none !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        background: transparent !important;
     }
 
+    /* Aktif Dil Butonu (TR veya EN seçiliyken) */
     .lang-btn.active {
-        color: #a68b5b !important; /* Aktif olan senin altın rengin */
+        color: #fff !important; /* Yazı beyaz olsun */
+        background: #a68b5b !important; /* Senin marka altın rengin arka plan olsun */
+        box-shadow: 0 4px 10px rgba(166, 139, 91, 0.3); /* Hafif altın ışıltısı */
     }
 
+    /* Aradaki çizgiyi kaldıralım, butonlar ayrışınca gerek kalmayacak */
     .lang-divider {
-        color: #d2d2d7;
-        font-weight: 300;
+        display: none !important;
     }
+
+    /* Menü linklerine son bir dokunuş (daha dolgun durması için) */
+    .nav-links a {
+        font-size: 32px !important; 
+        font-weight: 900 !important;
+        color: #1d1d1f !important;
+        letter-spacing: -1px !important; /* Harfleri biraz yakınlaştırarak daha premium durmasını sağladık */
+    }
+}
 }
 
 /* --- HERO (KAPAK) AYARLARI --- */
