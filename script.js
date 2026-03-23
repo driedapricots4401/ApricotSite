@@ -18,6 +18,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+     // --- YENİ: AÇILIR KAPANIR NAVBAR ---
+    document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Linklerden birine tıklandığında menüyü kapat
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+});
+
     // --- YENİ: ANİMASYONLU AYIRICI ÇİZGİ TETİKLEYİCİSİ ---
     const dividerLine = document.querySelector('.section-divider');
     
