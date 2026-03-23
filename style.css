@@ -259,25 +259,30 @@
 /* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
 @media (max-width: 768px) {
     /* Menü Paneli */
-.nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%; 
-        width: 85%;
-        height: 100vh;
-        /* Arka planı %40 opaklığa düşürdük, böylece bilgisayardaki gibi saydam duracak */
-        background: rgba(255, 255, 255, 0.4) !important; 
-        /* Bulanıklığı artırarak saydamlıkta bile yazıların okunmasını sağlıyoruz */
-        backdrop-filter: blur(20px) saturate(180%);
-        -webkit-backdrop-filter: blur(20px) saturate(180%);
-        z-index: 9999 !important;
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center; 
-        align-items: center;
-        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        /* Saydam menünün kenarını belli etmek için çok hafif bir beyaz çizgi */
-        border-left: 1px solid rgba(255, 255, 255, 0.2);
+    .navbar {
+            /* 1. Fotoğraftaki %40 saydamlık ve bulanıklık ayarı */
+            background: rgba(255, 255, 255, 0.4) !important; 
+            backdrop-filter: blur(15px) saturate(150%) !important;
+            -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
+            
+            /* Şeridin alt kısmına çok ince, zarif bir hat ekleyelim (bilgisayardaki gibi) */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+            
+            /* Gölgeyi bilgisayardaki gibi hafifletelim */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05) !important;
+            
+            /* Mobilde şeridin yüksekliğini sabit tutalım */
+            padding: 10px 5% !important;
+            min-height: 70px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+        }
+
+    /* Logo mobilde çok büyükse biraz küçülterek zarif durmasını sağlayalım */
+    #nav-logo {
+        height: 45px !important;
+        width: auto !important;
     }
 
     .nav-links.active {
