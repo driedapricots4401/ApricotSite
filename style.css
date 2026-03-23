@@ -258,75 +258,72 @@
 
 /* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
 @media (max-width: 768px) {
-    /* Menü Paneli: Buzlu cam efekti ve sağdan geliş */
+    /* Menü Paneli */
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%; 
-        width: 80%; /* Ekranın tamamını boğmaması için %80 idealdir */
+        width: 85%; /* Biraz daha genişletelim ki metinler rahat nefes alsın */
         height: 100vh;
-        background: rgba(255, 255, 255, 0.85) !important; /* %85 opaklık */
-        backdrop-filter: blur(20px); /* Arka planı bulanıklaştırır */
-        -webkit-backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.94) !important; /* Daha az şeffaf, daha okunaklı */
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
         z-index: 9999 !important;
         display: flex !important;
         flex-direction: column;
-        justify-content: center; /* Linkleri dikeyde ortalar */
-        align-items: flex-start; /* Linkleri sola yaslar */
-        padding-left: 15%; /* Soldan şık bir boşluk bırakır */
-        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+        justify-content: center; 
+        align-items: center; /* Yazıları tam ortaya alalım (Görsele göre daha dengeli durur) */
+        padding: 0;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Menü açıldığında konumu */
     .nav-links.active {
         right: 0;
     }
 
-    /* Linklerin görünümü */
     .nav-links li {
-        margin: 12px 0 !important;
+        margin: 20px 0 !important; /* Araları iyice açalım */
         width: 100%;
-        opacity: 0;
-        transform: translateX(20px);
-        transition: 0.4s ease;
-    }
-
-    /* Menü açılınca linklerin sırayla gelmesi için (Opsiyonel ama şıktır) */
-    .nav-links.active li {
-        opacity: 1;
-        transform: translateX(0);
+        text-align: center;
     }
 
     .nav-links a {
-        font-size: 24px !important; /* Daha büyük ve okunabilir font */
-        font-weight: 700 !important;
-        color: #1d1d1f !important; /* Apple koyu grisi */
-        text-decoration: none;
-        display: block;
-        transition: color 0.3s ease;
+        font-size: 28px !important; /* Yazıları ciddi oranda büyüttük */
+        font-weight: 800 !important; /* Kalın ve tok bir görünüm */
+        color: #1d1d1f !important; 
+        text-transform: uppercase; /* Daha kurumsal bir hava için büyük harf */
+        letter-spacing: 1px;
     }
 
-    .nav-links a:hover {
-        color: #a68b5b !important; /* Marka altın rengin */
-    }
-
-    /* Dil Seçici (TR/EN) Alanı */
+    /* Dil Seçici: Silikliği Gidermek İçin */
     .lang-switcher {
-        margin-top: 30px !important;
-        padding: 8px 15px !important;
-        background: rgba(166, 139, 91, 0.1) !important;
-        border-radius: 50px;
+        margin-top: 50px !important;
         display: flex !important;
-        gap: 10px;
-        margin-left: 0 !important;
+        align-items: center;
+        gap: 25px; /* TR ve EN arasını açtık */
+        padding: 15px 30px !important;
+        background: #f5f5f7 !important; /* Hafif gri bir kapsül arka planı */
+        border-radius: 50px;
+        border: 1px solid rgba(0,0,0,0.05); /* Çok ince bir çerçeve */
     }
 
     .lang-btn {
-        font-size: 14px !important;
-        font-weight: 600 !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #86868b !important; /* Pasif olanlar gri */
+        opacity: 1 !important; /* Silikliği zorla kaldırıyoruz */
+    }
+
+    .lang-btn.active {
+        color: #a68b5b !important; /* Aktif olan senin altın rengin */
+    }
+
+    .lang-divider {
+        color: #d2d2d7;
+        font-weight: 300;
     }
 }
+
 /* --- HERO (KAPAK) AYARLARI --- */
 .hero {
     height: 100vh;
