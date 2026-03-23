@@ -257,63 +257,73 @@
 }
 
 /* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
+Kerem, hem o inatçı "hayalet buton" sorununu çözen hem de sayfa aşağı kaysa bile seninle gelen (fixed) en temiz ve tam mobil CSS kodun aşağıdadır.
+
+Bu kodda visibility: hidden ve pointer-events: none ekleyerek, menü kapalıyken kullanıcının yanlışlıkla bir yerlere tıklamasını tamamen engelledik.
+
+style.css dosandaki mevcut @media (max-width: 768px) bloğunu tamamen silip yerine bu bloğu yapıştır:
+
+%100 Güvenli ve Sabit (Fixed) Mobil CSS
+CSS
+/* --- MOBİL TASARIM (KESİN ÇÖZÜM - TAM SÜRÜM) --- */
 @media (max-width: 768px) {
 
     /* 1. SABİT ÜST ŞERİT (NAVBAR) */
     .navbar {
-        position: fixed !important; /* Sayfayla beraber aşağı gelir */
+        position: fixed !important; 
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        background: #ffffff !important; /* Net beyaz arkaplan */
+        background: #ffffff !important;
         border-bottom: 1px solid #f0f0f0 !important;
         padding: 10px 5% !important;
         min-height: 70px !important;
-        z-index: 10000 !important; /* İçeriklerin üstünde kalmasını sağlar */
+        z-index: 10000 !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
         box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
     }
 
-    /* Logo Boyutu */
     #nav-logo {
         height: 40px !important;
         width: auto !important;
     }
 
-    /* 2. KART MENÜ: Sağ Üstte Asılı Net Beyaz Kutu */
+    /* 2. KART MENÜ: Hayalet Tıklama Korumalı Tasarım */
     .nav-links {
         position: fixed !important;
-        top: 75px; /* Navbar'ın hemen altı */
+        top: 75px; 
         right: 20px;
-        width: 240px; /* Şık ve kompakt genişlik */
+        width: 240px;
         height: auto !important;
         background: #ffffff !important;
         border-radius: 20px;
         border: 1px solid #f0f0f0 !important;
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         
-        /* Düzen ve Gizleme */
-        display: none !important; /* JS 'active' sınıfıyla kontrol edilir */
+        display: flex !important; 
         flex-direction: column;
         padding: 25px 20px !important;
         z-index: 10001 !important;
-        
-        /* Geçiş Efekti */
-        opacity: 0;
+
+        /* --- KRİTİK GİZLEME AYARLARI --- */
+        opacity: 0; /* Görünmez yap */
+        visibility: hidden; /* Tarayıcı etkileşiminden çıkar */
+        pointer-events: none; /* Tıklamaları "delip geçmesini" sağla */
         transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition: all 0.3s ease;
     }
 
-    /* Menü Aktifken Görünürlük */
+    /* Menü Aktifken (Açıldığında) */
     .nav-links.active {
-        display: flex !important;
         opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important; /* Tıklamaları tekrar aç */
         transform: translateY(0);
     }
 
-    /* 3. MENÜ İÇİNDEKİ LİNKLER */
+    /* 3. MENÜ LİNKLERİ VE ALT ÇİZGİ DÜZELTMESİ */
     .nav-links li {
         margin: 12px 0 !important;
         width: 100%;
@@ -325,17 +335,36 @@
         font-weight: 700 !important;
         color: #1d1d1f !important;
         text-decoration: none;
-        display: block;
-        padding: 5px 0;
+        display: inline-block !important; /* Çizgi kelime boyunda kalsın */
+        position: relative;
+        padding-bottom: 5px;
     }
 
-    /* Hover ve Aktif Sayfa Rengi: Toraman's Altın Sarısı */
-    .nav-links a:hover, 
+    /* Aktiflik Çizgisi Ayarı */
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0px !important; /* Yazının içine girmemesi için */
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #a68b5b;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: right;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
     .nav-links a.active {
         color: #a68b5b !important;
     }
 
-    /* 4. DİL SEÇİCİ (TR/EN) */
+    /* 4. DİL SEÇİCİ */
     .mobile-lang-container {
         margin-top: 15px !important;
         padding-top: 15px !important;
@@ -352,20 +381,9 @@
         border-radius: 50px;
     }
 
-    .lang-btn {
-        font-size: 14px !important;
-        font-weight: 700 !important;
-        color: #888 !important;
-    }
-
-    .lang-btn.active {
-        color: #a68b5b !important;
-    }
-
-    /* 5. İÇERİK KAYMASINI ÖNLEME */
-    /* Navbar 'fixed' olduğu için ilk bölümün üzerine binmemesi için boşluk bırakır */
+    /* 5. SAYFA DÜZENİ */
     body {
-        padding-top: 70px !important;
+        padding-top: 70px !important; /* Navbar'ın içeriği kapatmasını önler */
     }
 }
 
