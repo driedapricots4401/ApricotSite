@@ -123,6 +123,86 @@
     }
 }
 
+/* --- NAVBAR GENEL (DEĞİŞTİR) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+/* Hamburger Menü Butonu (Yeni Eklenecek) */
+.menu-toggle {
+    display: none; /* Masaüstünde görünmez */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #a68b5b; /* Senin altın rengin */
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 5% !important;
+    }
+
+    .menu-toggle {
+        display: flex; /* Mobilde hamburger görünür */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Menü kapalıyken ekranın sağında gizli */
+        width: 75%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    /* Menü aktif olduğunda ekrana gelir */
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0 !important;
+    }
+
+    .nav-links a {
+        font-size: 18px !important;
+    }
+
+    .lang-switcher {
+        margin-top: 30px;
+        margin-left: 0 !important;
+    }
+
+    /* Hamburger İkonu Animasyonu */
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
 /* --- HERO (KAPAK) AYARLARI --- */
 .hero {
     height: 100vh;
@@ -190,61 +270,6 @@
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 15px 35px rgba(166, 139, 91, 0.5) !important;
     filter: brightness(1.1);
-}
-
-/* --- HAMBURGER MENÜ TASARIMI --- */
-.menu-toggle {
-    display: none; /* Masaüstünde gizli */
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    transition: 0.3s;
-    border-radius: 2px;
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* Mobilde görünür */
-        z-index: 1001;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Başlangıçta ekranın dışında */
-        width: 70%;
-        height: 100vh;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-    }
-
-    .nav-links.active {
-        right: 0; /* Menü açıldığında içeri girer */
-    }
-
-    .nav-links li {
-        margin: 20px 0 !important;
-    }
-
-    .nav-links a {
-        font-size: 18px !important;
-    }
-
-    /* Menü açıldığında hamburger ikonunun "X" olması için */
-    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
 /* --- APPLE STYLE ÜRÜN KARTLARI --- */
