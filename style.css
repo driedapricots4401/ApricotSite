@@ -259,64 +259,59 @@
 /* --- MOBİL TASARIM (KESİN ÇÖZÜM - TAM SÜRÜM) --- */
 @media (max-width: 768px) {
 
-    /* 1. SABİT NAVBAR */
+    /* 1. NAVBAR (SABİT ÜST ŞERİT) */
     .navbar {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
         background: #ffffff !important;
-        border-bottom: 1px solid #f0f0f0 !important;
-        padding: 10px 5% !important;
+        z-index: 10000 !important; /* Navbar her zaman üstte */
         min-height: 70px !important;
-        z-index: 10000 !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
+        padding: 0 5% !important;
         box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
     }
 
-    #nav-logo {
-        height: 40px !important;
-        width: auto !important;
-    }
-
-    /* 2. KART MENÜ (DÜZELTİLMİŞ YAPI) */
+    /* 2. KART MENÜ (GİZLEME VE KATMAN DÜZELTMESİ) */
     .nav-links {
         position: fixed !important;
         top: 80px; 
         right: 20px;
         width: 260px;
-        height: auto !important;
         background: #ffffff !important;
         border-radius: 20px;
         border: 1px solid #f0f0f0 !important;
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         
-        display: none !important; /* JS İÇİN: Varsayılan olarak tamamen kapalı */
+        display: flex !important; 
         flex-direction: column;
         padding: 30px 25px !important;
-        z-index: 10001 !important;
-        
-        /* Animasyon hazırlığı */
+
+        /* --- KRİTİK DEĞİŞİKLİK: MENÜ KAPALIYKEN --- */
         opacity: 0;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        visibility: hidden;
+        pointer-events: none; /* Tıklamayı engelle */
+        z-index: -1000 !important; /* En alt katmana gönder */
+        transform: translateY(-50px) scale(0.9); /* Hem yukarı çek hem küçült */
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Esnek açılış */
     }
 
-    /* Menü Aktifken (Açıldığında) */
+    /* MENÜ AKTİFKEN (AÇILDIĞINDA) */
     .nav-links.active {
-        display: flex !important; /* Hayalet tıklamayı önlemek için display kullanıyoruz */
         opacity: 1 !important;
-        transform: translateY(0) !important;
+        visibility: visible !important;
+        pointer-events: auto !important; /* Tıklamayı aç */
+        z-index: 20000 !important; /* Navbar'ın bile üstüne, en tepeye getir */
+        transform: translateY(0) scale(1) !important;
     }
 
     /* 3. LİNKLER VE ALT ÇİZGİLER */
     .nav-links li {
         margin: 15px 0 !important;
-        width: 100%;
-        text-align: left;
-        list-style: none; /* Noktaları kaldır */
+        list-style: none;
     }
 
     .nav-links a {
@@ -324,16 +319,16 @@
         font-weight: 700 !important;
         color: #1d1d1f !important;
         text-decoration: none;
-        display: inline-block !important; /* Çizginin kelime boyunda kalması için */
+        display: inline-block !important;
         position: relative;
         padding-bottom: 4px;
     }
 
-    /* Çizgi Düzeltmesi */
+    /* Alt Çizgi Efekti */
     .nav-links a::after {
         content: '';
         position: absolute;
-        bottom: -2px !important; /* Yazının içine girmemesi için aşağı çektik */
+        bottom: -2px;
         left: 0;
         width: 100%;
         height: 2px;
@@ -343,33 +338,27 @@
         transform-origin: right;
     }
 
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
         transform: scaleX(1);
         transform-origin: left;
     }
 
-    .nav-links a.active {
-        color: #a68b5b !important;
-    }
-
-    /* 4. DİL SEÇİCİ (ALTTAKİ GRİ KAPSÜL) */
+    /* 4. DİL SEÇİCİ */
     .lang-switcher {
-        margin-top: 20px !important;
-        padding: 12px 15px !important;
-        border-top: 1px solid #f5f5f5;
-        width: 100% !important;
-        display: flex !important;
-        justify-content: space-around !important;
-        background: #f9f9fb !important; /* Fotoğraftaki gibi hafif gri zemin */
+        margin-top: 20px;
+        padding: 12px;
+        background: #f9f9fb;
         border-radius: 50px;
+        display: flex;
+        justify-content: space-around;
     }
 
     .lang-btn {
-        font-size: 14px !important;
-        font-weight: 700 !important;
-        color: #888 !important;
-        text-decoration: none !important;
+        font-size: 14px;
+        font-weight: 700;
+        color: #888;
+        text-decoration: none;
     }
 
     /* 5. GENEL DÜZEN */
