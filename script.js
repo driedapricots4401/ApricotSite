@@ -1,6 +1,26 @@
 // Sayfa yüklendiğinde her şeyi başlat
 document.addEventListener('DOMContentLoaded', () => {
 
+// --- MOBİL MENÜ KONTROLÜ (BU BLOĞU BURAYA, EN ÜSTE TAŞI) ---
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+    }
+    
 // --- MOBİL MENÜ KONTROLÜ ---
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
@@ -33,26 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    
-// --- MOBİL MENÜ KONTROLÜ (BU BLOĞU BURAYA, EN ÜSTE TAŞI) ---
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
 
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        });
-    }
     
     // --- YENİ: DİL DEĞİŞTİRİCİ KONTROLÜ ---
     const langButtons = document.querySelectorAll('.lang-btn');
