@@ -182,29 +182,74 @@
         margin: 0 !important;
     }
 
+    /* 1. Menü Yazılarının Genel Şıklığı */
     .nav-links a {
+        /* Yazı Tipini Sitenin Geri Kalanıyla Aynı Yap (Modern) */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        
+        /* Çirkin Alt Çizgiyi Kaldır (KRİTİK) */
+        text-decoration: none !important;
+        
+        /* Yazı Boyutunu Kibarlaştır (Çok büyük olmasın) */
+        font-size: 15px !important; 
+        
+        /* Renk ve Kalınlık (Apple Tarzı) */
+        color: #1d1d1f !important; /* Koyu modern gri */
+        font-weight: 500 !important; /* Orta kalınlık */
+        
+        /* Harf arası boşluğu hafif daralt (Şık durur) */
+        letter-spacing: -0.01em !important;
+        
+        /* Tıklama Alanını Genişlet (Kullanıcı dostu) */
+        padding: 12px 25px !important;
         display: block;
-        padding: 15px 25px !important;
-        font-size: 16px !important; /* Yazıları büyüttük */
-        font-weight: 500 !important;
-        color: #333 !important;
-        text-align: left;
-        text-decoration: none;
-        transition: background 0.2s;
+        width: 100%;
+        transition: background 0.2s, color 0.2s;
     }
 
+    /* Linkin üzerine gelince veya menü açıkken hafif gri arka plan ve renk değişimi */
     .nav-links a:hover {
-        background: #f8f8f8;
+        background-color: rgba(0,0,0,0.03) !important;
+        color: #bf9b30 !important; /* Logonun altın rengi tonu (Varsa) */
     }
 
-    /* Dil Seçici Ayarı */
+    /* Active (Mevcut) sayfa linkini belirginleştir */
+    .nav-links a.active {
+        color: #bf9b30 !important; /* Logonun altın rengi tonu */
+        font-weight: 600 !important;
+        background-color: rgba(191, 155, 48, 0.05) !important; /* Çok hafif altın arka plan */
+    }
+
+    
+/* 2. Dil Seçiciyi Şıklaştır (Dikey Menüye Uygun) */
     .lang-switcher {
-        margin: 5px 20px !important;
-        padding-top: 10px !important;
-        border-top: 1px solid #eee !important;
-        width: calc(100% - 40px) !important;
-        justify-content: flex-start !important;
-        gap: 10px !important;
+        justify-content: flex-start !important; /* Sola yasla */
+        padding: 15px 25px !important;
+        margin-top: 5px;
+        
+        /* Üste ayırıcı ince çizgi (Daha düzenli) */
+        border-top: 1px solid rgba(0,0,0,0.06) !important; 
+        width: 100%;
+        display: flex;
+        gap: 8px; /* TR ve EN arası boşluk */
+    }
+
+    .lang-btn {
+        font-size: 13px !important; /* Dil yazıları ana menüden biraz daha küçük */
+        font-weight: 500 !important;
+        color: #86868b !important; /* Daha hafif gri */
+        text-decoration: none !important; /* Alt çizgiyi kaldır */
+        padding: 0 !important;
+    }
+
+    .lang-btn.active {
+        color: #bf9b30 !important; /* Aktif dilin rengi */
+        font-weight: 600 !important;
+    }
+
+    .lang-divider {
+        color: #d2d2d7 !important; /* Ayırıcı çizginin rengi */
+        font-size: 13px;
     }
 }
 
