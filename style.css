@@ -344,23 +344,43 @@
         transform-origin: left;
     }
 
-    /* 4. DİL SEÇİCİ */
+/* 4. DİL SEÇİCİ KAPSAYICI (GRİ KUTU) */
     .lang-switcher {
-        margin-top: 20px;
-        padding: 12px;
-        background: #f9f9fb;
-        border-radius: 50px;
-        display: flex;
-        justify-content: space-around;
+        margin-top: 25px !important;
+        background: #f4f4f6 !important; /* Hafif modern gri zemin */
+        padding: 12px 20px !important;
+        border-radius: 50px; /* Tam oval yapı */
+        display: flex !important; /* Butonları yan yana getirir */
+        justify-content: center !important; /* Yatayda ortalar */
+        align-items: center !important; /* Dikeyde ortalar */
+        gap: 15px !important; /* Butonlar arası boşluk */
+        width: 100% !important;
+        box-sizing: border-box;
     }
 
+    /* Dil Butonları (TR / EN) */
     .lang-btn {
-        font-size: 14px;
-        font-weight: 700;
-        color: #888;
-        text-decoration: none;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        color: #888 !important;
+        text-decoration: none !important;
+        transition: color 0.3s ease;
+        line-height: 1 !important; /* Satır yüksekliğini sıfırla */
     }
 
+    /* Aktif Dil Rengi */
+    .lang-btn.active {
+        color: #a68b5b !important; /* Toraman's Altın Rengi */
+    }
+
+    /* Ortadaki Ayırıcı Çizgi (|) */
+    .lang-divider {
+        color: #ddd !important;
+        font-weight: 300;
+        font-size: 14px;
+        display: inline-block !important;
+    }
+    
     /* 5. GENEL DÜZEN */
     body {
         padding-top: 75px !important;
