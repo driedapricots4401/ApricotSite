@@ -260,12 +260,28 @@
 @media (max-width: 768px) {
     /* 1. ÜST ŞERİT (NAVBAR): Masaüstündeki gibi saydam ve bulanık */
     .navbar {
-        background: rgba(255, 255, 255, 0.4) !important;
-        backdrop-filter: blur(15px) saturate(150%) !important;
+        background: rgba(255, 255, 255, 0.4) !important; /* %40 saydam beyaz */
+        backdrop-filter: blur(15px) saturate(150%) !important; /* Arkayı bulanıklaştırır ve renkleri canlandırır */
         -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
+        /* Şeridi netleştirmek için çok ince bir alt çizgi */
         border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        /* Gereksiz gölgeleri kaldırıp temiz bir görünüm sağlar */
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05) !important;
+        /* Konumlandırma */
+        position: fixed !important;
+        width: 100% !important;
+        top: 0 !important;
         padding: 10px 5% !important;
-        min-height: 70px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        z-index: 1000 !important;
+    }
+
+    /* Logonun saydam zeminde iyi durması için */
+    #nav-logo {
+        height: 45px !important;
+        mix-blend-mode: multiply; /* Logonun beyaz arka planı varsa temizler */
     }
 
     /* 2. AÇILIR PANEL (NAV-LINKS): Başlangıçta sağda gizli */
