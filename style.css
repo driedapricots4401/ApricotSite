@@ -167,16 +167,16 @@
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%; /* Menü kapalıyken ekranın sağında gizli */
-        width: 75%;
+        right: -100%; 
+        width: 80%; /* Biraz genişlettik */
         height: 100vh;
-        background: white;
+        background: #ffffff !important; /* Arka planın bembeyaz ve görünür olması için */
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-        z-index: 999;
+        z-index: 9999; /* En üstte dursun */
     }
 
     /* Menü aktif olduğunda ekrana gelir */
