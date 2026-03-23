@@ -154,6 +154,94 @@
     border-radius: 2px;
 }
 
+/* --- MOBİL MENÜ İYİLEŞTİRMESİ (Zarif Kutu Modu) --- */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 5% !important;
+        position: relative; /* Menünün hizalanması için gerekli */
+        z-index: 1000;
+    }
+
+    /* 1. Menü Kutusunu Küçült ve Şıklaştır */
+    .nav-links {
+        display: none; /* Başlangıçta gizli */
+        position: absolute;
+        top: 100%; /* Navbar'ın hemen bittiği yerden başlar */
+        right: 5%; /* Sağ kenardan 5% boşluk bırakır (İkon hizası) */
+        width: 250px; /* Menünün sabit, kibar bir genişliği olsun */
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(15px); /* Daha şık buzlu cam efekti */
+        border-radius: 15px; /* Köşeleri yuvarla */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Hafif gölge */
+        border: 1px solid rgba(0,0,0,0.05); /* Çok hafif bir çerçeve */
+        padding: 20px 0;
+        flex-direction: column; /* Yazılar dikey dizilsin */
+        z-index: 999;
+        overflow: hidden; /* Taşmaları engelle */
+    }
+
+    /* Menü Aktif Olduğunda Göster (JavaScript tetikler) */
+    .nav-links.active {
+        display: flex !important;
+        animation: slideDown 0.3s ease-out; /* Açılış animasyonu ekleyelim */
+    }
+
+    /* 2. Yazı Boyutlarını Büyüt */
+    .nav-links li {
+        margin: 5px 0 !important; /* Yazılar arası mesafeyi daralt */
+        width: 100%;
+        text-align: left; /* Yazıları sola yasla (Apple tarzı) */
+    }
+
+    .nav-links a {
+        font-size: 16px !important; /* Yazı boyutunu okunabilir yap */
+        color: #333 !important;
+        font-weight: 500;
+        padding: 12px 25px !important; /* Tıklama alanını genişlet */
+        display: block;
+        width: 100%;
+        transition: background 0.2s;
+    }
+
+    /* Linkin üzerine gelince hafif gri arka plan */
+    .nav-links a:hover {
+        background-color: rgba(0,0,0,0.03);
+    }
+
+    /* 3. Dil Seçiciyi Ortala ve Şıklaştır */
+    .lang-switcher {
+        justify-content: flex-start; /* Sola yasla */
+        padding: 15px 25px !important;
+        margin-top: 10px;
+        border-top: 1px solid rgba(0,0,0,0.05); /* Üste ayırıcı çizgi */
+        width: 100%;
+    }
+
+    .lang-btn {
+        font-size: 14px !important;
+        padding: 0 !important;
+    }
+
+    /* 4. Hamburger İkonunu Göster */
+    .menu-toggle {
+        display: flex !important;
+        z-index: 1001;
+        cursor: pointer;
+    }
+
+    /* Açılış Animasyonu */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
 /* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
 @media (max-width: 768px) {
     .navbar {
