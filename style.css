@@ -309,8 +309,10 @@
     }
 
     /* 3. LİNKLER VE ALT ÇİZGİLER */
-    .nav-links li {
+.nav-links li {
         margin: 15px 0 !important;
+        width: 100%;
+        text-align: left; /* Yazıları sola yasla */
         list-style: none;
     }
 
@@ -319,29 +321,42 @@
         font-weight: 700 !important;
         color: #1d1d1f !important;
         text-decoration: none;
-        display: inline-block !important;
+        
+        /* KRİTİK AYAR: Sadece kelime genişliği kadar alan kapla */
+        display: inline-flex !important; 
+        flex-direction: column;
         position: relative;
         padding-bottom: 4px;
     }
 
-    /* Alt Çizgi Efekti */
+    /* Alt Çizgi: Kelime uzunluğunu otomatik takip eder */
     .nav-links a::after {
         content: '';
         position: absolute;
-        bottom: -2px;
+        bottom: 0px; /* Yazının hemen altına yapıştır */
         left: 0;
-        width: 50%;
+        
+        /* Genişlik artık otomatik olarak 'a' etiketinin (kelimenin) genişliği kadar olacak */
+        width: 100%; 
         height: 2px;
         background-color: #a68b5b;
+        
+        /* Animasyon ayarları */
         transform: scaleX(0);
         transition: transform 0.3s ease;
         transform-origin: right;
     }
 
-    .nav-links a.active::after,
-    .nav-links a:hover::after {
+    /* Aktif veya üzerine gelince çizgi tam boy açılsın */
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
         transform: scaleX(1);
         transform-origin: left;
+    }
+
+    /* Aktif sayfa rengi */
+    .nav-links a.active {
+        color: #a68b5b !important;
     }
 
 /* 4. DİL SEÇİCİ KAPSAYICI (GRİ KUTU) */
