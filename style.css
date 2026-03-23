@@ -259,106 +259,98 @@
 /* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
 @media (max-width: 768px) {
 
-    /* 1. ÜST ŞERİT (NAVBAR): Saydam ve sabit */
+    /* 1. ÜST ŞERİT (NAVBAR): Masaüstündeki gibi saydam ve bulanık */
     .navbar {
         background: rgba(255, 255, 255, 0.4) !important;
         backdrop-filter: blur(15px) saturate(150%) !important;
-        -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        -webkit-backdrop-filter: blur(15px) saturate(150%) !important; /* iOS/Safari için şart */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        padding: 10px 5% !important;
+        min-height: 70px !important;
         position: fixed;
         width: 100%;
         top: 0;
-        z-index: 10000 !important;
-        padding: 10px 5% !important;
+        z-index: 10000 !important; /* Her zaman en üstte */
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
     }
 
-    /* 2. KART MENÜ: Maksimum Pusluluk (Apple Glassmorphism) */
+    /* 2. KART MENÜ (NAV-LINKS): Gerçek Apple Buzlu Cam Efekti */
     .nav-links {
         position: fixed;
-        top: 80px; 
+        top: 85px; 
         right: 20px;
-        width: 280px;
+        width: 260px; /* Ekranı kaplamayan şık genişlik */
         height: auto !important;
         
-        /* KRİTİK AYAR: Beyazlığı düşürdük, Bulanıklığı zirveye taşıdık */
-        background: rgba(255, 255, 255, 0.15) !important; 
-        backdrop-filter: blur(60px) saturate(200%) contrast(110%) !important;
-        -webkit-backdrop-filter: blur(60px) saturate(200%) contrast(110%) !important;
+        /* KRİTİK AYAR: Beyazlığı düşürdük (0.2), Bulanıklığı zirveye taşıdık (50px) */
+        background: rgba(255, 255, 255, 0.2) !important; 
+        backdrop-filter: blur(50px) saturate(200%) contrast(100%) !important;
+        -webkit-backdrop-filter: blur(50px) saturate(200%) contrast(100%) !important;
         
-        /* Cam efektini belirginleştiren parlak kenarlar */
-        border-radius: 32px;
+        /* Cam efektini belirginleştiren parlak kenar ve köşeler */
+        border-radius: 28px;
         border: 1px solid rgba(255, 255, 255, 0.4) !important;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
         
         /* Düzen */
-        display: flex !important;
+        display: none !important; /* Başlangıçta tamamen kapalı (JS 'active' ile açılır) */
         flex-direction: column;
-        padding: 40px 25px !important;
-        z-index: 10001 !important;
-        
-        /* Animasyon: Hafif ve şık */
-        opacity: 0;
-        transform: translateY(-20px) scale(0.95);
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        pointer-events: none;
+        padding: 35px 25px !important;
+        z-index: 10001 !important; /* Navbar'dan bile üstte */
     }
 
-    /* Menü Aktifken */
+    /* Menü Aktifken (JavaScript 'active' sınıfını eklediğinde) */
     .nav-links.active {
-        opacity: 1 !important;
-        transform: translateY(0) scale(1) !important;
-        pointer-events: auto !important;
+        display: flex !important;
     }
 
-    /* 3. BUTONLAR: Camın üstünde parlayan net yazılar */
+    /* 3. MENÜ İÇİNDEKİ BUTONLAR: Net siyah ve belirgin */
     .nav-links li {
-        margin: 18px 0 !important;
+        margin: 15px 0 !important;
         width: 100%;
         text-align: center;
     }
 
     .nav-links a {
-        font-size: 24px !important;
-        font-weight: 900 !important; /* En kalın font ağırlığı */
-        color: #000000 !important; /* Tam siyah yaparak okunurluğu artırdık */
+        font-size: 22px !important;
+        font-weight: 800 !important; /* Kalın font */
+        color: #000000 !important; /* Tam siyah okunurluğu artırır */
         text-decoration: none;
         display: block;
         transition: 0.3s ease;
-        /* Yazı arkasına parlayan beyaz bir hare (glow) ekleyelim */
-        text-shadow: 0 0 12px rgba(255, 255, 255, 0.9); 
+        /* Yazı arkasına parlayan beyaz bir hare (glow) */
+        text-shadow: 0 0 10px rgba(255, 255, 255, 1); 
     }
 
-    /* Hover/Aktif: Toraman's Altın Rengi */
+    /* Hover/Aktif Durum: Altın Sarısı */
     .nav-links a:hover, 
     .nav-links a.active {
         color: #a68b5b !important;
         transform: scale(1.05);
     }
 
-    /* 4. DİL SEÇİCİ */
+    /* 4. DİL SEÇİCİ (TR/EN): Kartın altındaki kapsül */
     .mobile-lang-container {
-        margin-top: 30px !important;
-        padding-top: 25px !important;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        margin-top: 25px !important;
+        padding-top: 20px !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
         width: 100% !important;
     }
 
     .lang-switcher {
         display: flex !important;
         justify-content: space-evenly;
-        background: rgba(166, 139, 91, 0.2) !important;
-        padding: 12px !important;
+        background: rgba(166, 139, 91, 0.15) !important;
+        padding: 10px !important;
         border-radius: 50px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .lang-btn {
-        font-size: 16px !important;
-        font-weight: 800 !important;
-        color: #1d1d1f !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        color: #444 !important;
     }
 
     .lang-btn.active {
