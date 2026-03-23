@@ -258,95 +258,86 @@
 
 /* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
 @media (max-width: 768px) {
-    /* Menü Paneli */
+    /* 1. ÜST ŞERİT (NAVBAR): Masaüstündeki gibi saydam ve bulanık */
     .navbar {
-            /* 1. Fotoğraftaki %40 saydamlık ve bulanıklık ayarı */
-            background: rgba(255, 255, 255, 0.4) !important; 
-            backdrop-filter: blur(15px) saturate(150%) !important;
-            -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
-            
-            /* Şeridin alt kısmına çok ince, zarif bir hat ekleyelim (bilgisayardaki gibi) */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-            
-            /* Gölgeyi bilgisayardaki gibi hafifletelim */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05) !important;
-            
-            /* Mobilde şeridin yüksekliğini sabit tutalım */
-            padding: 10px 5% !important;
-            min-height: 70px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-        }
-
-    /* Logo mobilde çok büyükse biraz küçülterek zarif durmasını sağlayalım */
-    #nav-logo {
-        height: 45px !important;
-        width: auto !important;
+        background: rgba(255, 255, 255, 0.4) !important;
+        backdrop-filter: blur(15px) saturate(150%) !important;
+        -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        padding: 10px 5% !important;
+        min-height: 70px !important;
     }
 
+    /* 2. AÇILIR PANEL (NAV-LINKS): Başlangıçta sağda gizli */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Ekranın sağında, görüş alanı dışında */
+        width: 85%;
+        height: 100vh;
+        /* Arka plan saydamlığı ve Apple stili bulanıklık */
+        background: rgba(255, 255, 255, 0.6) !important; 
+        backdrop-filter: blur(25px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+        
+        /* Düzen ayarları */
+        display: flex !important; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        /* Geçiş animasyonu */
+        transition: right 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 9999;
+        box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+    }
+
+    /* 3. AKTİF DURUM: JavaScript 'active' sınıfını eklediğinde menü içeri kayar */
     .nav-links.active {
-        right: 0;
+        right: 0 !important;
     }
 
+    /* 4. LİNK STİLLERİ: Büyük, kalın ve okunaklı */
     .nav-links li {
-        margin: 20px 0 !important; /* Araları iyice açalım */
+        margin: 20px 0 !important;
         width: 100%;
         text-align: center;
     }
 
     .nav-links a {
-        font-size: 28px !important; /* Yazıları ciddi oranda büyüttük */
-        font-weight: 800 !important; /* Kalın ve tok bir görünüm */
-        color: #1d1d1f !important; 
-        text-transform: uppercase; /* Daha kurumsal bir hava için büyük harf */
+        font-size: 28px !important;
+        font-weight: 800 !important;
+        color: #1d1d1f !important;
+        text-transform: uppercase;
         letter-spacing: 1px;
+        transition: color 0.3s ease;
     }
 
-    /* Dil Seçici Konteyneri */
+    /* Aktif sayfa veya Hover rengi (Altın sarısı) */
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: #a68b5b !important;
+    }
+
+    /* 5. DİL SEÇİCİ (TR/EN): Saydam kapsül içinde */
     .lang-switcher {
         margin-top: 50px !important;
-        display: inline-flex !important; /* Sadece içeriği kadar yer kaplasın */
-        align-items: center;
-        background: rgba(255, 255, 255, 0.2) !important;
-        backdrop-filter: blur(10px);
-        padding: 6px !important; /* Butonların etrafındaki ince boşluk */
-        border-radius: 14px; /* Köşeleri daha yumuşak yapalım */
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        margin-left: 0 !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        background: rgba(255, 255, 255, 0.3) !important;
+        padding: 10px 20px !important;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        display: flex !important;
+        gap: 20px;
     }
 
-    /* Her bir Dil Butonu */
     .lang-btn {
         font-size: 16px !important;
         font-weight: 700 !important;
-        color: #86868b !important; /* Pasif renk */
-        padding: 10px 25px !important;
-        border-radius: 10px !important;
-        text-decoration: none !important;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        background: transparent !important;
+        color: #444 !important;
     }
 
-    /* Aktif Dil Butonu (TR veya EN seçiliyken) */
     .lang-btn.active {
-        color: #fff !important; /* Yazı beyaz olsun */
-        background: #a68b5b !important; /* Senin marka altın rengin arka plan olsun */
-        box-shadow: 0 4px 10px rgba(166, 139, 91, 0.3); /* Hafif altın ışıltısı */
-    }
-
-    /* Aradaki çizgiyi kaldıralım, butonlar ayrışınca gerek kalmayacak */
-    .lang-divider {
-        display: none !important;
-    }
-
-    /* Menü linklerine son bir dokunuş (daha dolgun durması için) */
-    .nav-links a {
-        font-size: 32px !important; 
-        font-weight: 900 !important;
-        color: #1d1d1f !important;
-        letter-spacing: -1px !important; /* Harfleri biraz yakınlaştırarak daha premium durmasını sağladık */
+        color: #a68b5b !important;
     }
 }
 
