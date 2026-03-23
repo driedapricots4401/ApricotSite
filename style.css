@@ -330,7 +330,7 @@
         position: absolute;
         bottom: -2px;
         left: 0;
-        width: 100%;
+        width: 50%;
         height: 2px;
         background-color: #a68b5b;
         transform: scaleX(0);
