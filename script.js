@@ -18,26 +18,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-     // --- YENİ: AÇILIR KAPANIR NAVBAR ---
+    // --- MOBİL MENÜ KONTROLÜ ---
     document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-    }
-
-    // Linklerden birine tıklandığında menüyü kapat
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-        });
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+    
+        // Menü butonuna tıklandığında aç/kapat
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                
+                // Menü açıkken arka planda sayfanın kaymasını engellemek istersen:
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+            });
+    
+            // Menü içindeki herhangi bir linke tıklandığında menüyü otomatik kapat
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = 'auto'; // Kaydırmayı tekrar aç
+                });
+            });
+        }
     });
-});
 
     // --- YENİ: ANİMASYONLU AYIRICI ÇİZGİ TETİKLEYİCİSİ ---
     const dividerLine = document.querySelector('.section-divider');
