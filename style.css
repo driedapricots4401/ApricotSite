@@ -259,98 +259,104 @@
 /* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
 @media (max-width: 768px) {
 
-    /* 1. ÜST ŞERİT (NAVBAR): Masaüstündeki gibi saydam ve bulanık */
+    /* 1. ÜST ŞERİT (NAVBAR): Net Beyaz ve Sabit */
     .navbar {
-        background: rgba(255, 255, 255, 0.4) !important;
-        backdrop-filter: blur(15px) saturate(150%) !important;
-        -webkit-backdrop-filter: blur(15px) saturate(150%) !important; /* iOS/Safari için şart */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        background: #ffffff !important;
+        border-bottom: 1px solid #f0f0f0 !important;
         padding: 10px 5% !important;
         min-height: 70px !important;
         position: fixed;
         width: 100%;
         top: 0;
-        z-index: 10000 !important; /* Her zaman en üstte */
+        z-index: 10000 !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
     }
 
-    /* 2. KART MENÜ (NAV-LINKS): Gerçek Apple Buzlu Cam Efekti */
+    /* Logo Boyutu */
+    #nav-logo {
+        height: 45px !important;
+        width: auto !important;
+    }
+
+    /* 2. KART MENÜ: Sağ Üstte Asılı Net Beyaz Kutu */
     .nav-links {
         position: fixed;
-        top: 85px; 
+        top: 80px; /* Navbar'ın hemen altı */
         right: 20px;
-        width: 260px; /* Ekranı kaplamayan şık genişlik */
+        width: 240px; /* Şık ve kompakt genişlik */
         height: auto !important;
+        background: #ffffff !important;
+        border-radius: 20px; /* Modern yuvarlak köşeler */
+        border: 1px solid #f0f0f0 !important;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         
-        /* KRİTİK AYAR: Beyazlığı düşürdük (0.2), Bulanıklığı zirveye taşıdık (50px) */
-        background: rgba(255, 255, 255, 0.2) !important; 
-        backdrop-filter: blur(50px) saturate(200%) contrast(100%) !important;
-        -webkit-backdrop-filter: blur(50px) saturate(200%) contrast(100%) !important;
-        
-        /* Cam efektini belirginleştiren parlak kenar ve köşeler */
-        border-radius: 28px;
-        border: 1px solid rgba(255, 255, 255, 0.4) !important;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-        
-        /* Düzen */
-        display: none !important; /* Başlangıçta tamamen kapalı (JS 'active' ile açılır) */
+        /* Düzen ve Gizleme */
+        display: none !important; /* JS 'active' sınıfıyla kontrol edilir */
         flex-direction: column;
-        padding: 35px 25px !important;
-        z-index: 10001 !important; /* Navbar'dan bile üstte */
+        padding: 30px 20px !important;
+        z-index: 10001 !important;
+        
+        /* Animasyon: Hafifçe belirme */
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
-    /* Menü Aktifken (JavaScript 'active' sınıfını eklediğinde) */
+    /* Menü Aktifken Görünürlük */
     .nav-links.active {
         display: flex !important;
+        opacity: 1 !important;
+        transform: translateY(0);
     }
 
-    /* 3. MENÜ İÇİNDEKİ BUTONLAR: Net siyah ve belirgin */
+    /* 3. MENÜ İÇİNDEKİ LİNKLER */
     .nav-links li {
-        margin: 15px 0 !important;
+        margin: 12px 0 !important;
         width: 100%;
-        text-align: center;
+        text-align: left; /* Kurumsal bir liste görünümü */
     }
 
     .nav-links a {
-        font-size: 22px !important;
-        font-weight: 800 !important; /* Kalın font */
-        color: #000000 !important; /* Tam siyah okunurluğu artırır */
+        font-size: 19px !important;
+        font-weight: 700 !important;
+        color: #1d1d1f !important;
         text-decoration: none;
         display: block;
-        transition: 0.3s ease;
-        /* Yazı arkasına parlayan beyaz bir hare (glow) */
-        text-shadow: 0 0 10px rgba(255, 255, 255, 1); 
+        padding: 5px 0;
+        transition: color 0.3s ease;
     }
 
-    /* Hover/Aktif Durum: Altın Sarısı */
+    /* Hover ve Aktif Sayfa Rengi: Altın Sarısı */
     .nav-links a:hover, 
     .nav-links a.active {
         color: #a68b5b !important;
-        transform: scale(1.05);
     }
 
-    /* 4. DİL SEÇİCİ (TR/EN): Kartın altındaki kapsül */
+    /* 4. DİL SEÇİCİ (TR/EN): Menünün Alt Kısmı */
     .mobile-lang-container {
-        margin-top: 25px !important;
-        padding-top: 20px !important;
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        margin-top: 20px !important;
+        padding-top: 15px !important;
+        border-top: 1px solid #f5f5f5;
         width: 100% !important;
     }
 
     .lang-switcher {
         display: flex !important;
-        justify-content: space-evenly;
-        background: rgba(166, 139, 91, 0.15) !important;
-        padding: 10px !important;
+        justify-content: flex-start;
+        gap: 20px;
+        background: #f9f9fb !important; /* Hafif gri bir zemin */
+        padding: 10px 15px !important;
         border-radius: 50px;
     }
 
     .lang-btn {
-        font-size: 15px !important;
+        font-size: 14px !important;
         font-weight: 700 !important;
-        color: #444 !important;
+        color: #888 !important;
+        text-decoration: none !important;
     }
 
     .lang-btn.active {
