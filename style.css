@@ -259,16 +259,17 @@
 /* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
 @media (max-width: 768px) {
 
-    /* 1. ÜST ŞERİT (NAVBAR): Net Beyaz ve Sabit */
+    /* 1. SABİT ÜST ŞERİT (NAVBAR) */
     .navbar {
-        background: #ffffff !important;
+        position: fixed !important; /* Sayfayla beraber aşağı gelir */
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: #ffffff !important; /* Net beyaz arkaplan */
         border-bottom: 1px solid #f0f0f0 !important;
         padding: 10px 5% !important;
         min-height: 70px !important;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 10000 !important;
+        z-index: 10000 !important; /* İçeriklerin üstünde kalmasını sağlar */
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
@@ -277,29 +278,29 @@
 
     /* Logo Boyutu */
     #nav-logo {
-        height: 45px !important;
+        height: 40px !important;
         width: auto !important;
     }
 
     /* 2. KART MENÜ: Sağ Üstte Asılı Net Beyaz Kutu */
     .nav-links {
-        position: fixed;
-        top: 80px; /* Navbar'ın hemen altı */
+        position: fixed !important;
+        top: 75px; /* Navbar'ın hemen altı */
         right: 20px;
         width: 240px; /* Şık ve kompakt genişlik */
         height: auto !important;
         background: #ffffff !important;
-        border-radius: 20px; /* Modern yuvarlak köşeler */
+        border-radius: 20px;
         border: 1px solid #f0f0f0 !important;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         
         /* Düzen ve Gizleme */
         display: none !important; /* JS 'active' sınıfıyla kontrol edilir */
         flex-direction: column;
-        padding: 30px 20px !important;
+        padding: 25px 20px !important;
         z-index: 10001 !important;
         
-        /* Animasyon: Hafifçe belirme */
+        /* Geçiş Efekti */
         opacity: 0;
         transform: translateY(-10px);
         transition: opacity 0.3s ease, transform 0.3s ease;
@@ -316,7 +317,7 @@
     .nav-links li {
         margin: 12px 0 !important;
         width: 100%;
-        text-align: left; /* Kurumsal bir liste görünümü */
+        text-align: left;
     }
 
     .nav-links a {
@@ -326,18 +327,17 @@
         text-decoration: none;
         display: block;
         padding: 5px 0;
-        transition: color 0.3s ease;
     }
 
-    /* Hover ve Aktif Sayfa Rengi: Altın Sarısı */
+    /* Hover ve Aktif Sayfa Rengi: Toraman's Altın Sarısı */
     .nav-links a:hover, 
     .nav-links a.active {
         color: #a68b5b !important;
     }
 
-    /* 4. DİL SEÇİCİ (TR/EN): Menünün Alt Kısmı */
+    /* 4. DİL SEÇİCİ (TR/EN) */
     .mobile-lang-container {
-        margin-top: 20px !important;
+        margin-top: 15px !important;
         padding-top: 15px !important;
         border-top: 1px solid #f5f5f5;
         width: 100% !important;
@@ -347,7 +347,7 @@
         display: flex !important;
         justify-content: flex-start;
         gap: 20px;
-        background: #f9f9fb !important; /* Hafif gri bir zemin */
+        background: #f9f9fb !important;
         padding: 10px 15px !important;
         border-radius: 50px;
     }
@@ -356,11 +356,16 @@
         font-size: 14px !important;
         font-weight: 700 !important;
         color: #888 !important;
-        text-decoration: none !important;
     }
 
     .lang-btn.active {
         color: #a68b5b !important;
+    }
+
+    /* 5. İÇERİK KAYMASINI ÖNLEME */
+    /* Navbar 'fixed' olduğu için ilk bölümün üzerine binmemesi için boşluk bırakır */
+    body {
+        padding-top: 70px !important;
     }
 }
 
