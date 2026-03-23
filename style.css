@@ -154,106 +154,63 @@
     border-radius: 2px;
 }
 
-/* --- MOBİL VE YATAY MOD İÇİN NAVBAR DÜZENLEME (Zarif Kutu Modu) --- */
+/* --- GÜNCEL VE ŞIK MOBİL MENÜ --- */
 @media (max-width: 1024px) {
-    .navbar {
-        padding: 10px 10% !important; /* Kenar boşluklarını logo hizasına getirdik */
-        position: relative; /* Menünün hizalanması için gerekli */
-        z-index: 1000;
-    }
-
-    /* 1. Menü Kutusunu Küçült ve Şıklaştır */
     .nav-links {
-        display: none; /* Başlangıçta gizli */
+        display: none; /* Başlangıçta gizli tutar */
         position: absolute;
-        top: 100%; /* Navbar'ın hemen bittiği yerden başlar */
-        right: 10%; /* Sağ kenardan 10% boşluk (Logo/İkon hizası) */
-        width: 250px; /* Menünün sabit, kibar bir genişliği olsun */
-        background: rgba(255, 255, 255, 0.95); /* Hafif şeffaf beyaz */
-        backdrop-filter: blur(15px); /* Şık buzlu cam efekti */
-        border-radius: 18px; /* Köşeleri yuvarla */
-        box-shadow: 0 15px 40px rgba(0,0,0,0.12); /* Hafif gölge */
-        border: 1px solid rgba(0,0,0,0.04); /* Çok hafif bir çerçeve */
-        padding: 15px 0;
-        flex-direction: column; /* Yazılar dikey dizilsin */
-        z-index: 999;
-        overflow: hidden; /* Taşmaları engelle */
+        top: 70px; /* Navbar yüksekliğine göre gerekirse 80px yapabilirsin */
+        right: 5%;
+        width: 240px; /* Kibar bir genişlik */
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        flex-direction: column;
+        z-index: 1000;
+        border: 1px solid rgba(0,0,0,0.05);
     }
 
-    /* Menü Aktif Olduğunda Göster (JavaScript tetikler) */
+    /* JavaScript tıklandığında bu sınıfı ekleyecek */
     .nav-links.active {
         display: flex !important;
-        animation: slideDownFade 0.35s ease-out; /* Açılış animasyonu */
+        animation: slideDown 0.3s ease;
     }
 
-    /* 2. Yazıları Şıklaştır (Apple Tarzı) */
     .nav-links li {
-        margin: 0 !important; /* Liste elemanları arası varsayılan boşluğu kaldır */
         width: 100%;
-        text-align: left; /* Yazıları sola yasla */
+        margin: 0 !important;
     }
 
     .nav-links a {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Modern yazı tipi */
-        font-size: 16px !important; /* Okunabilir boyut */
-        color: #1d1d1f !important; /* Koyu Apple grisi */
-        font-weight: 500; /* Orta kalınlık */
-        letter-spacing: -0.01em; /* Harf arası boşluğu daralt (Modern durur) */
-        padding: 14px 25px !important; /* Tıklama alanını genişlet */
         display: block;
-        width: 100%;
+        padding: 15px 25px !important;
+        font-size: 16px !important; /* Yazıları büyüttük */
+        font-weight: 500 !important;
+        color: #333 !important;
+        text-align: left;
+        text-decoration: none;
         transition: background 0.2s;
     }
 
-    /* Linkin üzerine gelince (veya menü açıkken) hafif gri arka plan */
-    .nav-links a:hover,
-    .nav-links.active a {
-        background-color: rgba(0,0,0,0.03);
+    .nav-links a:hover {
+        background: #f8f8f8;
     }
 
-    /* Active (Mevcut) sayfa linkini belirginleştir */
-    .nav-links a.active {
-        color: #bf9b30 !important; /* Logonun altın rengi tonu (Varsa) */
-        font-weight: 600;
-    }
-
-    /* 3. Dil Seçiciyi Ortala ve Şıklaştır */
+    /* Dil Seçici Ayarı */
     .lang-switcher {
-        justify-content: flex-start; /* Sola yasla */
-        padding: 15px 25px !important;
-        margin-top: 5px;
-        border-top: 1px solid rgba(0,0,0,0.06); /* Üste ayırıcı çizgi */
-        width: 100%;
+        margin: 5px 20px !important;
+        padding-top: 10px !important;
+        border-top: 1px solid #eee !important;
+        width: calc(100% - 40px) !important;
+        justify-content: flex-start !important;
+        gap: 10px !important;
     }
+}
 
-    .lang-btn {
-        font-size: 14px !important;
-        font-weight: 500;
-        color: #1d1d1f !important;
-    }
-
-    .lang-btn.active {
-        color: #bf9b30 !important; /* Aktif dilin rengi */
-    }
-
-    /* 4. Hamburger İkonunu Göster */
-    .menu-toggle {
-        display: flex !important;
-        z-index: 1001;
-        cursor: pointer;
-    }
-
-    /* Açılış Animasyonu (Yumuşak düşüş ve görünürlük) */
-    @keyframes slideDownFade {
-        from {
-            opacity: 0;
-            transform: translateY(-15px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
