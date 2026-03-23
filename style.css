@@ -168,15 +168,15 @@
         position: fixed;
         top: 0;
         right: -100%; 
-        width: 80%; /* Biraz genişlettik */
+        width: 80%;
         height: 100vh;
-        background: #ffffff !important; /* Arka planın bembeyaz ve görünür olması için */
+        background: #ffffff !important; /* Arka planın beyaz olduğundan emin olalım */
+        z-index: 9999 !important; /* DİĞER HER ŞEYİN ÜSTÜNE ÇIKARIR */
+        display: flex !important;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-        z-index: 9999; /* En üstte dursun */
+        transition: 0.5s ease;
     }
 
     /* Menü aktif olduğunda ekrana gelir */
