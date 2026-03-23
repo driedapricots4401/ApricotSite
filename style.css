@@ -258,108 +258,96 @@
 
 /* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
 @media (max-width: 768px) {
-/* 1. ÜST ŞERİT (NAVBAR): Saydam ve sabit kalmaya devam etsin */
+    /* 1. ÜST ŞERİT (NAVBAR): Saydam ve sabit */
     .navbar {
         background: rgba(255, 255, 255, 0.4) !important;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px) saturate(150%) !important;
+        -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
         padding: 10px 5% !important;
-        min-height: 70px !important;
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
     }
 
-    /* 2. YENİ KART MENÜ (NAV-LINKS): Sağ üstte asılı, şeffaf kart */
+    /* 2. KART MENÜ: Gerçek Buzlu Cam Efekti */
     .nav-links {
         position: fixed;
-        top: 80px; /* Navbar'ın hemen altında başlasın */
-        right: 20px; /* Sağdan boşluk */
-        width: auto !important; /* İçeriği kadar genişlesin (küçük kalsın) */
-        min-width: 220px; /* Çok daralmasın */
-        max-width: 85%; /* Çok genişlemesin */
-        height: auto !important; /* Tüm ekranı kaplamasın */
+        top: 85px; /* Navbar'ın hemen altında */
+        right: 20px;
+        width: 250px; /* Şık ve sabit genişlik */
+        height: auto !important;
         
-        /* Örnekteki gibi modern buzlu cam efekti */
-        background: rgba(255, 255, 255, 0.85) !important; 
-        backdrop-filter: blur(40px) saturate(180%) contrast(90%);
-        -webkit-backdrop-filter: blur(40px) saturate(180%) contrast(90%);
+        /* KRİTİK AYARLAR: Beyazlık düşük (0.3), Bulanıklık yüksek (30px) */
+        background: rgba(255, 255, 255, 0.3) !important; 
+        backdrop-filter: blur(30px) saturate(180%) contrast(100%) !important;
+        -webkit-backdrop-filter: blur(30px) saturate(180%) contrast(100%) !important;
         
-        /* Köşeli ve şık tasarım */
-        border-radius: 16px; /* Köşeleri yuvarla */
-        border: 1px solid rgba(255, 255, 255, 0.4); /* İnce beyaz çerçeve */
-        
-        /* Düzen ayarları */
+        /* Kenar ve Köşe Tasarımı */
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important; /* Camın kenar parlaması */
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+
+        /* Düzen */
         display: flex !important;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start; /* Yazıları sola yasla */
-        
-        /* Başlangıçta gizli ve yukarıdan kayma animasyonu */
+        padding: 30px !important;
+        z-index: 10001;
+
+        /* Animasyon: Yukarıdan süzülerek gelme */
         opacity: 0;
-        transform: translateY(-20px) scale(0.95); /* Hafif yukarıda ve küçülmüş */
+        transform: translateY(-15px) scale(0.95);
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        pointer-events: none; /* Gizliyken tıklamaları engelle */
-        z-index: 1001; /* Navbar'ın üstünde */
-        
-        /* Gölge efekti (kartı derinleştirir) */
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-        
-        /* İçeriden boşluklar */
-        padding: 25px 30px !important;
+        pointer-events: none;
     }
 
-    /* 3. AKTİF DURUM: JavaScript 'active' sınıfını eklediğinde kart süzülerek gelir */
+    /* Menü Aktifken */
     .nav-links.active {
         opacity: 1 !important;
-        transform: translateY(0) scale(1) !important; /* Normal konumuna ve boyutuna gel */
-        pointer-events: auto !important; /* Tıklamaları aç */
+        transform: translateY(0) scale(1) !important;
+        pointer-events: auto !important;
     }
 
-    /* 4. LİNK STİLLERİ: Kart içinde daha zarif ve kurumsal */
+    /* 3. BUTONLAR (LİNK) TASARIMI */
     .nav-links li {
-        margin: 12px 0 !important; /* Araları daha sık */
+        margin: 12px 0 !important;
         width: 100%;
         text-align: left;
     }
 
     .nav-links a {
-        font-size: 19px !important; /* Yazıları biraz küçültüp daha zarif yapalım */
-        font-weight: 600 !important;
-        color: #1d1d1f !important;
-        text-transform: capitalize; /* Sadece baş harfler büyük olsun, daha kurumsal */
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Yazı altına hafif aydınlık */
-        letter-spacing: -0.5px;
-        transition: color 0.3s ease;
-        padding: 5px 0;
+        font-size: 20px !important;
+        font-weight: 700 !important; /* Daha kalın ve belirgin */
+        color: #1d1d1f !important; /* Net Apple Siyahı */
+        text-decoration: none;
         display: block;
+        transition: 0.3s ease;
+        /* Yazı altına hafif aydınlık vererek okunurluğu artırır */
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.5); 
     }
 
-    /* Aktif sayfa veya Hover rengi (Altın sarısı) */
-    .nav-links a:hover,
+    /* Tıklayınca veya Üzerine Gelince */
+    .nav-links a:hover, 
     .nav-links a.active {
-        color: #a68b5b !important;
+        color: #a68b5b !important; /* Marka altın rengin */
+        transform: translateX(5px); /* Hafif sağa kayma efekti */
     }
 
-    /* 5. DİL SEÇİCİ (TR/EN): Kartın en altına şık bir ayraçla yerleştirme */
+    /* 4. DİL SEÇİCİ (TR/EN) */
     .mobile-lang-container {
-        border-top: 1px solid rgba(0,0,0,0.08); /* Hafif bir çizgi */
         margin-top: 20px !important;
         padding-top: 15px !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.05); /* İnce ayraç çizgisi */
         width: 100% !important;
-        display: flex !important;
-        justify-content: center;
     }
 
     .lang-switcher {
         display: flex !important;
-        align-items: center;
-        gap: 15px;
-        background: transparent !important;
-        padding: 0 !important;
-        border: none !important;
+        justify-content: space-around;
+        background: rgba(166, 139, 91, 0.1) !important; /* Çok hafif altın zemin */
+        padding: 8px !important;
+        border-radius: 50px;
     }
 
     .lang-btn {
