@@ -1954,3 +1954,47 @@ footer { padding: 40px; text-align: center; background: #333; color: #fff; }
         min-height: 350px;
     }
 }
+
+    /* --- MOBİL MENÜ ÇİZGİ DÜZELTMESİ --- */
+@media (max-width: 768px) {
+    
+    .nav-links li {
+        margin: 15px 0 !important;
+        /* Çizginin hizalanması için gerekli */
+        display: block; 
+    }
+
+    .nav-links a {
+        position: relative;
+        display: inline-block !important; /* Çizgi sadece yazı boyunda kalsın */
+        padding-bottom: 5px !important; /* Yazı ile çizgi arasına nefes payı */
+        line-height: 1.2 !important;
+    }
+
+    /* Alt çizgi ayarlarını sıfırlayıp yeniden konumlandırıyoruz */
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px !important; /* Yazının içine girmemesi için aşağı çektik */
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #a68b5b; /* Senin altın rengin */
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: bottom right;
+    }
+
+    /* Aktif olan veya üzerine gelinen butonda çizgi görünsün */
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    /* Aktif sayfa linkinin rengini netleştirelim */
+    .nav-links a.active {
+        color: #a68b5b !important;
+        font-weight: 700 !important;
+    }
+}
