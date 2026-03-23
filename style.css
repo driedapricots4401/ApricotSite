@@ -259,106 +259,106 @@
 /* --- MOBİL UYUM (768px Altı İçin Tamamen Değiştir) --- */
 @media (max-width: 768px) {
 
-    /* 1. ÜST ŞERİT (NAVBAR): Masaüstündeki gibi cam etkisi */
+    /* 1. ÜST ŞERİT (NAVBAR): Saydam ve sabit */
     .navbar {
-        background: rgba(255, 255, 255, 0.4) !important; /* %40 Saydam Beyaz */
+        background: rgba(255, 255, 255, 0.4) !important;
         backdrop-filter: blur(15px) saturate(150%) !important;
         -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-        padding: 10px 5% !important;
-        min-height: 70px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
         position: fixed;
         width: 100%;
         top: 0;
-        z-index: 1000;
+        z-index: 10000 !important;
+        padding: 10px 5% !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
     }
 
-    /* 2. AÇILIR KART MENÜ: Tam Puslu Cam (Apple Tarzı) */
+    /* 2. KART MENÜ: Maksimum Pusluluk (Apple Glassmorphism) */
     .nav-links {
         position: fixed;
-        top: 85px; /* Navbar'ın hemen altında asılı durur */
+        top: 80px; 
         right: 20px;
-        width: 260px; /* Ekranı kaplamayan şık genişlik */
+        width: 280px;
         height: auto !important;
         
-        /* KRİTİK: ARKA PLANI BULANIKLAŞTIRAN AYARLAR */
-        background: rgba(255, 255, 255, 0.25) !important; /* Düşük opaklık gerçek cam hissi verir */
-        backdrop-filter: blur(40px) saturate(200%) contrast(100%) !important; /* Maksimum pusluluk */
-        -webkit-backdrop-filter: blur(40px) saturate(200%) contrast(100%) !important;
+        /* KRİTİK AYAR: Beyazlığı düşürdük, Bulanıklığı zirveye taşıdık */
+        background: rgba(255, 255, 255, 0.15) !important; 
+        backdrop-filter: blur(60px) saturate(200%) contrast(110%) !important;
+        -webkit-backdrop-filter: blur(60px) saturate(200%) contrast(110%) !important;
         
-        /* Görsel Detaylar */
-        border-radius: 28px; /* Yumuşak köşeler */
-        border: 1px solid rgba(255, 255, 255, 0.4) !important; /* Camın kenar parlaması */
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2); /* Derinlik veren gölge */
+        /* Cam efektini belirginleştiren parlak kenarlar */
+        border-radius: 32px;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
         
         /* Düzen */
         display: flex !important;
         flex-direction: column;
-        padding: 35px 25px !important;
-        z-index: 10001;
+        padding: 40px 25px !important;
+        z-index: 10001 !important;
         
-        /* Animasyon: Yukarıdan yumuşakça süzülerek gelme */
+        /* Animasyon: Hafif ve şık */
         opacity: 0;
-        transform: translateY(-20px) scale(0.9);
+        transform: translateY(-20px) scale(0.95);
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        pointer-events: none; /* Gizliyken tıklamayı engelle */
+        pointer-events: none;
     }
 
-    /* Menü Aktifken (Açıldığında) */
+    /* Menü Aktifken */
     .nav-links.active {
         opacity: 1 !important;
         transform: translateY(0) scale(1) !important;
         pointer-events: auto !important;
     }
 
-    /* 3. MENÜ İÇİNDEKİ BUTONLAR (LİNKLER) */
+    /* 3. BUTONLAR: Camın üstünde parlayan net yazılar */
     .nav-links li {
-        margin: 12px 0 !important;
+        margin: 18px 0 !important;
         width: 100%;
         text-align: center;
     }
 
     .nav-links a {
-        font-size: 22px !important;
-        font-weight: 800 !important; /* Kalın ve belirgin font */
-        color: #1d1d1f !important; /* Net koyu renk */
+        font-size: 24px !important;
+        font-weight: 900 !important; /* En kalın font ağırlığı */
+        color: #000000 !important; /* Tam siyah yaparak okunurluğu artırdık */
         text-decoration: none;
         display: block;
         transition: 0.3s ease;
-        /* Yazının arkasına hafif aydınlık vererek okunurluğu garantiler */
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
+        /* Yazı arkasına parlayan beyaz bir hare (glow) ekleyelim */
+        text-shadow: 0 0 12px rgba(255, 255, 255, 0.9); 
     }
 
-    /* Üzerine gelince altın sarısı vurgu */
+    /* Hover/Aktif: Toraman's Altın Rengi */
     .nav-links a:hover, 
     .nav-links a.active {
         color: #a68b5b !important;
-        transform: scale(1.05); /* Hafif büyüme efekti */
+        transform: scale(1.05);
     }
 
-    /* 4. DİL SEÇİCİ (TR/EN) */
+    /* 4. DİL SEÇİCİ */
     .mobile-lang-container {
-        margin-top: 25px !important;
-        padding-top: 20px !important;
-        border-top: 1px solid rgba(0, 0, 0, 0.05); /* İnce ayırıcı çizgi */
+        margin-top: 30px !important;
+        padding-top: 25px !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
         width: 100% !important;
     }
 
     .lang-switcher {
         display: flex !important;
         justify-content: space-evenly;
-        background: rgba(166, 139, 91, 0.15) !important; /* Hafif altın tonlu kapsül */
-        padding: 10px !important;
+        background: rgba(166, 139, 91, 0.2) !important;
+        padding: 12px !important;
         border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .lang-btn {
-        font-size: 15px !important;
-        font-weight: 700 !important;
-        color: #444 !important;
+        font-size: 16px !important;
+        font-weight: 800 !important;
+        color: #1d1d1f !important;
     }
 
     .lang-btn.active {
