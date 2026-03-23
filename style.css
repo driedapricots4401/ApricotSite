@@ -123,45 +123,6 @@
     }
 }
 
-/* --- MOBİL DİL BUTONU VE NAVBAR DÜZENLEME --- */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 10px 5% !important; /* Kenar boşluklarını daralttık */
-        gap: 5px;
-    }
-
-    .nav-links {
-        display: flex !important;
-        align-items: center !important;
-        gap: 5px !important; /* Linkler arası boşluğu minimize ettik */
-    }
-
-    .nav-links li {
-        margin: 0 2px !important; /* Liste elemanları arası boşluğu kıstık */
-    }
-
-    .nav-links a {
-        font-size: 11px !important; /* Yazı boyutunu mobilde biraz küçülttük */
-        padding: 5px 8px !important;
-    }
-
-    /* Dil Değiştirici Özel Ayarı */
-    .lang-switcher {
-        margin-left: 0 !important; /* Mobilde soldaki büyük boşluğu kaldırdık */
-        padding: 3px 8px !important;
-        display: flex !important;
-    }
-
-    .lang-btn {
-        font-size: 10px !important; /* TR/EN yazılarını küçük tuttuk */
-    }
-
-    /* Logo çok yer kaplıyorsa biraz küçültelim */
-    #nav-logo {
-        height: 45px !important;
-    }
-}
-
 /* --- HERO (KAPAK) AYARLARI --- */
 .hero {
     height: 100vh;
