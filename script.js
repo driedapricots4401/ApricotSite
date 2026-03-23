@@ -1,6 +1,39 @@
 // Sayfa yüklendiğinde her şeyi başlat
 document.addEventListener('DOMContentLoaded', () => {
 
+// --- MOBİL MENÜ KONTROLÜ ---
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', (e) => {
+            // Tıklamanın diğer olayları tetiklemesini engelle (Menünün kapanmasını önler)
+            e.stopPropagation(); 
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Menü içindeki linklerden birine tıklandığında menüyü kapat
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Menü DIŞINA tıklandığında menüyü kapat (Kararlı sürüm)
+        document.addEventListener('click', (e) => {
+            const isClickInsideMenu = navLinks.contains(e.target);
+            const isClickInsideToggle = menuToggle.contains(e.target);
+            
+            // Eğer tıklanan yer menü veya hamburger ikonu DEĞİLSE ve menü AÇIKSA, kapat
+            if (!isClickInsideMenu && !isClickInsideToggle && navLinks.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+    
 // --- MOBİL MENÜ KONTROLÜ (BU BLOĞU BURAYA, EN ÜSTE TAŞI) ---
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
